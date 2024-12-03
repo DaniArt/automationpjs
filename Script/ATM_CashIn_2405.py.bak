@@ -1,0 +1,46 @@
+﻿from SoapRequests import *
+from TaskMethods import *
+from CardFramework import *
+                                                            
+                                                            
+def ATMCashIn2405_AllDataSet():
+    """ Пополнение счета карты по всему датасету  """
+    card = CardFramework()
+    data_list = card.ReadDatasetFromDB('CardTrnCheck')  
+    for row in data_list:
+        if row['DEP_ID'] == 'AA6':
+            name_file = f'{card.GetRandomNumber()}_ATM2405.json' 
+            ATMCashIn2405(row['VAL'], row['CLI_ACC'], row['SUM_IN'], name_file)
+                                                            
+                                                            
+                                                            
+def ATMCashIn2405(val, acc_crd, sum_in, name_file):
+    """ Пополнение счета карты через операцию 2405 """
+    soap = SoapRequests()
+    task = TaskMethods()
+    card = CardFramework()
+    count = 1
+    operation_type = 'inc'
+    try:
+        # создание отчета allure
+        soap.CreateAllureReport("Colvir. Модуль - БОКС/ПС", "Продукт - КартаКарта", "Пополнение счета через операцию 2405", name_file)
+        #---------    
+        soap.StartCapJob()
+        # Присваеваем теущий баланс к переменной
+        before_bln = soap.CheckAccBalance(acc_crd)
+        Delay(2000) # Нужна небольшая задержка Перед отправкой запроса                                                  
+        # Отправляем запрос на пополнение
+        response = soap.ATM2405(acc_crd, sum_in, val)
+        Delay(2000) # Нужна небольшая задержка после отправки запроса
+        soap.UpdateProcInterwal()    
+        Delay(2000) # Нужна небольшая задержка после отправки запроса
+        tran_id = response # достаем идентификатор транзакции)
+        #------- Проверка статусов в EXTTRN и APTTRN
+        soap.AptCheckStatus(tran_id, count, name_file)
+        soap.ExtCheckStatus(tran_id, acc_crd, count, name_file)
+        count += 1
+        balance_need = card.CheckCorrectTransaction(None, None, '0', before_bln, sum_in, acc_crd, operation_type, count, name_file, tran_id)  
+        #---------
+    except Exception as error:
+        # завершение формирование отчета
+        task.AllureReportEnd(count, name_file, "failed", error)

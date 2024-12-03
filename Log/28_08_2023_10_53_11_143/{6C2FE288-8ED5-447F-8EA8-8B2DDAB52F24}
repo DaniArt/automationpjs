@@ -1,0 +1,1758 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE Nodes [
+
+<!ENTITY % NameValue "CDATA">
+<!ENTITY % PropType "(I|S|D|L|H|B)">
+<!ENTITY % VersionValue "CDATA">
+
+<!ELEMENT Prp (#PCDATA)>
+<!ELEMENT Node (Node|Prp)*>
+<!ELEMENT Nodes (Node)+>
+
+<!ATTLIST Nodes version CDATA "1">
+
+<!ATTLIST Node name CDATA #REQUIRED>
+
+<!ATTLIST Prp name CDATA #REQUIRED>
+<!ATTLIST Prp type CDATA #REQUIRED>
+<!ATTLIST Prp value CDATA #REQUIRED>
+]>
+<Nodes version="1">
+	<Node name="root">
+		<Node name="message 20">
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="owner id" type="I" value="19"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="date" type="D" value="45166.4539992593"/>
+			<Prp name="message" type="S" value="[('AA6', '0.300.1500.8.2', 'KZT', 5, '05302580', 'NP000', '0.300.3.119', None, None)]"/>
+			<Prp name="line no" type="I" value="3246"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="20"/>
+		</Node>
+		<Node name="message 24">
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="date" type="D" value="45166.4540308796"/>
+			<Prp name="message" type="S" value="Найденное поле Sys.Process(&quot;COLVIR&quot;).VCLObject(&quot;AppLayer&quot;).VCLObject(&quot;MainPanel&quot;).Window(&quot;THtmlInplaceEdit&quot;, &quot;&quot;, 1)"/>
+			<Prp name="line no" type="I" value="1933"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="24"/>
+		</Node>
+		<Node name="message 59">
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="owner id" type="I" value="58"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="date" type="D" value="45166.4546902315"/>
+			<Prp name="message" type="S" value=" TRUNCATE TABLE crdreq_data "/>
+			<Prp name="line no" type="I" value="3210"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="59"/>
+		</Node>
+		<Node name="message 21">
+			<Node name="visualizer">
+				<Node name="current">
+					<Prp name="object left" type="I" value="0"/>
+					<Prp name="version" type="I" value="2"/>
+					<Prp name="need update" type="B" value="0"/>
+					<Prp name="object name" type="S" value="Sys.Process(&quot;COLVIR&quot;).VCLObject(&quot;AppLayer&quot;).VCLObject(&quot;MainPanel&quot;)"/>
+					<Prp name="object top" type="I" value="0"/>
+					<Prp name="storage file name" type="S" value=""/>
+					<Prp name="object right" type="I" value="1920"/>
+					<Prp name="click point y" type="I" value="20"/>
+					<Prp name="signature" type="S" value="{87B03792-E854-4F5D-9F33-165F1F874209}"/>
+					<Prp name="image file name" type="S" value="visImage6.png"/>
+					<Prp name="line #" type="I" value="397"/>
+					<Prp name="rect color" type="I" value="255"/>
+					<Prp name="datetime" type="D" value="45166.2040139005"/>
+					<Prp name="kind" type="I" value="0"/>
+					<Prp name="object bottom" type="I" value="34"/>
+					<Prp name="click point x" type="I" value="1373"/>
+				</Node>
+			</Node>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="remarks" type="S" value="A click at point (1373, 20) with no key pressed.&#xA;&#xA;Tested object:&#xA;Sys.Process(&quot;COLVIR&quot;).VCLObject(&quot;AppLayer&quot;).VCLObject(&quot;MainPanel&quot;)"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="date" type="D" value="45166.454014456"/>
+			<Prp name="message" type="S" value="The window was clicked with the left mouse button."/>
+			<Prp name="line no" type="I" value="397"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="21"/>
+		</Node>
+		<Node name="message 50">
+			<Node name="visualizer">
+				<Node name="current">
+					<Prp name="object left" type="I" value="0"/>
+					<Prp name="version" type="I" value="2"/>
+					<Prp name="need update" type="B" value="0"/>
+					<Prp name="object name" type="S" value="Sys.Process(&quot;COLVIR&quot;).VCLObject(&quot;frmCrdReqLst&quot;)"/>
+					<Prp name="object top" type="I" value="0"/>
+					<Prp name="storage file name" type="S" value=""/>
+					<Prp name="object right" type="I" value="1629"/>
+					<Prp name="click point y" type="I" value="-1"/>
+					<Prp name="signature" type="S" value="{87B03792-E854-4F5D-9F33-165F1F874209}"/>
+					<Prp name="image file name" type="S" value="visImage24.png"/>
+					<Prp name="line #" type="I" value="746"/>
+					<Prp name="rect color" type="I" value="255"/>
+					<Prp name="datetime" type="D" value="45166.2046543634"/>
+					<Prp name="kind" type="I" value="0"/>
+					<Prp name="object bottom" type="I" value="1006"/>
+					<Prp name="click point x" type="I" value="-1"/>
+				</Node>
+			</Node>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="remarks" type="S" value="'!^~l' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Sys.Process(&quot;COLVIR&quot;).VCLObject(&quot;frmCrdReqLst&quot;)"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="date" type="D" value="45166.4546588889"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="line no" type="I" value="746"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="50"/>
+		</Node>
+		<Node name="message 34">
+			<Node name="visualizer">
+				<Node name="current">
+					<Prp name="object left" type="I" value="188"/>
+					<Prp name="version" type="I" value="2"/>
+					<Prp name="need update" type="B" value="0"/>
+					<Prp name="object name" type="S" value="Sys.Process(&quot;COLVIR&quot;).VCLObject(&quot;frmCRDREQDTL&quot;).VCLObject(&quot;pnlClient&quot;).VCLObject(&quot;pnlSupport&quot;).VCLObject(&quot;pnlObject&quot;).VCLObject(&quot;edDEP_CODE&quot;)"/>
+					<Prp name="object top" type="I" value="112"/>
+					<Prp name="storage file name" type="S" value=""/>
+					<Prp name="object right" type="I" value="363"/>
+					<Prp name="click point y" type="I" value="-1"/>
+					<Prp name="signature" type="S" value="{87B03792-E854-4F5D-9F33-165F1F874209}"/>
+					<Prp name="image file name" type="S" value="visImage14.png"/>
+					<Prp name="line #" type="I" value="27"/>
+					<Prp name="rect color" type="I" value="255"/>
+					<Prp name="datetime" type="D" value="45166.204289294"/>
+					<Prp name="kind" type="I" value="0"/>
+					<Prp name="object bottom" type="I" value="143"/>
+					<Prp name="click point x" type="I" value="-1"/>
+				</Node>
+			</Node>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="remarks" type="S" value="'^a' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Sys.Process(&quot;COLVIR&quot;).VCLObject(&quot;frmCRDREQDTL&quot;).VCLObject(&quot;pnlClient&quot;).VCLObject(&quot;pnlSupport&quot;).VCLObject(&quot;pnlObject&quot;).VCLObject(&quot;edDEP_CODE&quot;)"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="date" type="D" value="45166.4542902662"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="line no" type="I" value="27"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="34"/>
+		</Node>
+		<Node name="message 44">
+			<Node name="visualizer">
+				<Node name="current">
+					<Prp name="object left" type="I" value="188"/>
+					<Prp name="version" type="I" value="2"/>
+					<Prp name="need update" type="B" value="0"/>
+					<Prp name="object name" type="S" value="Sys.Process(&quot;COLVIR&quot;).VCLObject(&quot;frmCRDREQDTL&quot;).VCLObject(&quot;pnlClient&quot;).VCLObject(&quot;pnlSupport&quot;).VCLObject(&quot;pnlObject&quot;).VCLObject(&quot;edDEP_CODE_DELIV&quot;)"/>
+					<Prp name="object top" type="I" value="283"/>
+					<Prp name="storage file name" type="S" value=""/>
+					<Prp name="object right" type="I" value="364"/>
+					<Prp name="click point y" type="I" value="-1"/>
+					<Prp name="signature" type="S" value="{87B03792-E854-4F5D-9F33-165F1F874209}"/>
+					<Prp name="image file name" type="S" value="visImage20.png"/>
+					<Prp name="line #" type="I" value="37"/>
+					<Prp name="rect color" type="I" value="255"/>
+					<Prp name="datetime" type="D" value="45166.2043103588"/>
+					<Prp name="kind" type="I" value="0"/>
+					<Prp name="object bottom" type="I" value="314"/>
+					<Prp name="click point x" type="I" value="-1"/>
+				</Node>
+			</Node>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="remarks" type="S" value="'AA6' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Sys.Process(&quot;COLVIR&quot;).VCLObject(&quot;frmCRDREQDTL&quot;).VCLObject(&quot;pnlClient&quot;).VCLObject(&quot;pnlSupport&quot;).VCLObject(&quot;pnlObject&quot;).VCLObject(&quot;edDEP_CODE_DELIV&quot;)"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="date" type="D" value="45166.454311713"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="line no" type="I" value="37"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="44"/>
+		</Node>
+		<Node name="message 43">
+			<Node name="visualizer">
+				<Node name="current">
+					<Prp name="object left" type="I" value="188"/>
+					<Prp name="version" type="I" value="2"/>
+					<Prp name="need update" type="B" value="0"/>
+					<Prp name="object name" type="S" value="Sys.Process(&quot;COLVIR&quot;).VCLObject(&quot;frmCRDREQDTL&quot;).VCLObject(&quot;pnlClient&quot;).VCLObject(&quot;pnlSupport&quot;).VCLObject(&quot;pnlObject&quot;).VCLObject(&quot;edDEP_CODE_DELIV&quot;)"/>
+					<Prp name="object top" type="I" value="283"/>
+					<Prp name="storage file name" type="S" value=""/>
+					<Prp name="object right" type="I" value="364"/>
+					<Prp name="click point y" type="I" value="-1"/>
+					<Prp name="signature" type="S" value="{87B03792-E854-4F5D-9F33-165F1F874209}"/>
+					<Prp name="image file name" type="S" value="visImage19.png"/>
+					<Prp name="line #" type="I" value="36"/>
+					<Prp name="rect color" type="I" value="255"/>
+					<Prp name="datetime" type="D" value="45166.2043070486"/>
+					<Prp name="kind" type="I" value="0"/>
+					<Prp name="object bottom" type="I" value="314"/>
+					<Prp name="click point x" type="I" value="-1"/>
+				</Node>
+			</Node>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="remarks" type="S" value="'^a' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Sys.Process(&quot;COLVIR&quot;).VCLObject(&quot;frmCRDREQDTL&quot;).VCLObject(&quot;pnlClient&quot;).VCLObject(&quot;pnlSupport&quot;).VCLObject(&quot;pnlObject&quot;).VCLObject(&quot;edDEP_CODE_DELIV&quot;)"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="date" type="D" value="45166.4543093866"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="line no" type="I" value="36"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="43"/>
+		</Node>
+		<Node name="message 36">
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="date" type="D" value="45166.4542935417"/>
+			<Prp name="message" type="S" value="Найденное поле Sys.Process(&quot;COLVIR&quot;).VCLObject(&quot;frmCRDREQDTL&quot;).VCLObject(&quot;pnlClient&quot;).VCLObject(&quot;pnlSupport&quot;).VCLObject(&quot;pnlObject&quot;).VCLObject(&quot;edDCL_CODE&quot;)"/>
+			<Prp name="line no" type="I" value="1937"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="36"/>
+		</Node>
+		<Node name="message 12">
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="date" type="D" value="45166.4539920255"/>
+			<Prp name="message" type="S" value="Запрошен из БД датасет crdreq_data"/>
+			<Prp name="line no" type="I" value="4523"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="12"/>
+		</Node>
+		<Node name="units">
+			<Prp name="unit 0" type="S" value="{B48E8E17-0EE6-41C4-B57A-AB227690AC7C}"/>
+			<Prp name="unit 1" type="S" value="{D2628864-B269-406B-A9C0-CA6B7781BE39}"/>
+		</Node>
+		<Node name="child data"/>
+		<Node name="message 63">
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="date" type="D" value="45166.4546948032"/>
+			<Prp name="message" type="S" value="Запрос на модификацию данных отработал успешно"/>
+			<Prp name="line no" type="I" value="3235"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="63"/>
+		</Node>
+		<Node name="item 3">
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="line no" type="I" value="1930"/>
+			<Prp name="stacktext" type="S" value=""/>
+		</Node>
+		<Node name="message 57">
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="date" type="D" value="45166.454687963"/>
+			<Prp name="message" type="S" value="Обновление данных датасета crdreq_data"/>
+			<Prp name="line no" type="I" value="4555"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="57"/>
+		</Node>
+		<Node name="message 15">
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="date" type="D" value="45166.4539965972"/>
+			<Prp name="message" type="S" value="Ответ на запрос в БД"/>
+			<Prp name="line no" type="I" value="3245"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="15"/>
+		</Node>
+		<Node name="message 47">
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="date" type="D" value="45166.454402581"/>
+			<Prp name="message" type="S" value="Найденное поле Sys.Process(&quot;COLVIR&quot;).VCLObject(&quot;frmCrdReqLst&quot;).VCLObject(&quot;btnSend&quot;)"/>
+			<Prp name="line no" type="I" value="1937"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="47"/>
+		</Node>
+		<Node name="message 46">
+			<Node name="visualizer">
+				<Node name="current">
+					<Prp name="object left" type="I" value="59"/>
+					<Prp name="version" type="I" value="2"/>
+					<Prp name="need update" type="B" value="0"/>
+					<Prp name="object name" type="S" value="Sys.Process(&quot;COLVIR&quot;).VCLObject(&quot;frmCRDREQDTL&quot;).VCLObject(&quot;btnSave&quot;)"/>
+					<Prp name="object top" type="I" value="49"/>
+					<Prp name="storage file name" type="S" value=""/>
+					<Prp name="object right" type="I" value="86"/>
+					<Prp name="click point y" type="I" value="62"/>
+					<Prp name="signature" type="S" value="{87B03792-E854-4F5D-9F33-165F1F874209}"/>
+					<Prp name="image file name" type="S" value="visImage21.png"/>
+					<Prp name="line #" type="I" value="40"/>
+					<Prp name="rect color" type="I" value="255"/>
+					<Prp name="datetime" type="D" value="45166.204321169"/>
+					<Prp name="kind" type="I" value="0"/>
+					<Prp name="object bottom" type="I" value="76"/>
+					<Prp name="click point x" type="I" value="72"/>
+				</Node>
+			</Node>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="remarks" type="S" value="A click at point (13, 13) with no key pressed.&#xA;&#xA;Tested object:&#xA;Sys.Process(&quot;COLVIR&quot;).VCLObject(&quot;frmCRDREQDTL&quot;).VCLObject(&quot;btnSave&quot;)"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="date" type="D" value="45166.4543217477"/>
+			<Prp name="message" type="S" value="The window was clicked with the left mouse button."/>
+			<Prp name="line no" type="I" value="40"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="46"/>
+		</Node>
+		<Node name="message 2">
+			<Node name="visualizer">
+				<Node name="current">
+					<Prp name="object left" type="I" value="97"/>
+					<Prp name="version" type="I" value="2"/>
+					<Prp name="need update" type="B" value="0"/>
+					<Prp name="object name" type="S" value="Sys.Process(&quot;COLVIR&quot;).VCLObject(&quot;frmLoginDlg&quot;).VCLObject(&quot;pnlClient&quot;).VCLObject(&quot;edtName&quot;)"/>
+					<Prp name="object top" type="I" value="38"/>
+					<Prp name="storage file name" type="S" value=""/>
+					<Prp name="object right" type="I" value="242"/>
+					<Prp name="click point y" type="I" value="-1"/>
+					<Prp name="signature" type="S" value="{87B03792-E854-4F5D-9F33-165F1F874209}"/>
+					<Prp name="image file name" type="S" value="visImage0.png"/>
+					<Prp name="line #" type="I" value="283"/>
+					<Prp name="rect color" type="I" value="255"/>
+					<Prp name="datetime" type="D" value="45166.2037796296"/>
+					<Prp name="kind" type="I" value="0"/>
+					<Prp name="object bottom" type="I" value="61"/>
+					<Prp name="click point x" type="I" value="-1"/>
+				</Node>
+			</Node>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="remarks" type="S" value="'COLVIR' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Sys.Process(&quot;COLVIR&quot;).VCLObject(&quot;frmLoginDlg&quot;).VCLObject(&quot;pnlClient&quot;).VCLObject(&quot;edtName&quot;)"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="date" type="D" value="45166.4537816088"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="line no" type="I" value="283"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="2"/>
+		</Node>
+		<Node name="message 8">
+			<Node name="visualizer">
+				<Node name="current">
+					<Prp name="object left" type="I" value="219"/>
+					<Prp name="version" type="I" value="2"/>
+					<Prp name="need update" type="B" value="0"/>
+					<Prp name="object name" type="S" value="Sys.Process(&quot;COLVIR&quot;).VCLObject(&quot;frmOprDayDialog&quot;).VCLObject(&quot;pnlButtons&quot;).VCLObject(&quot;pnlRight&quot;).VCLObject(&quot;btnCancel&quot;)"/>
+					<Prp name="object top" type="I" value="64"/>
+					<Prp name="storage file name" type="S" value=""/>
+					<Prp name="object right" type="I" value="290"/>
+					<Prp name="click point y" type="I" value="78"/>
+					<Prp name="signature" type="S" value="{87B03792-E854-4F5D-9F33-165F1F874209}"/>
+					<Prp name="image file name" type="S" value="visImage5.png"/>
+					<Prp name="line #" type="I" value="334"/>
+					<Prp name="rect color" type="I" value="255"/>
+					<Prp name="datetime" type="D" value="45166.2039901157"/>
+					<Prp name="kind" type="I" value="0"/>
+					<Prp name="object bottom" type="I" value="92"/>
+					<Prp name="click point x" type="I" value="254"/>
+				</Node>
+			</Node>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="remarks" type="S" value="A click at point (35, 14) with no key pressed.&#xA;&#xA;Tested object:&#xA;Sys.Process(&quot;COLVIR&quot;).VCLObject(&quot;frmOprDayDialog&quot;).VCLObject(&quot;pnlButtons&quot;).VCLObject(&quot;pnlRight&quot;).VCLObject(&quot;btnCancel&quot;)"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="date" type="D" value="45166.4539907755"/>
+			<Prp name="message" type="S" value="The window was clicked with the left mouse button."/>
+			<Prp name="line no" type="I" value="334"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="8"/>
+		</Node>
+		<Node name="message 25">
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="date" type="D" value="45166.4540317361"/>
+			<Prp name="message" type="S" value="Значение поля "/>
+			<Prp name="line no" type="I" value="1934"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="25"/>
+		</Node>
+		<Node name="message 9">
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="date" type="D" value="45166.4539915857"/>
+			<Prp name="message" type="S" value="Необходимая дата опердня уже установлена в колвире"/>
+			<Prp name="line no" type="I" value="336"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="9"/>
+		</Node>
+		<Node name="message 33">
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="date" type="D" value="45166.4542890625"/>
+			<Prp name="message" type="S" value="Найденное поле Sys.Process(&quot;COLVIR&quot;).VCLObject(&quot;frmCRDREQDTL&quot;).VCLObject(&quot;pnlClient&quot;).VCLObject(&quot;pnlSupport&quot;).VCLObject(&quot;pnlObject&quot;).VCLObject(&quot;edDEP_CODE&quot;)"/>
+			<Prp name="line no" type="I" value="1937"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="33"/>
+		</Node>
+		<Node name="item 0">
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="line no" type="I" value="1929"/>
+			<Prp name="stacktext" type="S" value="FindChildField"/>
+		</Node>
+		<Node name="message 65">
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="type" type="I" value="2"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="date" type="D" value="45166.4547645023"/>
+			<Prp name="message" type="S" value="Время ожидания окна frmDebugView истекло"/>
+			<Prp name="line no" type="I" value="664"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="65"/>
+		</Node>
+		<Node name="message 51">
+			<Node name="visualizer">
+				<Node name="current">
+					<Prp name="object left" type="I" value="5"/>
+					<Prp name="version" type="I" value="2"/>
+					<Prp name="need update" type="B" value="0"/>
+					<Prp name="object name" type="S" value="Sys.Process(&quot;COLVIR&quot;).VCLObject(&quot;frmQueryDlg&quot;).VCLObject(&quot;LB&quot;).ListItem(&quot;Все запросы формы&quot;)"/>
+					<Prp name="object top" type="I" value="167"/>
+					<Prp name="storage file name" type="S" value=""/>
+					<Prp name="object right" type="I" value="559"/>
+					<Prp name="click point y" type="I" value="174"/>
+					<Prp name="signature" type="S" value="{87B03792-E854-4F5D-9F33-165F1F874209}"/>
+					<Prp name="image file name" type="S" value="visImage25.png"/>
+					<Prp name="line #" type="I" value="749"/>
+					<Prp name="rect color" type="I" value="255"/>
+					<Prp name="datetime" type="D" value="45166.2046735648"/>
+					<Prp name="kind" type="I" value="0"/>
+					<Prp name="object bottom" type="I" value="182"/>
+					<Prp name="click point x" type="I" value="282"/>
+				</Node>
+			</Node>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="remarks" type="S" value="A click at point (277, 7) with no key pressed.&#xA;&#xA;Tested object:&#xA;Sys.Process(&quot;COLVIR&quot;).VCLObject(&quot;frmQueryDlg&quot;).VCLObject(&quot;LB&quot;).ListItem(&quot;Все запросы формы&quot;)"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="date" type="D" value="45166.454675787"/>
+			<Prp name="message" type="S" value="The window was double-clicked by the left mouse button."/>
+			<Prp name="line no" type="I" value="749"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="51"/>
+		</Node>
+		<Node name="message 0">
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="remarks" type="S" value="The process ID is 13604."/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="date" type="D" value="45166.4536537037"/>
+			<Prp name="message" type="S" value="The application &quot;C:\apps\cbs\cbs3tp\COLVIR.exe&quot; started."/>
+			<Prp name="line no" type="I" value="247"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="0"/>
+		</Node>
+		<Node name="message 27">
+			<Node name="visualizer">
+				<Node name="current">
+					<Prp name="object left" type="I" value="149"/>
+					<Prp name="version" type="I" value="2"/>
+					<Prp name="need update" type="B" value="0"/>
+					<Prp name="object name" type="S" value="Sys.Process(&quot;COLVIR&quot;).VCLObject(&quot;AppLayer&quot;).VCLObject(&quot;MainPanel&quot;).Window(&quot;THtmlInplaceEdit&quot;, &quot;&quot;, 1)"/>
+					<Prp name="object top" type="I" value="9"/>
+					<Prp name="storage file name" type="S" value=""/>
+					<Prp name="object right" type="I" value="883"/>
+					<Prp name="click point y" type="I" value="-1"/>
+					<Prp name="signature" type="S" value="{87B03792-E854-4F5D-9F33-165F1F874209}"/>
+					<Prp name="image file name" type="S" value="visImage9.png"/>
+					<Prp name="line #" type="I" value="642"/>
+					<Prp name="rect color" type="I" value="255"/>
+					<Prp name="datetime" type="D" value="45166.204035081"/>
+					<Prp name="kind" type="I" value="0"/>
+					<Prp name="object bottom" type="I" value="25"/>
+					<Prp name="click point x" type="I" value="-1"/>
+				</Node>
+			</Node>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="remarks" type="S" value="'CRDREQ' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Sys.Process(&quot;COLVIR&quot;).VCLObject(&quot;AppLayer&quot;).VCLObject(&quot;MainPanel&quot;).Window(&quot;THtmlInplaceEdit&quot;, &quot;&quot;, 1)"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="date" type="D" value="45166.4540390394"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="line no" type="I" value="642"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="27"/>
+		</Node>
+		<Node name="item 1">
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="line no" type="I" value="446"/>
+			<Prp name="stacktext" type="S" value="SaveDebugLog"/>
+		</Node>
+		<Node name="message 61">
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="date" type="D" value="45166.454694456"/>
+			<Prp name="message" type="S" value="Запрос в БД"/>
+			<Prp name="line no" type="I" value="3209"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="61"/>
+		</Node>
+		<Node name="message 53">
+			<Node name="visualizer">
+				<Node name="current">
+					<Prp name="object left" type="I" value="0"/>
+					<Prp name="version" type="I" value="2"/>
+					<Prp name="need update" type="B" value="0"/>
+					<Prp name="object name" type="S" value="Sys.Process(&quot;COLVIR&quot;).VCLObject(&quot;frmQueryDlg&quot;)"/>
+					<Prp name="object top" type="I" value="0"/>
+					<Prp name="storage file name" type="S" value=""/>
+					<Prp name="object right" type="I" value="564"/>
+					<Prp name="click point y" type="I" value="-1"/>
+					<Prp name="signature" type="S" value="{87B03792-E854-4F5D-9F33-165F1F874209}"/>
+					<Prp name="image file name" type="S" value="visImage27.png"/>
+					<Prp name="line #" type="I" value="773"/>
+					<Prp name="rect color" type="I" value="255"/>
+					<Prp name="datetime" type="D" value="45166.2046824537"/>
+					<Prp name="kind" type="I" value="0"/>
+					<Prp name="object bottom" type="I" value="346"/>
+					<Prp name="click point x" type="I" value="-1"/>
+				</Node>
+			</Node>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="remarks" type="S" value="Tested object:&#xA;Sys.Process(&quot;COLVIR&quot;).VCLObject(&quot;frmQueryDlg&quot;)"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="date" type="D" value="45166.4546834722"/>
+			<Prp name="message" type="S" value="The 'Form Class :TfrmCrdReqLst' window was closed."/>
+			<Prp name="line no" type="I" value="773"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="53"/>
+		</Node>
+		<Node name="message 55">
+			<Node name="visualizer">
+				<Node name="current">
+					<Prp name="object left" type="I" value="0"/>
+					<Prp name="version" type="I" value="2"/>
+					<Prp name="need update" type="B" value="0"/>
+					<Prp name="object name" type="S" value="Sys.Process(&quot;COLVIR&quot;).VCLObject(&quot;frmCrdReqLst&quot;)"/>
+					<Prp name="object top" type="I" value="0"/>
+					<Prp name="storage file name" type="S" value=""/>
+					<Prp name="object right" type="I" value="1629"/>
+					<Prp name="click point y" type="I" value="-1"/>
+					<Prp name="signature" type="S" value="{87B03792-E854-4F5D-9F33-165F1F874209}"/>
+					<Prp name="image file name" type="S" value="visImage28.png"/>
+					<Prp name="line #" type="I" value="50"/>
+					<Prp name="rect color" type="I" value="255"/>
+					<Prp name="datetime" type="D" value="45166.2046858796"/>
+					<Prp name="kind" type="I" value="0"/>
+					<Prp name="object bottom" type="I" value="1006"/>
+					<Prp name="click point x" type="I" value="-1"/>
+				</Node>
+			</Node>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="remarks" type="S" value="Tested object:&#xA;Sys.Process(&quot;COLVIR&quot;).VCLObject(&quot;frmCrdReqLst&quot;)"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="date" type="D" value="45166.4546870139"/>
+			<Prp name="message" type="S" value="The 'Заявки на неперсонализованные карты' window was closed."/>
+			<Prp name="line no" type="I" value="50"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="55"/>
+		</Node>
+		<Node name="message 45">
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="date" type="D" value="45166.4543188773"/>
+			<Prp name="message" type="S" value="Найденное поле Sys.Process(&quot;COLVIR&quot;).VCLObject(&quot;frmCRDREQDTL&quot;).VCLObject(&quot;btnSave&quot;)"/>
+			<Prp name="line no" type="I" value="1937"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="45"/>
+		</Node>
+		<Node name="message 68">
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="remarks" type="S" value="&lt;html&gt;&lt;body&gt;&lt;p&gt;The test run has stopped because --&lt;/p&gt;&lt;ul&gt;&lt;li&gt;An error message was posted to the log and&lt;/li&gt;&lt;li&gt;The &lt;a href=&quot;aqa-help://6090&quot;&gt;On error&lt;/a&gt; project property is set to &quot;Stop project&quot; or &quot;Stop test item&quot;.&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;If you don't want the test to stop on errors, set this property (&lt;b&gt;Project Editor &amp;rArr; Properties &amp;rArr; Playback&lt;/b&gt;), to &quot;Continue running&quot; or change your test commands so that they do not post errors to the log automatically. For example, if a window or process was not found, use WaitWindow, WaitProcess or similar methods to get the needed object.&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;aqa-help://2207&quot;&gt;Read More&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="picture" type="S" value="Picture2.png"/>
+			<Prp name="type" type="I" value="3"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="stack beginning" type="I" value="3"/>
+			<Prp name="stack end" type="I" value="3"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="date" type="D" value="45166.4548890046"/>
+			<Prp name="message" type="S" value="The test run has stopped because your test project is configured to stop on errors."/>
+			<Prp name="line no" type="I" value="1930"/>
+			<Prp name="pictype" type="I" value="2"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="as html" type="B" value="-1"/>
+			<Prp name="id" type="I" value="68"/>
+		</Node>
+		<Node name="message 58">
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="date" type="D" value="45166.4546902083"/>
+			<Prp name="message" type="S" value="Запрос в БД"/>
+			<Prp name="line no" type="I" value="3209"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="58"/>
+		</Node>
+		<Node name="message 49">
+			<Node name="visualizer">
+				<Node name="current">
+					<Prp name="object left" type="I" value="206"/>
+					<Prp name="version" type="I" value="2"/>
+					<Prp name="need update" type="B" value="0"/>
+					<Prp name="object name" type="S" value="Sys.Process(&quot;COLVIR&quot;).Dialog(&quot;Подтверждение&quot;).VCLObject(&quot;Yes&quot;)"/>
+					<Prp name="object top" type="I" value="92"/>
+					<Prp name="storage file name" type="S" value=""/>
+					<Prp name="object right" type="I" value="281"/>
+					<Prp name="click point y" type="I" value="105"/>
+					<Prp name="signature" type="S" value="{87B03792-E854-4F5D-9F33-165F1F874209}"/>
+					<Prp name="image file name" type="S" value="visImage23.png"/>
+					<Prp name="line #" type="I" value="1347"/>
+					<Prp name="rect color" type="I" value="255"/>
+					<Prp name="datetime" type="D" value="45166.2044065856"/>
+					<Prp name="kind" type="I" value="0"/>
+					<Prp name="object bottom" type="I" value="118"/>
+					<Prp name="click point x" type="I" value="243"/>
+				</Node>
+			</Node>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="remarks" type="S" value="A click at point (37, 13) with no key pressed.&#xA;&#xA;Tested object:&#xA;Sys.Process(&quot;COLVIR&quot;).Dialog(&quot;Подтверждение&quot;).VCLObject(&quot;Yes&quot;)"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="date" type="D" value="45166.4544072801"/>
+			<Prp name="message" type="S" value="The window was clicked with the left mouse button."/>
+			<Prp name="line no" type="I" value="1347"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="49"/>
+		</Node>
+		<Node name="stack"/>
+		<Node name="message 64">
+			<Node name="visualizer">
+				<Node name="current">
+					<Prp name="object left" type="I" value="0"/>
+					<Prp name="version" type="I" value="2"/>
+					<Prp name="need update" type="B" value="0"/>
+					<Prp name="object name" type="S" value="Sys.Process(&quot;COLVIR&quot;).VCLObject(&quot;AppLayer&quot;).VCLObject(&quot;MainPanel&quot;)"/>
+					<Prp name="object top" type="I" value="0"/>
+					<Prp name="storage file name" type="S" value=""/>
+					<Prp name="object right" type="I" value="1920"/>
+					<Prp name="click point y" type="I" value="20"/>
+					<Prp name="signature" type="S" value="{87B03792-E854-4F5D-9F33-165F1F874209}"/>
+					<Prp name="image file name" type="S" value="visImage29.png"/>
+					<Prp name="line #" type="I" value="434"/>
+					<Prp name="rect color" type="I" value="255"/>
+					<Prp name="datetime" type="D" value="45166.204695463"/>
+					<Prp name="kind" type="I" value="0"/>
+					<Prp name="object bottom" type="I" value="34"/>
+					<Prp name="click point x" type="I" value="1373"/>
+				</Node>
+			</Node>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="remarks" type="S" value="A click at point (1373, 20) with no key pressed.&#xA;&#xA;Tested object:&#xA;Sys.Process(&quot;COLVIR&quot;).VCLObject(&quot;AppLayer&quot;).VCLObject(&quot;MainPanel&quot;)"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="date" type="D" value="45166.4546960301"/>
+			<Prp name="message" type="S" value="The window was clicked with the left mouse button."/>
+			<Prp name="line no" type="I" value="434"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="64"/>
+		</Node>
+		<Node name="message 5">
+			<Node name="visualizer">
+				<Node name="current">
+					<Prp name="object left" type="I" value="150"/>
+					<Prp name="version" type="I" value="2"/>
+					<Prp name="need update" type="B" value="0"/>
+					<Prp name="object name" type="S" value="Sys.Process(&quot;COLVIR&quot;).VCLObject(&quot;frmLoginDlg&quot;).VCLObject(&quot;pnlButtons&quot;).VCLObject(&quot;pnlRight&quot;).VCLObject(&quot;btnOK&quot;)"/>
+					<Prp name="object top" type="I" value="164"/>
+					<Prp name="storage file name" type="S" value=""/>
+					<Prp name="object right" type="I" value="221"/>
+					<Prp name="click point y" type="I" value="178"/>
+					<Prp name="signature" type="S" value="{87B03792-E854-4F5D-9F33-165F1F874209}"/>
+					<Prp name="image file name" type="S" value="visImage3.png"/>
+					<Prp name="line #" type="I" value="289"/>
+					<Prp name="rect color" type="I" value="255"/>
+					<Prp name="datetime" type="D" value="45166.2037938542"/>
+					<Prp name="kind" type="I" value="0"/>
+					<Prp name="object bottom" type="I" value="193"/>
+					<Prp name="click point x" type="I" value="185"/>
+				</Node>
+			</Node>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="remarks" type="S" value="A click at point (35, 14) with no key pressed.&#xA;&#xA;Tested object:&#xA;Sys.Process(&quot;COLVIR&quot;).VCLObject(&quot;frmLoginDlg&quot;).VCLObject(&quot;pnlButtons&quot;).VCLObject(&quot;pnlRight&quot;).VCLObject(&quot;btnOK&quot;)"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="date" type="D" value="45166.4537947569"/>
+			<Prp name="message" type="S" value="The window was clicked with the left mouse button."/>
+			<Prp name="line no" type="I" value="289"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="5"/>
+		</Node>
+		<Node name="message 30">
+			<Node name="visualizer">
+				<Node name="current">
+					<Prp name="object left" type="I" value="342"/>
+					<Prp name="version" type="I" value="2"/>
+					<Prp name="need update" type="B" value="0"/>
+					<Prp name="object name" type="S" value="Sys.Process(&quot;COLVIR&quot;).VCLObject(&quot;frmFilterParams&quot;).VCLObject(&quot;pnlButtons&quot;).VCLObject(&quot;pnlRight&quot;).VCLObject(&quot;btnInsert&quot;)"/>
+					<Prp name="object top" type="I" value="211"/>
+					<Prp name="storage file name" type="S" value=""/>
+					<Prp name="object right" type="I" value="428"/>
+					<Prp name="click point y" type="I" value="225"/>
+					<Prp name="signature" type="S" value="{87B03792-E854-4F5D-9F33-165F1F874209}"/>
+					<Prp name="image file name" type="S" value="visImage12.png"/>
+					<Prp name="line #" type="I" value="1380"/>
+					<Prp name="rect color" type="I" value="255"/>
+					<Prp name="datetime" type="D" value="45166.2041259838"/>
+					<Prp name="kind" type="I" value="0"/>
+					<Prp name="object bottom" type="I" value="240"/>
+					<Prp name="click point x" type="I" value="385"/>
+				</Node>
+			</Node>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="remarks" type="S" value="A click at point (43, 14) with no key pressed.&#xA;&#xA;Tested object:&#xA;Sys.Process(&quot;COLVIR&quot;).VCLObject(&quot;frmFilterParams&quot;).VCLObject(&quot;pnlButtons&quot;).VCLObject(&quot;pnlRight&quot;).VCLObject(&quot;btnInsert&quot;)"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="date" type="D" value="45166.4541267477"/>
+			<Prp name="message" type="S" value="The window was clicked with the left mouse button."/>
+			<Prp name="line no" type="I" value="1380"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="30"/>
+		</Node>
+		<Node name="message 7">
+			<Node name="visualizer">
+				<Node name="current">
+					<Prp name="object left" type="I" value="0"/>
+					<Prp name="version" type="I" value="2"/>
+					<Prp name="need update" type="B" value="0"/>
+					<Prp name="object name" type="S" value="Sys.Process(&quot;COLVIR&quot;).VCLObject(&quot;AppLayer&quot;).VCLObject(&quot;MainPanel&quot;)"/>
+					<Prp name="object top" type="I" value="0"/>
+					<Prp name="storage file name" type="S" value=""/>
+					<Prp name="object right" type="I" value="1920"/>
+					<Prp name="click point y" type="I" value="16"/>
+					<Prp name="signature" type="S" value="{87B03792-E854-4F5D-9F33-165F1F874209}"/>
+					<Prp name="image file name" type="S" value="visImage4.png"/>
+					<Prp name="line #" type="I" value="332"/>
+					<Prp name="rect color" type="I" value="255"/>
+					<Prp name="datetime" type="D" value="45166.2039747338"/>
+					<Prp name="kind" type="I" value="0"/>
+					<Prp name="object bottom" type="I" value="34"/>
+					<Prp name="click point x" type="I" value="1730"/>
+				</Node>
+			</Node>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="remarks" type="S" value="A click at point (1730, 16) with no key pressed.&#xA;&#xA;Tested object:&#xA;Sys.Process(&quot;COLVIR&quot;).VCLObject(&quot;AppLayer&quot;).VCLObject(&quot;MainPanel&quot;)"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="date" type="D" value="45166.4539870602"/>
+			<Prp name="message" type="S" value="The window was double-clicked by the left mouse button."/>
+			<Prp name="line no" type="I" value="332"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="7"/>
+		</Node>
+		<Node name="message 1">
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="date" type="D" value="45166.4537787847"/>
+			<Prp name="message" type="S" value="Вышло окно входа, не требующее настроек"/>
+			<Prp name="line no" type="I" value="250"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="1"/>
+		</Node>
+		<Node name="message 14">
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="owner id" type="I" value="13"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="date" type="D" value="45166.453994838"/>
+			<Prp name="message" type="S" value=" select column_name from all_tab_columns where table_name = upper('crdreq_data') order by column_id "/>
+			<Prp name="line no" type="I" value="3210"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="14"/>
+		</Node>
+		<Node name="message 54">
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="type" type="I" value="7"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="date" type="D" value="45166.4546840856"/>
+			<Prp name="message" type="S" value="Заявка успешно обработана по продукту 'Visa#картакартаInstantNEW'"/>
+			<Prp name="line no" type="I" value="49"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="54"/>
+		</Node>
+		<Node name="message 38">
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="date" type="D" value="45166.4543004051"/>
+			<Prp name="message" type="S" value="Найденное поле Sys.Process(&quot;COLVIR&quot;).VCLObject(&quot;frmCRDREQDTL&quot;).VCLObject(&quot;pnlClient&quot;).VCLObject(&quot;pnlSupport&quot;).VCLObject(&quot;pnlObject&quot;).VCLObject(&quot;edVAL_CODE&quot;)"/>
+			<Prp name="line no" type="I" value="1937"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="38"/>
+		</Node>
+		<Node name="message 42">
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="date" type="D" value="45166.4543068171"/>
+			<Prp name="message" type="S" value="Найденное поле Sys.Process(&quot;COLVIR&quot;).VCLObject(&quot;frmCRDREQDTL&quot;).VCLObject(&quot;pnlClient&quot;).VCLObject(&quot;pnlSupport&quot;).VCLObject(&quot;pnlObject&quot;).VCLObject(&quot;edDEP_CODE_DELIV&quot;)"/>
+			<Prp name="line no" type="I" value="1937"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="42"/>
+		</Node>
+		<Node name="message 10">
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="date" type="D" value="45166.4539916088"/>
+			<Prp name="message" type="S" value="Удачно авторизовались в колвире"/>
+			<Prp name="line no" type="I" value="299"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="10"/>
+		</Node>
+		<Node name="message 18">
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="owner id" type="I" value="17"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="date" type="D" value="45166.4539988194"/>
+			<Prp name="message" type="S" value=" select * from crdreq_data "/>
+			<Prp name="line no" type="I" value="3210"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="18"/>
+		</Node>
+		<Node name="message 22">
+			<Node name="visualizer">
+				<Node name="current">
+					<Prp name="object left" type="I" value="0"/>
+					<Prp name="version" type="I" value="2"/>
+					<Prp name="need update" type="B" value="0"/>
+					<Prp name="object name" type="S" value="Sys.Process(&quot;COLVIR&quot;).VCLObject(&quot;AppLayer&quot;).VCLObject(&quot;MainPanel&quot;)"/>
+					<Prp name="object top" type="I" value="0"/>
+					<Prp name="storage file name" type="S" value=""/>
+					<Prp name="object right" type="I" value="1920"/>
+					<Prp name="click point y" type="I" value="20"/>
+					<Prp name="signature" type="S" value="{87B03792-E854-4F5D-9F33-165F1F874209}"/>
+					<Prp name="image file name" type="S" value="visImage7.png"/>
+					<Prp name="line #" type="I" value="408"/>
+					<Prp name="rect color" type="I" value="255"/>
+					<Prp name="datetime" type="D" value="45166.2040221991"/>
+					<Prp name="kind" type="I" value="0"/>
+					<Prp name="object bottom" type="I" value="34"/>
+					<Prp name="click point x" type="I" value="1373"/>
+				</Node>
+			</Node>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="remarks" type="S" value="A click at point (1373, 20) with no key pressed.&#xA;&#xA;Tested object:&#xA;Sys.Process(&quot;COLVIR&quot;).VCLObject(&quot;AppLayer&quot;).VCLObject(&quot;MainPanel&quot;)"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="date" type="D" value="45166.4540229977"/>
+			<Prp name="message" type="S" value="The window was clicked with the left mouse button."/>
+			<Prp name="line no" type="I" value="408"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="22"/>
+		</Node>
+		<Node name="message 23">
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="date" type="D" value="45166.4540290856"/>
+			<Prp name="message" type="S" value="Отладка на уровень 'Подробная' включена"/>
+			<Prp name="line no" type="I" value="422"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="23"/>
+		</Node>
+		<Node name="message 3">
+			<Node name="visualizer">
+				<Node name="current">
+					<Prp name="object left" type="I" value="97"/>
+					<Prp name="version" type="I" value="2"/>
+					<Prp name="need update" type="B" value="0"/>
+					<Prp name="object name" type="S" value="Sys.Process(&quot;COLVIR&quot;).VCLObject(&quot;frmLoginDlg&quot;).VCLObject(&quot;pnlClient&quot;).VCLObject(&quot;edtPassword&quot;)"/>
+					<Prp name="object top" type="I" value="68"/>
+					<Prp name="storage file name" type="S" value=""/>
+					<Prp name="object right" type="I" value="242"/>
+					<Prp name="click point y" type="I" value="-1"/>
+					<Prp name="signature" type="S" value="{87B03792-E854-4F5D-9F33-165F1F874209}"/>
+					<Prp name="image file name" type="S" value="visImage1.png"/>
+					<Prp name="line #" type="I" value="285"/>
+					<Prp name="rect color" type="I" value="255"/>
+					<Prp name="datetime" type="D" value="45166.2037825926"/>
+					<Prp name="kind" type="I" value="0"/>
+					<Prp name="object bottom" type="I" value="91"/>
+					<Prp name="click point x" type="I" value="-1"/>
+				</Node>
+			</Node>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="remarks" type="S" value="'Colvir#93929' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Sys.Process(&quot;COLVIR&quot;).VCLObject(&quot;frmLoginDlg&quot;).VCLObject(&quot;pnlClient&quot;).VCLObject(&quot;edtPassword&quot;)"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="date" type="D" value="45166.4537864352"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="line no" type="I" value="285"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="3"/>
+		</Node>
+		<Node name="message 67">
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="type" type="I" value="2"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="date" type="D" value="45166.4548847106"/>
+			<Prp name="message" type="S" value="Не удалось сохранить записанную отладку"/>
+			<Prp name="line no" type="I" value="1930"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="67"/>
+		</Node>
+		<Node name="message 56">
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="date" type="D" value="45166.4546877662"/>
+			<Prp name="message" type="S" value="Датасеты в переменной среде DATASET_TABLE PTP_KTWO,LoginPool_K2,PM,AUTOTESTING_LOGS,Sordcash,OTP_PASSWORD,Getcommis,PS24Request,Dearko_Commis,Colldeal,UpdateTestData,Clients_Collection,Device_Collect_Account,LongOrders,DD7_ACC,Getcommis2,ACC_BLOCK,ClientPaymentOrder,IconsCheckList,MemorialOrder,PensionSocialMed,SettingCourse,Frcvpay,crdreq_data,web_pledge;"/>
+			<Prp name="line no" type="I" value="4548"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="56"/>
+		</Node>
+		<Node name="message 6">
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="date" type="D" value="45166.4539034722"/>
+			<Prp name="message" type="S" value="Окно 'Подтверждение' не появилось"/>
+			<Prp name="line no" type="I" value="1351"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="6"/>
+		</Node>
+		<Node name="message 52">
+			<Node name="visualizer">
+				<Node name="current">
+					<Prp name="object left" type="I" value="0"/>
+					<Prp name="version" type="I" value="2"/>
+					<Prp name="need update" type="B" value="0"/>
+					<Prp name="object name" type="S" value="Sys.Process(&quot;COLVIR&quot;).VCLObject(&quot;frmQrysFormList&quot;)"/>
+					<Prp name="object top" type="I" value="0"/>
+					<Prp name="storage file name" type="S" value=""/>
+					<Prp name="object right" type="I" value="797"/>
+					<Prp name="click point y" type="I" value="-1"/>
+					<Prp name="signature" type="S" value="{87B03792-E854-4F5D-9F33-165F1F874209}"/>
+					<Prp name="image file name" type="S" value="visImage26.png"/>
+					<Prp name="line #" type="I" value="772"/>
+					<Prp name="rect color" type="I" value="255"/>
+					<Prp name="datetime" type="D" value="45166.2046790856"/>
+					<Prp name="kind" type="I" value="0"/>
+					<Prp name="object bottom" type="I" value="634"/>
+					<Prp name="click point x" type="I" value="-1"/>
+				</Node>
+			</Node>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="remarks" type="S" value="Tested object:&#xA;Sys.Process(&quot;COLVIR&quot;).VCLObject(&quot;frmQrysFormList&quot;)"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="date" type="D" value="45166.454679919"/>
+			<Prp name="message" type="S" value="The 'Form Class :TfrmCrdReqLst' window was closed."/>
+			<Prp name="line no" type="I" value="772"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="52"/>
+		</Node>
+		<Node name="message 40">
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="date" type="D" value="45166.4543036574"/>
+			<Prp name="message" type="S" value="Найденное поле Sys.Process(&quot;COLVIR&quot;).VCLObject(&quot;frmCRDREQDTL&quot;).VCLObject(&quot;pnlClient&quot;).VCLObject(&quot;pnlSupport&quot;).VCLObject(&quot;pnlObject&quot;).VCLObject(&quot;edDCNT&quot;)"/>
+			<Prp name="line no" type="I" value="1937"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="40"/>
+		</Node>
+		<Node name="message 28">
+			<Node name="visualizer">
+				<Node name="current">
+					<Prp name="object left" type="I" value="149"/>
+					<Prp name="version" type="I" value="2"/>
+					<Prp name="need update" type="B" value="0"/>
+					<Prp name="object name" type="S" value="Sys.Process(&quot;COLVIR&quot;).VCLObject(&quot;AppLayer&quot;).VCLObject(&quot;MainPanel&quot;).Window(&quot;THtmlInplaceEdit&quot;, &quot;&quot;, 1)"/>
+					<Prp name="object top" type="I" value="9"/>
+					<Prp name="storage file name" type="S" value=""/>
+					<Prp name="object right" type="I" value="883"/>
+					<Prp name="click point y" type="I" value="-1"/>
+					<Prp name="signature" type="S" value="{87B03792-E854-4F5D-9F33-165F1F874209}"/>
+					<Prp name="image file name" type="S" value="visImage10.png"/>
+					<Prp name="line #" type="I" value="643"/>
+					<Prp name="rect color" type="I" value="255"/>
+					<Prp name="datetime" type="D" value="45166.2040400579"/>
+					<Prp name="kind" type="I" value="0"/>
+					<Prp name="object bottom" type="I" value="25"/>
+					<Prp name="click point x" type="I" value="-1"/>
+				</Node>
+			</Node>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="remarks" type="S" value="'[Enter]' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Sys.Process(&quot;COLVIR&quot;).VCLObject(&quot;AppLayer&quot;).VCLObject(&quot;MainPanel&quot;).Window(&quot;THtmlInplaceEdit&quot;, &quot;&quot;, 1)"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="date" type="D" value="45166.4540410532"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="line no" type="I" value="643"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="28"/>
+		</Node>
+		<Node name="message 31">
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="date" type="D" value="45166.4542008912"/>
+			<Prp name="message" type="S" value="Найденное поле Sys.Process(&quot;COLVIR&quot;).VCLObject(&quot;frmCrdReqLst&quot;).VCLObject(&quot;btnInsert&quot;)"/>
+			<Prp name="line no" type="I" value="1937"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="31"/>
+		</Node>
+		<Node name="message 26">
+			<Node name="visualizer">
+				<Node name="current">
+					<Prp name="object left" type="I" value="149"/>
+					<Prp name="version" type="I" value="2"/>
+					<Prp name="need update" type="B" value="0"/>
+					<Prp name="object name" type="S" value="Sys.Process(&quot;COLVIR&quot;).VCLObject(&quot;AppLayer&quot;).VCLObject(&quot;MainPanel&quot;).Window(&quot;THtmlInplaceEdit&quot;, &quot;&quot;, 1)"/>
+					<Prp name="object top" type="I" value="9"/>
+					<Prp name="storage file name" type="S" value=""/>
+					<Prp name="object right" type="I" value="883"/>
+					<Prp name="click point y" type="I" value="-1"/>
+					<Prp name="signature" type="S" value="{87B03792-E854-4F5D-9F33-165F1F874209}"/>
+					<Prp name="image file name" type="S" value="visImage8.png"/>
+					<Prp name="line #" type="I" value="641"/>
+					<Prp name="rect color" type="I" value="255"/>
+					<Prp name="datetime" type="D" value="45166.204031956"/>
+					<Prp name="kind" type="I" value="0"/>
+					<Prp name="object bottom" type="I" value="25"/>
+					<Prp name="click point x" type="I" value="-1"/>
+				</Node>
+			</Node>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="remarks" type="S" value="'^a' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Sys.Process(&quot;COLVIR&quot;).VCLObject(&quot;AppLayer&quot;).VCLObject(&quot;MainPanel&quot;).Window(&quot;THtmlInplaceEdit&quot;, &quot;&quot;, 1)"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="date" type="D" value="45166.4540341204"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="line no" type="I" value="641"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="26"/>
+		</Node>
+		<Node name="message 37">
+			<Node name="visualizer">
+				<Node name="current">
+					<Prp name="object left" type="I" value="188"/>
+					<Prp name="version" type="I" value="2"/>
+					<Prp name="need update" type="B" value="0"/>
+					<Prp name="object name" type="S" value="Sys.Process(&quot;COLVIR&quot;).VCLObject(&quot;frmCRDREQDTL&quot;).VCLObject(&quot;pnlClient&quot;).VCLObject(&quot;pnlSupport&quot;).VCLObject(&quot;pnlObject&quot;).VCLObject(&quot;edDCL_CODE&quot;)"/>
+					<Prp name="object top" type="I" value="145"/>
+					<Prp name="storage file name" type="S" value=""/>
+					<Prp name="object right" type="I" value="364"/>
+					<Prp name="click point y" type="I" value="-1"/>
+					<Prp name="signature" type="S" value="{87B03792-E854-4F5D-9F33-165F1F874209}"/>
+					<Prp name="image file name" type="S" value="visImage16.png"/>
+					<Prp name="line #" type="I" value="30"/>
+					<Prp name="rect color" type="I" value="255"/>
+					<Prp name="datetime" type="D" value="45166.2042937268"/>
+					<Prp name="kind" type="I" value="0"/>
+					<Prp name="object bottom" type="I" value="176"/>
+					<Prp name="click point x" type="I" value="-1"/>
+				</Node>
+			</Node>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="remarks" type="S" value="'0.300.1500.8.2' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Sys.Process(&quot;COLVIR&quot;).VCLObject(&quot;frmCRDREQDTL&quot;).VCLObject(&quot;pnlClient&quot;).VCLObject(&quot;pnlSupport&quot;).VCLObject(&quot;pnlObject&quot;).VCLObject(&quot;edDCL_CODE&quot;)"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="date" type="D" value="45166.4542994329"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="line no" type="I" value="30"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="37"/>
+		</Node>
+		<Node name="message 16">
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="owner id" type="I" value="15"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="date" type="D" value="45166.4539966088"/>
+			<Prp name="message" type="S" value="[('DEPO_CODE',), ('PRODUCT',), ('VAL_CODE',), ('AMOUNT',), ('CLI_ID',), ('TARIF_CODE',), ('CKC_CODE',), ('DOC_CODE',), ('REG_DATE',)]"/>
+			<Prp name="line no" type="I" value="3246"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="16"/>
+		</Node>
+		<Node name="message 39">
+			<Node name="visualizer">
+				<Node name="current">
+					<Prp name="object left" type="I" value="188"/>
+					<Prp name="version" type="I" value="2"/>
+					<Prp name="need update" type="B" value="0"/>
+					<Prp name="object name" type="S" value="Sys.Process(&quot;COLVIR&quot;).VCLObject(&quot;frmCRDREQDTL&quot;).VCLObject(&quot;pnlClient&quot;).VCLObject(&quot;pnlSupport&quot;).VCLObject(&quot;pnlObject&quot;).VCLObject(&quot;edVAL_CODE&quot;)"/>
+					<Prp name="object top" type="I" value="181"/>
+					<Prp name="storage file name" type="S" value=""/>
+					<Prp name="object right" type="I" value="364"/>
+					<Prp name="click point y" type="I" value="-1"/>
+					<Prp name="signature" type="S" value="{87B03792-E854-4F5D-9F33-165F1F874209}"/>
+					<Prp name="image file name" type="S" value="visImage17.png"/>
+					<Prp name="line #" type="I" value="32"/>
+					<Prp name="rect color" type="I" value="255"/>
+					<Prp name="datetime" type="D" value="45166.2043006019"/>
+					<Prp name="kind" type="I" value="0"/>
+					<Prp name="object bottom" type="I" value="212"/>
+					<Prp name="click point x" type="I" value="-1"/>
+				</Node>
+			</Node>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="remarks" type="S" value="'KZT' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Sys.Process(&quot;COLVIR&quot;).VCLObject(&quot;frmCRDREQDTL&quot;).VCLObject(&quot;pnlClient&quot;).VCLObject(&quot;pnlSupport&quot;).VCLObject(&quot;pnlObject&quot;).VCLObject(&quot;edVAL_CODE&quot;)"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="date" type="D" value="45166.4543026273"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="line no" type="I" value="32"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="39"/>
+		</Node>
+		<Node name="message 19">
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="date" type="D" value="45166.4539992477"/>
+			<Prp name="message" type="S" value="Ответ на запрос в БД"/>
+			<Prp name="line no" type="I" value="3245"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="19"/>
+		</Node>
+		<Node name="message 11">
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="date" type="D" value="45166.453991794"/>
+			<Prp name="message" type="S" value="Датасеты в переменной среде DATASET_TABLE PTP_KTWO,LoginPool_K2,PM,AUTOTESTING_LOGS,Sordcash,OTP_PASSWORD,Getcommis,PS24Request,Dearko_Commis,Colldeal,UpdateTestData,Clients_Collection,Device_Collect_Account,LongOrders,DD7_ACC,Getcommis2,ACC_BLOCK,ClientPaymentOrder,IconsCheckList,MemorialOrder,PensionSocialMed,SettingCourse,Frcvpay,crdreq_data,web_pledge;"/>
+			<Prp name="line no" type="I" value="4513"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="11"/>
+		</Node>
+		<Node name="message 60">
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="date" type="D" value="45166.4546918982"/>
+			<Prp name="message" type="S" value="Запрос на модификацию данных отработал успешно"/>
+			<Prp name="line no" type="I" value="3235"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="60"/>
+		</Node>
+		<Node name="message 41">
+			<Node name="visualizer">
+				<Node name="current">
+					<Prp name="object left" type="I" value="188"/>
+					<Prp name="version" type="I" value="2"/>
+					<Prp name="need update" type="B" value="0"/>
+					<Prp name="object name" type="S" value="Sys.Process(&quot;COLVIR&quot;).VCLObject(&quot;frmCRDREQDTL&quot;).VCLObject(&quot;pnlClient&quot;).VCLObject(&quot;pnlSupport&quot;).VCLObject(&quot;pnlObject&quot;).VCLObject(&quot;edDCNT&quot;)"/>
+					<Prp name="object top" type="I" value="250"/>
+					<Prp name="storage file name" type="S" value=""/>
+					<Prp name="object right" type="I" value="336"/>
+					<Prp name="click point y" type="I" value="-1"/>
+					<Prp name="signature" type="S" value="{87B03792-E854-4F5D-9F33-165F1F874209}"/>
+					<Prp name="image file name" type="S" value="visImage18.png"/>
+					<Prp name="line #" type="I" value="34"/>
+					<Prp name="rect color" type="I" value="255"/>
+					<Prp name="datetime" type="D" value="45166.2043038773"/>
+					<Prp name="kind" type="I" value="0"/>
+					<Prp name="object bottom" type="I" value="281"/>
+					<Prp name="click point x" type="I" value="-1"/>
+				</Node>
+			</Node>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="remarks" type="S" value="'5' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Sys.Process(&quot;COLVIR&quot;).VCLObject(&quot;frmCRDREQDTL&quot;).VCLObject(&quot;pnlClient&quot;).VCLObject(&quot;pnlSupport&quot;).VCLObject(&quot;pnlObject&quot;).VCLObject(&quot;edDCNT&quot;)"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="date" type="D" value="45166.4543054977"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="line no" type="I" value="34"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="41"/>
+		</Node>
+		<Node name="message 17">
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="date" type="D" value="45166.4539988079"/>
+			<Prp name="message" type="S" value="Запрос в БД"/>
+			<Prp name="line no" type="I" value="3209"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="17"/>
+		</Node>
+		<Node name="item 2">
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="line no" type="I" value="13"/>
+			<Prp name="stacktext" type="S" value="RequestToOpenCrd_AllDataSet"/>
+		</Node>
+		<Node name="message 29">
+			<Node name="visualizer">
+				<Node name="current">
+					<Prp name="object left" type="I" value="36"/>
+					<Prp name="version" type="I" value="2"/>
+					<Prp name="need update" type="B" value="0"/>
+					<Prp name="object name" type="S" value="Sys.Process(&quot;COLVIR&quot;).VCLObject(&quot;frmFilterParams&quot;).VCLObject(&quot;btnClearFilter&quot;)"/>
+					<Prp name="object top" type="I" value="211"/>
+					<Prp name="storage file name" type="S" value=""/>
+					<Prp name="object right" type="I" value="65"/>
+					<Prp name="click point y" type="I" value="225"/>
+					<Prp name="signature" type="S" value="{87B03792-E854-4F5D-9F33-165F1F874209}"/>
+					<Prp name="image file name" type="S" value="visImage11.png"/>
+					<Prp name="line #" type="I" value="1377"/>
+					<Prp name="rect color" type="I" value="255"/>
+					<Prp name="datetime" type="D" value="45166.2041229861"/>
+					<Prp name="kind" type="I" value="0"/>
+					<Prp name="object bottom" type="I" value="240"/>
+					<Prp name="click point x" type="I" value="50"/>
+				</Node>
+			</Node>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="remarks" type="S" value="A click at point (14, 14) with no key pressed.&#xA;&#xA;Tested object:&#xA;Sys.Process(&quot;COLVIR&quot;).VCLObject(&quot;frmFilterParams&quot;).VCLObject(&quot;btnClearFilter&quot;)"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="date" type="D" value="45166.4541238079"/>
+			<Prp name="message" type="S" value="The window was clicked with the left mouse button."/>
+			<Prp name="line no" type="I" value="1377"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="29"/>
+		</Node>
+		<Node name="message 32">
+			<Node name="visualizer">
+				<Node name="current">
+					<Prp name="object left" type="I" value="10"/>
+					<Prp name="version" type="I" value="2"/>
+					<Prp name="need update" type="B" value="0"/>
+					<Prp name="object name" type="S" value="Sys.Process(&quot;COLVIR&quot;).VCLObject(&quot;frmCrdReqLst&quot;).VCLObject(&quot;btnInsert&quot;)"/>
+					<Prp name="object top" type="I" value="54"/>
+					<Prp name="storage file name" type="S" value=""/>
+					<Prp name="object right" type="I" value="36"/>
+					<Prp name="click point y" type="I" value="67"/>
+					<Prp name="signature" type="S" value="{87B03792-E854-4F5D-9F33-165F1F874209}"/>
+					<Prp name="image file name" type="S" value="visImage13.png"/>
+					<Prp name="line #" type="I" value="24"/>
+					<Prp name="rect color" type="I" value="255"/>
+					<Prp name="datetime" type="D" value="45166.2042014236"/>
+					<Prp name="kind" type="I" value="0"/>
+					<Prp name="object bottom" type="I" value="80"/>
+					<Prp name="click point x" type="I" value="23"/>
+				</Node>
+			</Node>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="remarks" type="S" value="A click at point (13, 13) with no key pressed.&#xA;&#xA;Tested object:&#xA;Sys.Process(&quot;COLVIR&quot;).VCLObject(&quot;frmCrdReqLst&quot;).VCLObject(&quot;btnInsert&quot;)"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="date" type="D" value="45166.4542021644"/>
+			<Prp name="message" type="S" value="The window was clicked with the left mouse button."/>
+			<Prp name="line no" type="I" value="24"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="32"/>
+		</Node>
+		<Node name="message 48">
+			<Node name="visualizer">
+				<Node name="current">
+					<Prp name="object left" type="I" value="270"/>
+					<Prp name="version" type="I" value="2"/>
+					<Prp name="need update" type="B" value="0"/>
+					<Prp name="object name" type="S" value="Sys.Process(&quot;COLVIR&quot;).VCLObject(&quot;frmCrdReqLst&quot;).VCLObject(&quot;btnSend&quot;)"/>
+					<Prp name="object top" type="I" value="54"/>
+					<Prp name="storage file name" type="S" value=""/>
+					<Prp name="object right" type="I" value="296"/>
+					<Prp name="click point y" type="I" value="67"/>
+					<Prp name="signature" type="S" value="{87B03792-E854-4F5D-9F33-165F1F874209}"/>
+					<Prp name="image file name" type="S" value="visImage22.png"/>
+					<Prp name="line #" type="I" value="43"/>
+					<Prp name="rect color" type="I" value="255"/>
+					<Prp name="datetime" type="D" value="45166.2044031134"/>
+					<Prp name="kind" type="I" value="0"/>
+					<Prp name="object bottom" type="I" value="80"/>
+					<Prp name="click point x" type="I" value="283"/>
+				</Node>
+			</Node>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="remarks" type="S" value="A click at point (13, 13) with no key pressed.&#xA;&#xA;Tested object:&#xA;Sys.Process(&quot;COLVIR&quot;).VCLObject(&quot;frmCrdReqLst&quot;).VCLObject(&quot;btnSend&quot;)"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="date" type="D" value="45166.4544040278"/>
+			<Prp name="message" type="S" value="The window was clicked with the left mouse button."/>
+			<Prp name="line no" type="I" value="43"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="48"/>
+		</Node>
+		<Node name="message 66">
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="remarks" type="S" value="&lt;html&gt;&lt;body&gt;&lt;p&gt;The object with the specified attributes does not exist.&lt;/p&gt;&lt;p style=&quot;margin-top: 12px;&quot;&gt;&lt;a href=&quot;aqa-help://2202&quot;&gt;Possible causes of the error&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;&lt;br /&gt;&lt;br /&gt;Tested object:&lt;br /&gt;Sys.Process(&quot;COLVIR&quot;)"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="picture" type="S" value="Picture1.png"/>
+			<Prp name="type" type="I" value="3"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="stack beginning" type="I" value="0"/>
+			<Prp name="stack end" type="I" value="2"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="date" type="D" value="45166.4548846759"/>
+			<Prp name="message" type="S" value="Unable to find the object VCLObject(&quot;frmDebugView&quot;). See Details for additional information."/>
+			<Prp name="line no" type="I" value="1929"/>
+			<Prp name="pictype" type="I" value="2"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="as html" type="B" value="-1"/>
+			<Prp name="id" type="I" value="66"/>
+		</Node>
+		<Node name="message 62">
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="owner id" type="I" value="61"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="date" type="D" value="45166.4546944792"/>
+			<Prp name="message" type="S" value=" begin INSERT INTO crdreq_data (DEPO_CODE, PRODUCT, VAL_CODE, AMOUNT, CLI_ID, TARIF_CODE, CKC_CODE, DOC_CODE, REG_DATE) VALUES ('AA6', '0.300.1500.8.2', 'KZT', '5', '05302580', 'NP000', '0.300.3.119', '', '280823'); commit; end;"/>
+			<Prp name="line no" type="I" value="3210"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="62"/>
+		</Node>
+		<Node name="message 4">
+			<Node name="visualizer">
+				<Node name="current">
+					<Prp name="object left" type="I" value="97"/>
+					<Prp name="version" type="I" value="2"/>
+					<Prp name="need update" type="B" value="0"/>
+					<Prp name="object name" type="S" value="Sys.Process(&quot;COLVIR&quot;).VCLObject(&quot;frmLoginDlg&quot;).VCLObject(&quot;pnlAlias&quot;).VCLObject(&quot;cbALIAS&quot;)"/>
+					<Prp name="object top" type="I" value="120"/>
+					<Prp name="storage file name" type="S" value=""/>
+					<Prp name="object right" type="I" value="243"/>
+					<Prp name="click point y" type="I" value="-1"/>
+					<Prp name="signature" type="S" value="{87B03792-E854-4F5D-9F33-165F1F874209}"/>
+					<Prp name="image file name" type="S" value="visImage2.png"/>
+					<Prp name="line #" type="I" value="287"/>
+					<Prp name="rect color" type="I" value="255"/>
+					<Prp name="datetime" type="D" value="45166.2037879051"/>
+					<Prp name="kind" type="I" value="0"/>
+					<Prp name="object bottom" type="I" value="143"/>
+					<Prp name="click point x" type="I" value="-1"/>
+				</Node>
+			</Node>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="remarks" type="S" value="'CBS3TP' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Sys.Process(&quot;COLVIR&quot;).VCLObject(&quot;frmLoginDlg&quot;).VCLObject(&quot;pnlAlias&quot;).VCLObject(&quot;cbALIAS&quot;)"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="date" type="D" value="45166.4537924421"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="line no" type="I" value="287"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="4"/>
+		</Node>
+		<Node name="message 35">
+			<Node name="visualizer">
+				<Node name="current">
+					<Prp name="object left" type="I" value="188"/>
+					<Prp name="version" type="I" value="2"/>
+					<Prp name="need update" type="B" value="0"/>
+					<Prp name="object name" type="S" value="Sys.Process(&quot;COLVIR&quot;).VCLObject(&quot;frmCRDREQDTL&quot;).VCLObject(&quot;pnlClient&quot;).VCLObject(&quot;pnlSupport&quot;).VCLObject(&quot;pnlObject&quot;).VCLObject(&quot;edDEP_CODE&quot;)"/>
+					<Prp name="object top" type="I" value="112"/>
+					<Prp name="storage file name" type="S" value=""/>
+					<Prp name="object right" type="I" value="363"/>
+					<Prp name="click point y" type="I" value="-1"/>
+					<Prp name="signature" type="S" value="{87B03792-E854-4F5D-9F33-165F1F874209}"/>
+					<Prp name="image file name" type="S" value="visImage15.png"/>
+					<Prp name="line #" type="I" value="28"/>
+					<Prp name="rect color" type="I" value="255"/>
+					<Prp name="datetime" type="D" value="45166.2042912037"/>
+					<Prp name="kind" type="I" value="0"/>
+					<Prp name="object bottom" type="I" value="143"/>
+					<Prp name="click point x" type="I" value="-1"/>
+				</Node>
+			</Node>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="remarks" type="S" value="'AA6' was sent as a keyboard input to the following window or control.&#xA;&#xA;Tested object:&#xA;Sys.Process(&quot;COLVIR&quot;).VCLObject(&quot;frmCRDREQDTL&quot;).VCLObject(&quot;pnlClient&quot;).VCLObject(&quot;pnlSupport&quot;).VCLObject(&quot;pnlObject&quot;).VCLObject(&quot;edDEP_CODE&quot;)"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="date" type="D" value="45166.4542925"/>
+			<Prp name="message" type="S" value="Keyboard input."/>
+			<Prp name="line no" type="I" value="28"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="35"/>
+		</Node>
+		<Node name="message 13">
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="date" type="D" value="45166.4539948148"/>
+			<Prp name="message" type="S" value="Запрос в БД"/>
+			<Prp name="line no" type="I" value="3209"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="id" type="I" value="13"/>
+		</Node>
+		<Prp name="status" type="I" value="2"/>
+	</Node>
+</Nodes>

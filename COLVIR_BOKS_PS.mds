@@ -1,0 +1,1160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Root signature="{362A8EE5-675E-43A9-869D-06ECE80B0CB4}" version="14.0">
+	<children>
+		<folder name="Advanced" moniker="{69583268-92F3-49FA-B573-C831F5ABC27B}">
+			<child name="Script" key="{F4A05CF9-F3D2-454D-B2AB-49039877CA12}" type="Script" typeId="{9252F941-DB23-4FCA-AA50-858B33BB4A19}" pluginName="Script" path="Script\Script.tcScript" />
+			<child name="TestedApps" key="{69DD7129-8FA3-4A2B-B489-F0F4D17764A5}" type="Tested Applications" typeId="{90D101C8-80C7-48D4-9055-2E451B9BCD75}" pluginName="" path="TestedApps\TestedApps.tcTAs" />
+		</folder>
+		<child name="NameMapping" key="{E723BEDF-A1F4-4377-8A12-8B59198E8D54}" type="Name Mapping" typeId="{5DCBAC3B-D39C-497C-9BE8-744CBADD37AA}" pluginName="NameMapping" path="NameMapping\NameMapping.tcNM" />
+		<child name="KeywordTests" key="{6662338A-45AD-44C0-B953-AF3FBD1B01D2}" type="Keyword Testing" typeId="{9576DAFD-0ADD-41A8-9897-C72F150AF6BB}" pluginName="Keyword Testing" path="KeywordTests\KeywordTests.tcKDT" />
+	</children>
+	<config language="{7D0FC31C-B0A7-4F4F-B5AF-1F16370169CB}" />
+	<testItems key="{90CAF443-2140-4B06-8AA0-8933B579F36E}" version="14">
+		<children>
+			<testItem name="Предварительные шаги перед запуском тестов" key="{ECB35828-9694-47F1-8354-37F4EC09F732}" group="True" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+				<testParameters />
+				<children>
+					<testItem name="Установка категории на месяц" key="{13A7A97E-FB96-422E-9FAC-E40CA5F2F716}" group="False" enabled="True" testMoniker="{799EB908-75BF-4CA5-9BD5-7430573E4C03}Set_cat_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+						<testParameters />
+						<children />
+					</testItem>
+				</children>
+			</testItem>
+			<testItem name="Проверка сценариев по модулю КартаКарта" key="{B3E1C4C6-63EA-4E65-8D55-FFAB52E7F116}" group="True" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+				<testParameters />
+				<children>
+					<testItem name="Перемещение сгенерированных данных в датасет" key="{A19F5836-C560-47C7-B48B-B5701C253F3F}" group="False" enabled="True" testMoniker="{D3CD3499-F461-4EEC-B663-069354E20282}UploadClearUsers_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="Создание заявки на неэмбоссированные карточки" key="{9DF60962-AD7F-4755-91A9-1AF07FF95013}" group="False" enabled="True" testMoniker="{D2628864-B269-406B-A9C0-CA6B7781BE39}RequestToOpenCrd_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="Введение договора СКС для инстант карточек" key="{1309C1C7-ED01-475E-BC26-A53753CA37A0}" group="False" enabled="True" testMoniker="{3E265AAB-52CF-42B8-8F60-469815A8E1C4}ContractForCrd_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="Регистрация договора СКС" key="{4168F50D-880D-4248-BC59-0C7695497DB5}" group="False" enabled="True" testMoniker="{06A564B2-E468-4F32-89B8-9A0E27D7B677}RegistrDocCKC_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="Отмена регистрации договора СКС КартаКарта" key="{37539A77-6CD0-413E-8A49-7A434AF5ED31}" group="False" enabled="True" testMoniker="{19DF63CB-0B53-446A-94FE-6AD48BAA3D15}UndoRegisterCKC_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="Повторная регистрация договора СКС" key="{EB8E8079-C292-4E85-8D4D-A97E7716AC06}" group="False" enabled="True" testMoniker="{4C413FC2-ECA0-445A-ADCC-AEFF1A3A5341}RepRegDocCKC_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="Подвязка инстант карточки в договору СКС" key="{3CD0BE36-F792-43C8-97E1-C6210237BB56}" group="False" enabled="True" testMoniker="{4220A216-E734-478F-A590-3DD3FC3A5865}GiveoutInstantCard_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="Отвязка инстант карточки из договора" key="{AE0B672E-C613-40CB-9605-D287F44D53CB}" group="False" enabled="True" testMoniker="{62EEC02E-89DB-48CA-842C-7B7FE39A9BA9}UndoGiveoutInstant_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="Повторная подвязка инстант карточки в договору" key="{B6E64F36-C03C-440C-BE56-5E8832E13BEF}" group="False" enabled="True" testMoniker="{017EE552-75A4-4116-BE85-2C998EE6DE83}RepGivInsCard_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="Отправка карты на акцептование" key="{0DE20BBB-7E13-43F6-8D14-0099508754A3}" group="False" enabled="True" testMoniker="{1B8FDD2A-60CF-4099-ADA9-95027E26125C}SendCardAccept_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="Отмена отправки карты на акцепт " key="{D9D6E521-322A-4B88-B797-340204806312}" group="False" enabled="True" testMoniker="{8842C947-1CD8-4CD8-82DC-0345476B762C}UndoSendCardAccept_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="Повторная отправка карты на акцептование" key="{78A85D5A-7700-4375-B7AD-A18FE5ECBE7E}" group="False" enabled="True" testMoniker="{B184201D-55B3-4203-951F-B391FDBA14CC}RepSendCardAccept_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="Оприходывание пластика в MADVPAY" key="{2E3B2719-3847-4A7E-B288-6C9EEB2E1701}" group="False" enabled="True" testMoniker="{3795B522-A83F-4E40-BCA5-363762377F5A}AcceptCrdMadvpay_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="Принять решение по акцептованию" key="{CB4FD7AA-CCF1-4482-8CE4-DFA7C1BB31B9}" group="False" enabled="True" testMoniker="{C9B6BBD1-EA13-40C0-9A76-C2F2106DB848}AcceptCard_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="Проверка пластика в работе с различными устройствами" key="{CE852FF4-4A65-4C80-AD32-122EB00C1E64}" group="True" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+						<testParameters />
+						<children>
+							<testItem name="Пополение карты через АТМ" key="{839E1A60-BC19-4AC0-AD9A-41BE71C79682}" group="False" enabled="True" testMoniker="{69A8B94F-2284-4D1D-A512-E53EA9A14EAF}ATMCashIn2405_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+								<testParameters />
+								<children />
+							</testItem>
+							<testItem name="Снятие наличных в нашем АТМ" key="{9526CF62-7556-4D7F-8BCE-377A428ACF07}" group="False" enabled="True" testMoniker="{E4D15EE1-9BB4-4F4F-B4F8-9AE0D6120C40}ATMCashOut2401_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+								<testParameters />
+								<children />
+							</testItem>
+							<testItem name="Снятие наличных в чужом АТМ на территории РК" key="{2A76B205-3CD9-4E3C-B3C6-D01EEEE86572}" group="False" enabled="True" testMoniker="{FDBD8FEE-5C1E-40D1-99A4-14B69234F30B}ATMCashOut2402int_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+								<testParameters />
+								<children />
+							</testItem>
+							<testItem name="Установка категории на месяц на карте клиента" key="{A725A2A8-4A80-4006-9EEA-673F773AE3CB}" group="False" enabled="True" testMoniker="{799EB908-75BF-4CA5-9BD5-7430573E4C03}Set_cat_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+								<testParameters />
+								<children />
+							</testItem>
+							<testItem name="Покупки через POS терминал" key="{78DCA52E-53C4-4180-B382-1FB527CE6FA6}" group="False" enabled="True" testMoniker="{30AEDE0F-8574-4130-BE86-BCE2ED01FDE8}CashBackCheck_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+								<testParameters />
+								<children />
+							</testItem>
+							<testItem name="Обналичивание через разные POS-Cash" key="{70BE4441-9878-49C8-8726-2E905921ACC4}" group="False" enabled="True" testMoniker="{5EEB8C1D-72DC-4F09-9E07-D16402B29B90}POSCashOut2411_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+								<testParameters />
+								<children />
+							</testItem>
+						</children>
+					</testItem>
+					<testItem name="Проверка кассовых и платежных документов через КартуКарту" key="{BF764EBB-8F80-47CA-B27E-E11BFFF97C1C}" group="True" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+						<testParameters />
+						<children>
+							<testItem name="Пополнение счета карты через платежное поручение" key="{835D5141-835B-46F3-9AAA-882A12CB2356}" group="False" enabled="True" testMoniker="{B763AB4C-095D-46AD-9B6B-0332FFA1B46A}CreatePaymentOrderTopUp_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+								<testParameters />
+								<children />
+							</testItem>
+							<testItem name="Расходная операция со счета карты через платежное поручение" key="{876C843C-E821-4C54-83E7-1ADFCC9FF73A}" group="False" enabled="True" testMoniker="{D3EEAB69-C676-48B0-9A95-5E7D06D53538}CreatePaymentOrderSpending_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+								<testParameters />
+								<children />
+							</testItem>
+							<testItem name="Создание платежного кассового ордера" key="{ACF8760E-1EDA-43FA-ABA0-D0A8F083D4A9}" group="False" enabled="True" testMoniker="{6EC858E0-E1F7-4C7A-83B9-A357D6B3196F}CreateRecieptCashOrderCheckUndoPay" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+								<testParameters />
+								<children />
+							</testItem>
+							<testItem name="Расходная операция со счета карты через кассу" key="{B704DA7C-EE2F-47B5-8014-318F6FF63FAF}" group="False" enabled="True" testMoniker="{15A78762-485E-4301-B0E4-99D444A82372}AcceptanceCashOrdersCheckUndoPay" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+								<testParameters />
+								<children />
+							</testItem>
+						</children>
+					</testItem>
+				</children>
+			</testItem>
+			<testItem name="Создание корпоративных карт" key="{2D7B7082-6E23-4AFC-8ED7-B68E987A2982}" group="True" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+				<testParameters />
+				<children>
+					<testItem name="Генерация данных для таблицы ndeacrd" key="{375DE4A4-BD8C-4AE5-85D0-8DA21167A5DE}" group="False" enabled="True" testMoniker="{E468E2B6-F33F-4DED-BB6C-958C528EA13F}TrsfrGenerateNdeadata_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="Создать договор СКС для карт" key="{CA5AE3D4-ABFA-4226-95A4-70F1B3FE2467}" group="False" enabled="True" testMoniker="{9C143735-DD76-4DFA-AA96-4EF0A774CD2B}CreateDogovorCKC_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="Регистрация договора СКС" key="{4C3F2FD9-EB51-414A-B224-0866851AEEF6}" group="False" enabled="True" testMoniker="{18D997FB-B436-4EFD-990D-8CA72C52AE6C}RegisterDogovorCKC_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="Подвязка корпоративной карты" key="{E484D4AF-C3DB-4A64-B4D7-4A9F110DBB10}" group="False" enabled="True" testMoniker="{5D7489C5-C32A-4A50-A7BB-B4F1081FE0CA}CreateBusinessCard_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="Отправка на акцепт корп.карты" key="{2486BDCA-FFC8-4EC1-A8D7-9846EE992EE8}" group="False" enabled="True" testMoniker="{84588C14-49FF-4556-8BFE-B18B8A145000}SendBusinessAccept_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="Акцепт корпоративной карты" key="{97A22A36-76B8-4A2F-B797-42BE776072F2}" group="False" enabled="True" testMoniker="{50C64474-6BC4-4FC4-B826-76EFF7329DEE}AcceptBusinessCard_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="Транзакционные операции по Business карте" key="{DCFAD082-383E-4EE1-B2D7-119F58E0E709}" group="True" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+						<testParameters />
+						<children>
+							<testItem name="Пополнение счета карты через операцию 2405" key="{FAA92B3D-9244-455E-BD10-695E982D894C}" group="False" enabled="True" testMoniker="{E07818F4-8EF4-4A3C-B7C3-FE7620216756}BusinessATMDeposit_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+								<testParameters />
+								<children />
+							</testItem>
+							<testItem name="Межбанковский перевод 2560" key="{C8E446FE-DC73-4C79-ABC6-8EA3191C0521}" group="False" enabled="True" testMoniker="{30C6B3A5-B0A8-4971-92F5-FF334D5AC825}BusinessBanktoBank_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+								<testParameters />
+								<children />
+							</testItem>
+							<testItem name="Пополнение счета по операции 2543" key="{7E04C219-E6F7-47F5-ACA9-6EC32CFAC04B}" group="False" enabled="True" testMoniker="{8ED87401-A2B0-4D14-810E-4AD77AE0CC2E}BusinessCashin2543_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+								<testParameters />
+								<children />
+							</testItem>
+							<testItem name="Снятие со счета карты через операцию 2401" key="{ECC8D93D-2F29-48A0-BCA0-169FB6A57305}" group="False" enabled="True" testMoniker="{2AC8EFFB-E7B4-4AC4-BA31-E01131A1DE86}BusinessCashout2401_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+								<testParameters />
+								<children />
+							</testItem>
+							<testItem name="Снятие со счета карты через операцию 2402 чужой АТМ" key="{B28FC7C2-1891-499E-BD32-ADB3E076A83D}" group="False" enabled="True" testMoniker="{62AD8844-9B6B-42C0-B02B-2B488A8375E9}BusinessCashout2402_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+								<testParameters />
+								<children />
+							</testItem>
+							<testItem name="Снятие со счета карты через операцию 2411" key="{6D3A69F6-F731-405E-8158-D3C9CD478608}" group="False" enabled="True" testMoniker="{2519295C-04C3-4F06-844E-4455A3C0CD5B}BusinessCashout2411_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+								<testParameters />
+								<children />
+							</testItem>
+							<testItem name="Сервисная комиссия 2553" key="{248C3EF2-176C-4908-9D57-85D409C77933}" group="False" enabled="True" testMoniker="{2502D410-4F18-4A5F-936E-177BA1E1C91B}BusinessCommis2553_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+								<testParameters />
+								<children />
+							</testItem>
+							<testItem name="Пополнение 2424 Card Deposit" key="{F5325775-6189-4AA9-B9D7-C792CE765EF9}" group="False" enabled="True" testMoniker="{45B7F153-043A-4E1C-A7CB-F0137F2ACECE}BusinessDeposit2424_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+								<testParameters />
+								<children />
+							</testItem>
+							<testItem name="Мини выписка 2451" key="{8771C97A-1562-45CC-A606-A8D74FC1F96F}" group="False" enabled="True" testMoniker="{89D6B1A4-6340-473E-8404-085D658481F4}BusinessExtract2451_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+								<testParameters />
+								<children />
+							</testItem>
+							<testItem name="Отправка запроса по покупке через POS2416" key="{B91739C9-DA61-4335-8F34-5254EBC75EB0}" group="False" enabled="True" testMoniker="{97203428-775B-42BD-ABC1-2040DEA0856C}BusinessPosBuy_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+								<testParameters />
+								<children />
+							</testItem>
+							<testItem name="Переводы P2P 2423 Card Debit" key="{BDC27B94-EAC5-4B6B-8365-51698FB1D682}" group="False" enabled="True" testMoniker="{78FD86DF-546B-4C46-A94C-D0E5F8B689D6}BusinessTransfer2423_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+								<testParameters />
+								<children />
+							</testItem>
+						</children>
+					</testItem>
+				</children>
+			</testItem>
+			<testItem name="Зарплатные договора" key="{B32943BD-50B7-4C9B-9CAC-76BA77FADE2F}" group="True" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+				<testParameters />
+				<children>
+					<testItem name="Создание зарплатного договора" key="{96A45A3C-530D-46C1-8DE9-A40CC89F0B2F}" group="False" enabled="True" testMoniker="{E24EB30A-2B71-47AF-91A4-96DF1B051FB9}CreateDeasalDog_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="Регисстрация зарплатного договора" key="{0A7C6C02-3DE2-42A9-931E-00147851FE03}" group="False" enabled="True" testMoniker="{151E3D31-0D07-4299-BB12-E68AD675CF50}RegisterDeasalDog_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="Отмена Регистрации зарплатного договора" key="{EA19FA33-87AD-44AD-B742-BF1A0CC97B95}" group="False" enabled="True" testMoniker="{CA0354C9-B3DC-4793-B0F6-28F70DF89F93}CancelDeasalRegister_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="Повторная регисстрация зарплатного договора" key="{8143DF86-D27E-4127-A840-67EEC7157EB7}" group="False" enabled="True" testMoniker="{A4C2445F-0EB4-4E79-A2EE-9D050EA20655}RepRegisterDeasalDog_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="Закрытие зарплатного договора " key="{58364461-1987-444E-8940-65E7B2150652}" group="False" enabled="True" testMoniker="{F2049372-B78D-4CE5-A21A-2032F6ADA1F8}CloseDeasalDog_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="Отмена закрытия зарплатного договора " key="{E71A2E8F-9D64-43F5-821D-B938E4C1BD51}" group="False" enabled="True" testMoniker="{3C8A004B-C8AD-4A34-B530-A199FD0D9B48}UndoCloseDeasal_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="Изменение процента комиссии" key="{2AB6F456-083A-44EB-A77F-ABD533310C06}" group="False" enabled="True" testMoniker="{C0B7FA57-CF94-44F8-8721-D7EAE9025964}ChangeTarifGroup_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="Возврат переплаченной комиссии" key="{DB419216-9A65-4CED-AF84-A21C1366CCB5}" group="False" enabled="True" testMoniker="{2409CA47-CAB3-4847-BED0-2F267E1F2F5B}DeasalComissRefund_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+						<testParameters />
+						<children />
+					</testItem>
+				</children>
+			</testItem>
+			<testItem name="Торогово-Сервисные предприятия" key="{7EBB0AC9-C5A2-4712-8888-E0EDD31A05E8}" group="True" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+				<testParameters />
+				<children>
+					<testItem name="Генерация тестовых данных" key="{77C8BC93-407D-416A-9F9A-7B63CC328579}" group="False" enabled="True" testMoniker="{052F7967-C073-465E-B6A0-42B6E0DFA662}TransferGeneratedTSEdata_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="Создание карточки ТСП" key="{69435293-3753-412C-ADFD-B91E2EF722B7}" group="False" enabled="True" testMoniker="{FCC991A3-7770-47F2-BA88-6AFACE751AC3}CreateTSEDevice_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="Создание договора ТСП" key="{54CD7D14-7B82-4ED6-BEB3-CC274E4D2581}" group="False" enabled="True" testMoniker="{A006FD4D-BFFC-4218-AF13-176707C5E361}CreateTSEDogovor_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="Регистрация договора ТСП" key="{73ABDF5C-857C-4BDB-AC19-780E6A2E4739}" group="False" enabled="True" testMoniker="{656F3BB8-FEAD-43BB-8B92-8C1757FE7FD6}RegisterTSEDogovor_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+						<testParameters />
+						<children />
+					</testItem>
+				</children>
+			</testItem>
+			<testItem name="Сценарии тестирования по TravelCard" key="{71D53E01-B6B3-4E1E-8468-6A62FA6C533B}" group="True" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+				<testParameters />
+				<children>
+					<testItem name="Генерация данных в датасете Travel_data" key="{27FBB25F-89AA-4636-BC8C-1D964D2AE2F2}" group="False" enabled="True" testMoniker="{2366ABF0-9215-40B6-A2D4-153094D44989}GenerateTravelClients_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="Создание договора СКС для Travel" key="{A2ED377C-C7BC-4100-84FE-0C9EB1D45DD0}" group="False" enabled="True" testMoniker="{9ED3DCA6-620C-4D80-9636-60B46E87746E}CreateTravelCKC_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="Регистрация договора СКС для Travel" key="{B6CCDFCA-BA04-4EC5-9F5E-FB96B7ADF12A}" group="False" enabled="True" testMoniker="{E9C70753-615D-4676-A5FC-4327231BF726}RegisterTravelCKC_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="Создание Travel карты " key="{80F4A64E-B762-4D9C-B8E7-BEC10C91225A}" group="False" enabled="True" testMoniker="{57E32BE6-7DE4-496D-9425-16A3BD646592}CreateTravelCard_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="Отправка карты на акцептование" key="{493EC913-B1CA-4A9E-82DC-8DAD82341F3F}" group="False" enabled="True" testMoniker="{8DF33414-9241-4739-9CC5-F45DBF2CF894}SendTravelAccept_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="Принять решение по акцептованию" key="{970D37CD-01BA-497B-ADA9-B0BA5495ED77}" group="False" enabled="True" testMoniker="{810787BD-0AF1-4A10-861B-E526A4965047}AcceptTravelCard_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="Изменение данных карты" key="{A283B244-3026-4344-A09C-8705221E4127}" group="False" enabled="True" testMoniker="{3C69C173-F22D-4C72-9765-4DD43E977776}ChangeCardInfo_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="Отмена изменения данных карты" key="{4C61406B-D8E4-47F6-A4D0-816CD293F5D1}" group="False" enabled="True" testMoniker="{FAA213C9-609B-4C0E-901C-61921CBEF156}ChangeCardInfo_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="Изменение расходого лимита" key="{B0CFD340-3EE6-4F90-8A0D-A2C9BCCAA254}" group="False" enabled="True" testMoniker="{D6DB12DA-42A1-4B5B-94BE-9D1F7D76C4BD}ChangeOutcomeLimit_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="Снятие наличых с нашего ATM" key="{5BD24101-6E0D-4759-B050-1D900E3D24F6}" group="False" enabled="True" testMoniker="{58D9959D-F763-451C-BA0C-D05C6F680686}TravelCashout2401_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="З.П.Измен.профиля карты" key="{D8A334E9-DFE1-457D-B3EC-4F1B109E10D6}" group="False" enabled="False" testMoniker="{A17F0C06-CD27-47C9-B065-11A99984F814}ChangeProfileCard_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="Отмена З.П.Измен.профиля карты" key="{8D4A54D6-59EA-40CC-8AC7-243E3E8BF983}" group="False" enabled="False" testMoniker="{07F1A2D2-C409-4EC2-8222-4DD4D8EE9D6E}UndoProfileChange_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="Транзакционные операции по Travel карте" key="{1471A212-1370-4035-B1F8-36B0B173C4CF}" group="True" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+						<testParameters />
+						<children>
+							<testItem name="TRAVEL 2401 Получение наличных денег ON US" key="{0D5533BC-8F90-4771-8C90-6D09206D0A32}" group="False" enabled="True" testMoniker="{58D9959D-F763-451C-BA0C-D05C6F680686}TravelCashout2401_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+								<testParameters />
+								<children />
+							</testItem>
+							<testItem name="TRAVEL 2402 Получение наличных денег INT" key="{10AA3AFE-A972-4BDC-A1AC-0235A6546D7C}" group="False" enabled="True" testMoniker="{0B8B4273-9568-445C-A190-8FDEB73B03FA}TravelCashout2402_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+								<testParameters />
+								<children />
+							</testItem>
+							<testItem name="TRAVEL 2402 Получение наличных денег LOCAL" key="{AF0A78BA-7792-49F7-87BF-573B687DE862}" group="False" enabled="True" testMoniker="{D771E9C4-0F26-4BCA-956D-C680BF45816A}TravelCashout2402_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+								<testParameters />
+								<children />
+							</testItem>
+							<testItem name="TRAVEL 2405 Зачисление денег" key="{F0ED8DFC-6875-4230-8BBE-C438ACC726BA}" group="False" enabled="True" testMoniker="{D2BB34C7-3776-43E9-AD3C-4555F601F06D}TravelATMDeposit_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+								<testParameters />
+								<children />
+							</testItem>
+							<testItem name="TRAVEL 2411 Получение наличных POS cash_LOCAL_INT" key="{F0742261-95E0-4713-A415-F755EE31705D}" group="False" enabled="True" testMoniker="{E6B8BFE3-E60D-4A76-86B1-B7B5D8314113}TravelCashout2411_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+								<testParameters />
+								<children />
+							</testItem>
+							<testItem name="TRAVEL 2416 оплата POS" key="{9C8E88A6-E513-4412-8655-4264C9AE9F4D}" group="False" enabled="True" testMoniker="{E0E7893A-4988-4BBC-A82C-1B8F57130694}TravelPOSBuy_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+								<testParameters />
+								<children />
+							</testItem>
+							<testItem name="TRAVEL 2423 Р2Р перевод_дебет" key="{3CFBC139-E790-4A5E-BA1A-0D64BBC310C1}" group="False" enabled="True" testMoniker="{BC0C7688-46B7-4F99-ABB0-23C20CCA4C4B}TravelTransfer2423_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+								<testParameters />
+								<children />
+							</testItem>
+							<testItem name="TRAVEL 2424 Р2Р перевод_кредит" key="{62EC59A7-7E09-459C-A81F-617D74AE4214}" group="False" enabled="True" testMoniker="{44ACA547-0B09-4091-AF57-53A86B11A333}TravelDeposit2424_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+								<testParameters />
+								<children />
+							</testItem>
+							<testItem name="TRAVEL 2543 Зачисление денег" key="{8B8470EA-E4F3-4154-BE38-18320B1AAA58}" group="False" enabled="True" testMoniker="{247D9378-42E4-48E6-A169-C01774E404A2}TravelCashin2543_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+								<testParameters />
+								<children />
+							</testItem>
+							<testItem name="TRAVEL 2560&#32;&#32;Межбанковский перевод" key="{76B7FEEB-B83E-49F7-93EB-7FAE6E8D087B}" group="False" enabled="True" testMoniker="{F0283411-0F63-4CDF-98AF-32D4E4CE8A61}BankToBank2560_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+								<testParameters />
+								<children />
+							</testItem>
+							<testItem name="TRAVEL 2553 Запрос расширенный баланс" key="{3C9B67F4-DDF6-4877-86EE-E805B1019172}" group="False" enabled="True" testMoniker="{344B1835-2416-4E03-A533-886FF4FCEC75}TravelCommis2553_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+								<testParameters />
+								<children />
+							</testItem>
+							<testItem name="TRAVEL 2451 Мини выписка" key="{25718EF4-1CCD-4654-BBFC-1B6D960F0BEB}" group="False" enabled="True" testMoniker="{3959A2CD-A060-41EB-B389-ABE92A3EDC1F}TravelExtract2451_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+								<testParameters />
+								<children />
+							</testItem>
+						</children>
+					</testItem>
+				</children>
+			</testItem>
+			<testItem name="Сценарии тестирования по IronCard" key="{3633451A-AE63-40DA-94DA-ABDF99A99C05}" group="True" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+				<testParameters />
+				<children>
+					<testItem name="Генерация данных в Iron_data" key="{08BB5BC2-4BF4-4D17-AB41-42D203AF3692}" group="False" enabled="True" testMoniker="{DF8DFFBA-631B-4E59-92EC-B5F7229EC0E6}GenerateIronClients_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="Создание договора СКС для Iron" key="{BCCE9A38-0812-48CD-A3CD-759B4933E858}" group="False" enabled="True" testMoniker="{09CA9D81-9833-49CD-84FF-7A39A9A6D154}CreateIronCKC_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="Регистрация договора СКС для Iron" key="{2860AC41-733D-4AC9-A96A-FF079EBADF5E}" group="False" enabled="True" testMoniker="{0DB1E1E8-9725-46EE-B69E-15DB046F5683}RegisterIronCKC_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="Отмена регистрация договора СКС" key="{6943A0F5-C2C5-43ED-84F4-3707691D3812}" group="False" enabled="True" testMoniker="{F13C1F33-45CB-4071-8DFA-9D3B7369E593}UndoIronRegisterCKC_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="Повторная регистрация договора СКС для Iron" key="{27B351AA-E059-42AB-A6AB-78EBA6424FCF}" group="False" enabled="True" testMoniker="{0DB1E1E8-9725-46EE-B69E-15DB046F5683}RegisterIronCKC_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="Создание Iron карты" key="{12A0C623-E2A4-4301-A11F-76A57E1FF5A0}" group="False" enabled="True" testMoniker="{9F1D7DC0-3EBC-456D-A478-DFCB678015E3}CreateIronCard_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="Отправка карты на акцепт" key="{BC7D630F-AEF8-4943-A842-8EEB6BD1F2D0}" group="False" enabled="True" testMoniker="{C7D2214B-19A2-4D50-A036-44279B25F3B9}SendIronAccept_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="IRON 2405 Пополнение баланса через ATM" key="{FC49C2D9-21C8-4C11-8655-8A8EB8567940}" group="False" enabled="True" testMoniker="{2F623FCF-B634-44B9-A609-6D68EF2FDD58}IronATMDeposit_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+						<testParameters />
+						<children>
+							<testItem name="IRON 2401 Снятие наличных через ATM" key="{B42A5F7C-D296-4E31-B99B-5C383D1547EF}" group="False" enabled="True" testMoniker="{A32AD927-DE0C-449E-93D6-A1ED0CA49E7F}IronCashout2401_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+								<testParameters />
+								<children />
+							</testItem>
+							<testItem name="IRON 2402 Снятие наличных через ATM" key="{122F5E7A-BD4D-4B14-8F78-3430AF005CF7}" group="False" enabled="True" testMoniker="{0DF85100-8D51-4416-A08C-0A104A06515F}IronCashout2402_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+								<testParameters />
+								<children />
+							</testItem>
+							<testItem name="IRON 2416 Покупка через POS " key="{FEAF93A8-550D-44D6-949D-762D8CA9E671}" group="False" enabled="True" testMoniker="{435BDAA1-F287-4965-A029-D7DC7EAA498F}IronPosBuy_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+								<testParameters />
+								<children />
+							</testItem>
+							<testItem name="IRON 2411 Снятие с баланса через POS" key="{740D11B3-BB04-40D6-9346-885050108473}" group="False" enabled="True" testMoniker="{4851AD89-24F4-48E2-AF44-B889B9074CDC}IronCashout2411_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+								<testParameters />
+								<children />
+							</testItem>
+							<testItem name="IRON 2423 Р2Р перевод_дебет" key="{FC8FF1A8-2C29-4E15-A297-C6BE6C9F25F2}" group="False" enabled="True" testMoniker="{A8C14C66-0916-4864-9DDB-BF20DB03BBDF}IronTransfer2423_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+								<testParameters />
+								<children />
+							</testItem>
+							<testItem name="IRON 2424 Р2Р перевод_кредит" key="{6147B722-A922-4C99-BC70-2A389362A4A4}" group="False" enabled="True" testMoniker="{18F19C16-158E-4E7C-9CEF-5C6C6EB94B16}IronDeposit2424_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+								<testParameters />
+								<children />
+							</testItem>
+							<testItem name="IRON 2543 Зачисление денег" key="{9E38344B-8D52-45F0-8DFF-DACC8BECADC0}" group="False" enabled="True" testMoniker="{7567BE7C-0BD1-4DB9-ABAF-71A5F8110BBA}IronCashin2543_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+								<testParameters />
+								<children />
+							</testItem>
+							<testItem name="IRON 2560&#32;&#32;Межбанковский перевод" key="{E31CA9B2-746A-4D6B-AA64-1AB3A817311D}" group="False" enabled="True" testMoniker="{51AE099E-1578-4D87-A68C-495B72AA9325}IronBanktoBank_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+								<testParameters />
+								<children />
+							</testItem>
+							<testItem name="IRON 2553 Запрос расширенный баланс" key="{69C3F524-8F60-4515-976D-D371871B01BC}" group="False" enabled="True" testMoniker="{25669F84-FC0C-4BF0-BE1A-DBB254D00984}IronCommis2553_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+								<testParameters />
+								<children />
+							</testItem>
+							<testItem name="IRON 2451 Мини выписка" key="{5E8526FD-FFDA-443F-A863-48B0D2229F41}" group="False" enabled="True" testMoniker="{BC84BE30-B3DE-40D7-8CDF-9D9BBD886555}IronExtract2451_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+								<testParameters />
+								<children />
+							</testItem>
+						</children>
+					</testItem>
+				</children>
+			</testItem>
+			<testItem name="Сценарии тестирования по JuniorCard" key="{50B06EAD-326F-488F-AD8F-2C423AE770FB}" group="True" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+				<testParameters />
+				<children>
+					<testItem name="Пополнение баланса Junior карты" key="{1E52CFE9-26EE-4A04-BC38-1FD1343D9CF4}" group="False" enabled="True" testMoniker="{9CCB131A-0962-4461-AD32-31708DC98361}JuniorATMDeposit_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="Получение наличных ATM2401 Junior карты" key="{4DED771D-30E9-42ED-828E-E155817CAF68}" group="False" enabled="True" testMoniker="{668252E9-53AA-4276-A4D1-081566568E53}JuniorCashout2401_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="Получение наличных ATM2402 Junior карты" key="{CC6BB4BC-1247-4F75-9EB7-9F7E8A9A7790}" group="False" enabled="True" testMoniker="{355C5027-49B0-464D-9244-9D1219330250}JuniorCashout2402_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="Получение наличных ATM2411 Junior карты" key="{2262C116-E865-4E62-999B-05F656CA9372}" group="False" enabled="True" testMoniker="{00D9DD13-9804-4F89-9E76-8C786945F984}JuniorCashout2411_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="POS2416 покупка через Junior карты" key="{EA829F23-5CC2-45F5-874F-30187F414E07}" group="False" enabled="True" testMoniker="{5BA2658D-9240-4608-AAA9-C45946068868}JuniorPosBuy_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+						<testParameters />
+						<children />
+					</testItem>
+				</children>
+			</testItem>
+			<testItem name="Операции внутри договора СКС в задаче NDEACRD" key="{FFF2870D-9BBB-4DC1-9648-119C9E5944DB}" group="True" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+				<testParameters />
+				<children>
+					<testItem name="Генерация данных внутри таблицы Ndeacrd" key="{7C496108-453C-46F7-BBD5-16DC9C48BBE3}" group="False" enabled="True" testMoniker="{6944749A-3497-4237-AFEE-18EA1A19F63E}GenerateNdeacrdData_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="Создание договора СКС Ndeacrd" key="{037339DB-3D63-4C8A-AC9B-663AC5CE2528}" group="False" enabled="True" testMoniker="{D6CF1CDB-45FE-4CFD-B41E-868C09DDB309}CreateNdeacrdCKC_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="Регистрация договора СКС Ndeacrd" key="{99F3D1AA-2DC5-49F6-A1E4-EF10EE4A548E}" group="False" enabled="True" testMoniker="{03E55B8F-6142-4582-AE11-23BAB7F1DB5B}RegisterNdeacrdCKC_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+						<testParameters />
+						<children>
+							<testItem name="Отмена регистрации договора СКС" key="{53A70118-AE3C-483F-90C8-D33EC4E07AF5}" group="False" enabled="True" testMoniker="{2C115A4F-825E-4F03-8D6E-00BA5172A0DF}UndoRegisterNdeacrd_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+								<testParameters />
+								<children />
+							</testItem>
+							<testItem name="Перерегистрация договора СКС Ndeacrd" key="{5D9AFD24-D84A-48ED-880F-328CF6FF0D8F}" group="False" enabled="True" testMoniker="{4AEDEC14-73F0-4A0B-9C40-A62B90AAB720}ReregisterNdeacrdDoc_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+								<testParameters />
+								<children />
+							</testItem>
+						</children>
+					</testItem>
+					<testItem name="Закрытие договора СКС" key="{764B4A9F-8529-43CA-8872-466EB4CC4514}" group="False" enabled="True" testMoniker="{5AF09C1F-EEA4-4B41-ABC7-24243771DF57}CloseNdeacrdCKC_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+						<testParameters />
+						<children>
+							<testItem name="Отмена закрытия договора СКС" key="{16CC17B0-8C2F-4730-BE0B-1282140AD501}" group="False" enabled="True" testMoniker="{5A1D3319-00B1-400E-BC65-66E579B4727E}UndoCloseCKC_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+								<testParameters />
+								<children />
+							</testItem>
+						</children>
+					</testItem>
+					<testItem name="Создание нового договора СКС" key="{02786B77-EF78-4497-B2A9-89C7E19B7575}" group="False" enabled="True" testMoniker="{D6CF1CDB-45FE-4CFD-B41E-868C09DDB309}CreateNdeacrdCKC_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="Регистрация нового договора СКС" key="{0DD2DC33-F62D-4E9F-9DEA-8917A73D04B9}" group="False" enabled="True" testMoniker="{03E55B8F-6142-4582-AE11-23BAB7F1DB5B}RegisterNdeacrdCKC_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="Перевод в другое подразделение" key="{5DD222C4-8E76-44F7-AD18-A51F7AC7617F}" group="False" enabled="True" testMoniker="{12EA4BFF-470D-4E7C-84FE-50A9C8CCACFC}ChangeDepartmentCKC_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+						<testParameters />
+						<children>
+							<testItem name="Отмена перевода в другое подразделение " key="{9906008C-AE4F-41D2-9606-55597402CCAD}" group="False" enabled="True" testMoniker="{128B5B1C-FAD1-437A-B3DB-297F40E5A485}UndoChangeDepartment_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+								<testParameters />
+								<children />
+							</testItem>
+						</children>
+					</testItem>
+					<testItem name="Создание пула карт для операции Ndeacrd" key="{3F526454-D1CD-406B-8E80-8DE001198C93}" group="False" enabled="True" testMoniker="{9F149A41-075B-4E1B-947E-5B56B0205630}CreatePullForNdeacrd_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="Подвязка инстант карты к договору СКС" key="{1DF6AA71-7639-4516-91C8-6E71AFDA8938}" group="False" enabled="True" testMoniker="{67C5C880-66C0-479B-AB11-14CC020B069C}LinkInstantCardToCKC_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="Отправить карту на акцепт " key="{920F1C81-6498-4A28-971C-6A6ADDFA7983}" group="False" enabled="True" testMoniker="{9D7822AE-5052-428F-A0FB-11EF389CBEC5}SendAcceptCardNdeacrd_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+						<testParameters />
+						<children>
+							<testItem name="Отмена отправки карты на акцепт " key="{5E174F85-AADA-444C-ADA7-96A7C08B37B4}" group="False" enabled="True" testMoniker="{5817FA34-EDCE-4814-AB0B-F2BCCBCE5800}UndoSendAccept_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+								<testParameters />
+								<children />
+							</testItem>
+							<testItem name="Переотправка карты на акцепт" key="{8CB31E90-5889-4385-9153-232E7CBE008B}" group="False" enabled="True" testMoniker="{65B7774B-7513-44F3-A0AA-F6CE30DFF025}ReSendToAccept_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+								<testParameters />
+								<children />
+							</testItem>
+						</children>
+					</testItem>
+					<testItem name="Оприходывание пластика на кассе " key="{F2691E04-989D-4167-BE23-D9299DE70A53}" group="False" enabled="True" testMoniker="{9518E016-3961-4872-9C93-E42E098FE240}AcceptFromMadvpay_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="Акцептовать карту " key="{AB672D74-524E-4CD9-A425-840A5CBDAB80}" group="False" enabled="True" testMoniker="{97099FB9-A66C-476A-A65C-4AAE3833EC3D}AcceptNdeacrdCard_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="Блокировка пластиковой карты клиента" key="{B861ACFF-AB59-4B52-9582-35BE95199F4F}" group="False" enabled="True" testMoniker="{D938296A-F09C-49B4-8895-CCD9FB1842E5}BlockCardProduct_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+						<testParameters />
+						<children>
+							<testItem name="Снятие блокировки с карты" key="{329059CC-BE68-4BC4-A331-66DC5E54EFEB}" group="False" enabled="True" testMoniker="{E0D7111D-1E81-4335-BB08-50F22626A81E}UnblockCardProduct_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+								<testParameters />
+								<children />
+							</testItem>
+							<testItem name="Обратная блокировака пластиковой карты клиента" key="{A1BBF196-3E08-46D6-A79A-756F749626E3}" group="False" enabled="True" testMoniker="{04B85F3C-C4B4-49C6-80A7-8581BD909B1F}ReBlockCardProduct_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+								<testParameters />
+								<children />
+							</testItem>
+						</children>
+					</testItem>
+					<testItem name="Изменить причину блокировки" key="{3A3465D4-DA19-4248-B527-75FD4BA58AA9}" group="False" enabled="True" testMoniker="{F08BA3CC-C6E8-4FBE-B1FE-2D5C1602E737}ChangeBlockReason_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="Перевести на обслуживание в ПС " key="{86D1E0FF-B0DF-4FC2-B704-D5CF05F3FA13}" group="False" enabled="True" testMoniker="{89417347-555B-4ED6-807A-D68DC9B55129}TransferToPS_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="Отмена перевода на обслуживание в ПС" key="{DFB58540-4696-4152-86F9-5072B1C99015}" group="False" enabled="True" testMoniker="{F5CD51B8-9621-4E24-ADE7-493A0E338D33}UndoTransferPS_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="Прием карты клиента" key="{08A8EF72-3DAD-4B03-9953-EDED0AE37237}" group="False" enabled="True" testMoniker="{B76D76A4-4F58-4A71-A9F8-8C3B14041DBD}ReceiveCard_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="Отмена приема карты" key="{566761B2-67B3-4899-9DEA-75C17862C0DF}" group="False" enabled="True" testMoniker="{D793CE3A-74C4-461D-9BE3-7100732EE524}UndoReceiveCard_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="Поставка карты в Стоп-Лист" key="{7259FA19-45B5-43AF-9516-81321C9A36E3}" group="False" enabled="True" testMoniker="{FD9476D6-B090-4FC3-8003-6FACF12C766E}SendToStopList_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="Корректировка счета предоплат " key="{76040E7D-8DCF-487A-BB9A-633E4EDFD451}" group="False" enabled="True" testMoniker="{0C235132-CD4E-455C-AC9E-7F2535535397}CorrectAccountPayment_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="Отмена корректировки счета предоплат" key="{34AB9449-D407-4893-8447-45FA37C8B0F4}" group="False" enabled="True" testMoniker="{EAB2960B-114F-4538-A07D-06C9450E9DDA}UndoCorrectAccount_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="Проводка по счетам договора" key="{556C218E-841B-4144-81E1-792FD9B090E7}" group="False" enabled="True" testMoniker="{6D720FCB-1779-42F0-9F48-7DD20875C602}AccomponyAccountCrd_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="Перевыпуск со старым номером" key="{50812213-F601-4AE3-A561-6CF8CE3C876B}" group="False" enabled="False" testMoniker="{6287DC8F-D397-4F79-8315-24A039B054BA}ReissueOldNumber_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="Итерация 2 Создание договора СКС Ndeacrd" key="{8F275EEF-F02F-4F9E-A81F-DF9BD9C550C7}" group="False" enabled="True" testMoniker="{5CDD6551-106E-43B6-ABB8-3C0524E726F3}Iter2CreateCKC_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+						<testParameters />
+						<children>
+							<testItem name="Регистрация договора СКС Итерация 2" key="{4EE68C5F-2084-4645-A85F-B0AF193E3FC6}" group="False" enabled="True" testMoniker="{D53655BD-B108-4FE9-AF68-A7DE4D7B461E}Iter2RegisterCKC_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+								<testParameters />
+								<children />
+							</testItem>
+							<testItem name="Создание пула карт для операции Итерация 2" key="{0544532D-2212-4A36-A024-C04D787781BD}" group="False" enabled="True" testMoniker="{6DBC92B4-7C7B-4BED-8C6E-F09908F5C776}Iter2CreatePull_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+								<testParameters />
+								<children />
+							</testItem>
+							<testItem name="Подвязка инстант карты к договору Итерация 2" key="{FF670C7D-5388-4319-BFBE-AA74679B88BB}" group="False" enabled="True" testMoniker="{BE603639-116D-4FB3-BA9B-B34D2A342CBF}Iter2LinkCrdCKC_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+								<testParameters />
+								<children />
+							</testItem>
+							<testItem name="Отправить карту на акцепт Итерация 2" key="{F63147D1-83F8-475C-A77E-E10AD9AC6D07}" group="False" enabled="True" testMoniker="{6408420F-5AD0-4C77-8A35-3C4DF5C001BE}Iter2SendToAccept_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+								<testParameters />
+								<children />
+							</testItem>
+							<testItem name="Оприходывание пластика на кассе Итерация 2" key="{0F705A5F-F381-47E8-9970-ABD2B8254679}" group="False" enabled="True" testMoniker="{9518E016-3961-4872-9C93-E42E098FE240}AcceptFromMadvpay_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+								<testParameters />
+								<children />
+							</testItem>
+							<testItem name="Отказать в акцептовании Итерация 2" key="{049A1004-47CD-4A79-8B04-440BA40C4DAB}" group="False" enabled="True" testMoniker="{B4CC73B6-BB52-4E86-A182-855BAD5D85B5}AcceptRefusalCrd_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+								<testParameters />
+								<children>
+									<testItem name="Отмена отказа в акцептовании Итерация 2" key="{768BF238-56C2-48D8-94EF-71E7508A5F41}" group="False" enabled="True" testMoniker="{4B6F2892-636A-4503-AC3B-2BFE38DC140B}UndoRefusalAcceptance_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+										<testParameters />
+										<children />
+									</testItem>
+									<testItem name="Обратный отказ в акцептовании Итерация 2" key="{235CB5E4-8CDD-492F-B08D-B51AACEF3CF3}" group="False" enabled="True" testMoniker="{E0C93632-82C3-4822-9232-53106A797A82}ReAcceptRefusalCrd_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+										<testParameters />
+										<children />
+									</testItem>
+								</children>
+							</testItem>
+							<testItem name="Вернуть на акцептование Итерация 2" key="{6E72B4D7-C52F-406E-A3C8-70E320D44946}" group="False" enabled="True" testMoniker="{E9139E78-B664-46D2-9C30-3FE1B646BDE6}ReturnForAcceptance_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+								<testParameters />
+								<children />
+							</testItem>
+							<testItem name="Отменить возврат с акцептования Итерация 2" key="{B917D2EC-D700-4BF2-AC63-25680A2F1BEC}" group="False" enabled="True" testMoniker="{DFA7DEB5-7922-40B6-8DDE-D9C64CE5493A}UndoReturnAccept_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+								<testParameters />
+								<children>
+									<testItem name="Новая отмена отказа в акцептовании Итерация 2" key="{B9C8F85F-E511-42CE-BC08-9DCE993B0DFE}" group="False" enabled="True" testMoniker="{67B9471C-73E7-4F1A-BB46-7AEA1731D1F6}ReUndoRefusalAccept_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+										<testParameters />
+										<children />
+									</testItem>
+								</children>
+							</testItem>
+							<testItem name="Акцептование карты клиента Итерация 2" key="{4CA55945-489F-42C3-A62D-475915302841}" group="False" enabled="True" testMoniker="{3555E311-0ECB-4758-99BE-37EE9F792E07}Iter2AcceptCard_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+								<testParameters />
+								<children />
+							</testItem>
+							<testItem name="Сбросить счетчик ввода PIN Итерация 2" key="{B0E4CD61-31F4-4D70-934B-2DF5EFC031C8}" group="False" enabled="True" testMoniker="{2CD31D00-F112-4C15-91AC-18BA05FB6500}ResetPinCounter_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+								<testParameters />
+								<children />
+							</testItem>
+							<testItem name="Сформировать архивную выписку Итерация 2" key="{18284FDA-71F6-47DC-A51B-1DA37EC5E04F}" group="False" enabled="True" testMoniker="{CFC857F2-5CBF-44E7-97A9-58DE29F1269D}CreateArchiveInfo_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+								<testParameters />
+								<children />
+							</testItem>
+							<testItem name="Отмена архивной выписки Итерация 2" key="{03658B64-9044-42AB-940B-34ACB748D55E}" group="False" enabled="True" testMoniker="{F0652933-DEAF-452A-A4CC-4D96130D3041}CreateArchiveInfo_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+								<testParameters />
+								<children />
+							</testItem>
+							<testItem name="Проверка баланса карты Итерация 2" key="{4F14DBF3-D5EE-4F84-A820-0406828318C7}" group="False" enabled="True" testMoniker="{CCF19436-041B-4433-ABB4-97FC80D867D1}CheckCardBalance_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+								<testParameters />
+								<children />
+							</testItem>
+							<testItem name="Сделать основной картой Итерация 2" key="{525211C1-1F95-4FC0-82F6-967B6EB20645}" group="False" enabled="True" testMoniker="{104A5BF3-BF52-49F4-ABEA-6E15A87DE5AD}MakeCardMain_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+								<testParameters />
+								<children />
+							</testItem>
+							<testItem name="Блокировка карты перед закрытием Итерация 2" key="{CD5C0E7B-2F1E-42F3-993E-528FCAAFF53F}" group="False" enabled="True" testMoniker="{5CDCEEEC-F5EE-4973-91DB-FB7427BE63E2}BlockCardBeforeClose_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+								<testParameters />
+								<children />
+							</testItem>
+						</children>
+					</testItem>
+				</children>
+			</testItem>
+			<testItem name="Информирование клиента" key="{02D95842-B505-4E5B-B175-808EF6598DED}" group="True" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+				<testParameters />
+				<children>
+					<testItem name="Создание договора информирования" key="{91B7C19A-DEB8-47F4-A370-545FBF2E0247}" group="False" enabled="True" testMoniker="{39642F1D-05BE-4F7E-A852-7B4685573BA6}CreateInfDea_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="Регистрация договора информирования " key="{7B51B141-297E-42CA-AD23-740C321B000A}" group="False" enabled="True" testMoniker="{3D8F8F6C-2469-4246-867E-4D3CB66D04DF}RegisterInfDea_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="Проверка абонента рассылки" key="{49651B5F-0C51-4F47-ACA9-9635053A9DD9}" group="False" enabled="True" testMoniker="{169D75D2-8CD3-4F7F-8502-1491FBBE8350}CheckInfAbonent_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="Проверка пересоздания договора" key="{2F5E2DDD-522C-4492-B286-5B4B6117B45E}" group="False" enabled="True" testMoniker="{8524FCAD-7A9E-48AF-8F36-0E59911B84C0}ReCreateInfDea_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="Проверка подключенных профилей" key="{1EDEECDD-F145-4867-9133-73DF1DDBB3A0}" group="False" enabled="True" testMoniker="{230E1979-3BEA-4E39-9E5C-9077CCEF992E}CheckProfileInfDea_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="Подключение профиля информирования " key="{942B57D8-77D3-4F03-B861-A5885042D8B0}" group="False" enabled="True" testMoniker="{4CCF7635-0B65-43E9-B5F3-F86DE28D3BE1}LinkProfileInfDea_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="Проверка добавленных профилей " key="{E93B969A-E09D-41E0-83C0-D37AC556AED2}" group="False" enabled="True" testMoniker="{475A0B90-1889-420F-8EC1-0A404EB26BFC}CheckAddedProfile_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="Подключение полного профиля информирования " key="{810FD020-14F8-46E2-A746-8497BCA53375}" group="False" enabled="True" testMoniker="{F4CE197D-A0DC-4DAC-AF41-E617435333CD}AddFullProfileDea_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="Проверка добавленных полных профилей " key="{B94D41AE-48CC-42E3-A666-CDD8CC80B013}" group="False" enabled="True" testMoniker="{32004A3B-953F-4993-9394-D80B8E5A3C48}CheckAddedFullProfile_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="Отмена привязки профиля" key="{3458A43C-64E1-457B-8348-F140DCE032E2}" group="False" enabled="True" testMoniker="{FB8931B6-8B5B-4A90-8494-0884D60C1860}UndoLinkProfile_AllDataSet" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+						<testParameters />
+						<children />
+					</testItem>
+				</children>
+			</testItem>
+		</children>
+	</testItems>
+	<variables key="{9E6BD535-7245-4E3C-A6A0-DFF0689B236A}">
+		<data Version="3" />
+	</variables>
+	<settings key="{7827B8B8-62DC-435B-B39C-85AE20855559}">
+		<settingsVersion value="14.10" />
+		<setting name="ApplicationHangingProcessFilterMode" type="6" rowIndex="4" colIndex="0">
+			<columns>
+				<column type="5" enabled="True" />
+			</columns>
+			<data>
+				<row val0="Use all processes" />
+				<row val0="Use only tested applications" />
+				<row val0="Use only selected processes" />
+				<row val0="Ignore selected processes" />
+				<row val0="Ignore all processes" />
+			</data>
+		</setting>
+		<setting name="ApplicationHangingProcessList" type="6" rowIndex="-1" colIndex="0">
+			<columns>
+				<column type="5" enabled="True" />
+			</columns>
+			<data />
+		</setting>
+		<setting name="ApplicationHangingTimeout" type="2" value="30000" />
+		<setting name="CLRBridge_PreferredApartmentModel" type="6" rowIndex="0" colIndex="0">
+			<columns>
+				<column type="5" enabled="True" />
+			</columns>
+			<data>
+				<row val0="Does not matter" />
+				<row val0="Single-threaded apartment" />
+				<row val0="Multi-threaded apartment" />
+			</data>
+		</setting>
+		<setting name="CLRBridge_PreferredArchitecture" type="6" rowIndex="1" colIndex="0">
+			<columns>
+				<column type="5" enabled="True" />
+			</columns>
+			<data>
+				<row val0="The same as the operating system" />
+				<row val0="32-bit" />
+				<row val0="64-bit" />
+			</data>
+		</setting>
+		<setting name="CLRBridge_SelectedComponents" type="6" rowIndex="-1" colIndex="1">
+			<columns>
+				<column type="5" enabled="True" />
+				<column type="1" enabled="True" />
+			</columns>
+			<data />
+		</setting>
+		<setting name="CountProcessesOfAllUsers" type="1" value="True" />
+		<setting name="DbgServices_Active" type="1" value="True" />
+		<setting name="DbgServices_DepthShown" type="2" value="10" />
+		<setting name="DbgServices_EnableEvents" type="1" value="True" />
+		<setting name="DbgServices_Priority" type="6" rowIndex="3" colIndex="0">
+			<columns>
+				<column type="5" enabled="True" />
+			</columns>
+			<data>
+				<row val0="pmLowest" />
+				<row val0="pmLower" />
+				<row val0="pmNormal" />
+				<row val0="pmHigher" />
+				<row val0="pmHighest" />
+			</data>
+		</setting>
+		<setting name="DbgServices_UseExtendedDebugger" type="1" value="True" />
+		<setting name="DraggingDelay" type="2" value="5" />
+		<setting name="General_CurrentImageFormat" type="5" value="126_0_0_0_97_113_115_111_1_0_0_0_4_0_0_0_114_0_111_0_111_0_116_0_1_0_0_0_9_0_0_0_102_0_111_0_114_0_109_0_97_0_116_0_107_0_101_0_121_0_1_0_0_0_38_0_0_0_123_0_66_0_65_0_55_0_52_0_53_0_49_0_54_0_57_0_45_0_70_0_51_0_52_0_68_0_45_0_52_0_55_0_49_0_48_0_45_0_66_0_51_0_55_0_70_0_45_0_68_0_53_0_69_0_70_0_69_0_56_0_65_0_53_0_49_0_51_0_51_0_57_0_125_0_1_0_0_0_16_0_0_0_112_0_110_0_103_0_99_0_111_0_110_0_102_0_105_0_103_0_117_0_114_0_97_0_116_0_105_0_111_0_110_0_2_0_0_0_16_0_0_0_99_0_111_0_109_0_112_0_114_0_101_0_115_0_115_0_105_0_111_0_110_0_108_0_101_0_118_0_101_0_108_0_0_0_0_0_4_0_0_0_10_0_0_0_105_0_110_0_116_0_101_0_114_0_108_0_97_0_99_0_101_0_100_0_5_0_0_0_0_0_0_0_0_0_" />
+		<setting name="General_DisableDWMBeforeCapturingImage" type="1" value="True" />
+		<setting name="General_ImageFormat" type="5" value="Format: PNG; Compression level: 4" />
+		<setting name="General_ObjectTreeModel" type="6" rowIndex="0" colIndex="0">
+			<columns>
+				<column type="5" enabled="True" />
+			</columns>
+			<data>
+				<row val0="Tree" />
+				<row val0="Flat" />
+			</data>
+		</setting>
+		<setting name="General_ProjectLogLocation" type="5" value="Log" />
+		<setting name="General_UnitsEncoding" type="6" rowIndex="1" colIndex="0">
+			<columns>
+				<column type="5" enabled="True" />
+			</columns>
+			<data>
+				<row val0="UTF-16" />
+				<row val0="UTF-8" />
+				<row val0="ANSI" />
+				<row val0="Auto" />
+			</data>
+		</setting>
+		<setting name="HipTest_ProjectID" type="2" value="-1" />
+		<setting name="HipTest_ProjectName" type="5" value="The current project is not bound to HipTest." />
+		<setting name="HipTest_SaveResults" type="1" value="True" />
+		<setting name="HipTest_SynchronizeBeforeRun" type="1" value="True" />
+		<setting name="HipTest_SynchronizeOnOpening" type="1" value="True" />
+		<setting name="HipTest_SynchronizeTestRun" type="1" value="False" />
+		<setting name="HipTest_TestRunID" type="5" value="" />
+		<setting name="HipTest_TestRunName" type="5" value="[Test run created last]" />
+		<setting name="JavaBridge_Classes" type="6" rowIndex="-1" colIndex="0">
+			<columns>
+				<column type="5" enabled="True" />
+			</columns>
+			<data />
+		</setting>
+		<setting name="JavaBridge_ClassPaths" type="6" rowIndex="-1" colIndex="0">
+			<columns>
+				<column type="5" enabled="True" />
+			</columns>
+			<data />
+		</setting>
+		<setting name="JavaFXOpenApp_DoNotRecognizeJavaFXStageAsAWTComponent" type="1" value="True" />
+		<setting name="JavaFXOpenApp_ExposedCustomNodes" type="6" rowIndex="-1" colIndex="2">
+			<columns>
+				<column type="1" enabled="True" />
+				<column type="5" enabled="True" />
+				<column type="5" enabled="True" />
+			</columns>
+			<data />
+		</setting>
+		<setting name="JavaFXOpenApp_NodeByClassNameFilters" type="6" rowIndex="8" colIndex="2">
+			<columns>
+				<column type="1" enabled="True" />
+				<column type="5" enabled="True" />
+				<column type="1" enabled="True" />
+			</columns>
+			<data>
+				<row val0="False" val1="*" val2="False" />
+				<row val0="True" val1="javafx.scene.SubScene" val2="True" />
+				<row val0="True" val1="javafx.scene.control.Control" val2="True" />
+				<row val0="True" val1="javafx.scene.web.WebView" val2="False" />
+				<row val0="False" val1="javafx.scene.canvas.Canvas" val2="True" />
+				<row val0="False" val1="javafx.scene.image.ImageView" val2="True" />
+				<row val0="False" val1="javafx.scene.media.MediaView" val2="True" />
+				<row val0="True" val1="com.sun.javafx.scene.control.skin.ContextMenuContent$MenuItemContainer" val2="True" />
+				<row val0="True" val1="com.sun.javafx.scene.control.ContextMenuContent$MenuItemContainer" val2="True" />
+			</data>
+		</setting>
+		<setting name="JavaOpenApp_DoNotRecognizeChildSWTAsParent" type="1" value="False" />
+		<setting name="KeyPressingDelay" type="2" value="0" />
+		<setting name="MouseMovementDelay" type="2" value="0" />
+		<setting name="ObjectMapping_Objects" type="6" rowIndex="-1" colIndex="3">
+			<columns>
+				<column type="5" enabled="True" />
+				<column type="5" enabled="True" />
+				<column type="2" enabled="True" />
+				<column type="2" enabled="True" />
+			</columns>
+			<data />
+		</setting>
+		<setting name="OpenApps_ActivateSystemProcesses" type="1" value="False" />
+		<setting name="OpenApps_DbgAgent_AdvancedExceptionHandling" type="1" value="True" />
+		<setting name="OpenApps_DbgAgent_CombineClassDefinitions" type="1" value="False" />
+		<setting name="OpenApps_DbgAgent_EnableDebugAgent" type="1" value="True" />
+		<setting name="OpenApps_DbgAgent_StringLengthLimit" type="2" value="1024" />
+		<setting name="OpenApps_DbgAgent_UseStaticLibs" type="1" value="True" />
+		<setting name="OpenApps_EnableMultipleNamesForObjects" type="1" value="False" />
+		<setting name="OpenApps_MethodInvokeTimeout" type="2" value="3000" />
+		<setting name="OpenApps_MSAA_ListOfAcceptedWindows" type="6" rowIndex="15" colIndex="1">
+			<columns>
+				<column type="1" enabled="True" />
+				<column type="5" enabled="True" />
+			</columns>
+			<data>
+				<row val0="True" val1="*" />
+				<row val0="True" val1="MsoCommandBar*" />
+				<row val0="True" val1="_Ww*" />
+				<row val0="True" val1="OpusApp" />
+				<row val0="True" val1="Vfp*" />
+				<row val0="True" val1="bosa_sdm_Microsoft Word *" />
+				<row val0="False" val1="Internet Explorer_Server" />
+				<row val0="True" val1="XTPToolBar" />
+				<row val0="True" val1="XTPDockingPaneTabbedContainer" />
+				<row val0="True" val1="XTPTaskPanel" />
+				<row val0="True" val1="XTPReport" />
+				<row val0="True" val1="XTPPopupBar" />
+				<row val0="True" val1="TExDbGrid" />
+				<row val0="True" val1="DBGrid *" />
+				<row val0="True" val1="VCLObject(&quot;DBGrid&quot;)" />
+				<row val0="True" val1="TDBGrid *" />
+			</data>
+		</setting>
+		<setting name="OpenApps_MSAA_TreeModel" type="1" value="False" />
+		<setting name="OpenApps_PriorityOfObjects" type="6" rowIndex="9" colIndex="0">
+			<columns>
+				<column type="5" enabled="True" />
+			</columns>
+			<data>
+				<row val0="NativeVBObject" />
+				<row val0="NativeDelphiObject" />
+				<row val0="NativeTextObject" />
+				<row val0="NativeJavaObject" />
+				<row val0="NativeClrObject" />
+				<row val0="NativeCPPObject" />
+				<row val0="NativeJavaFXObject" />
+				<row val0="NativeQtObject" />
+				<row val0="NativeUIAObject" />
+				<row val0="NativeMSAA" />
+			</data>
+		</setting>
+		<setting name="OpenApps_ProcessFilter_ProcessFilterMode" type="6" rowIndex="0" colIndex="0">
+			<columns>
+				<column type="5" enabled="True" />
+			</columns>
+			<data>
+				<row val0="Use all processes" />
+				<row val0="Use only tested applications" />
+				<row val0="Use only selected processes" />
+				<row val0="Ignore selected processes" />
+			</data>
+		</setting>
+		<setting name="OpenApps_ProcessFilter_ProcessList" type="6" rowIndex="-1" colIndex="0">
+			<columns>
+				<column type="5" enabled="True" />
+			</columns>
+			<data />
+		</setting>
+		<setting name="OpenApps_UIA_ListOfAcceptedWindows" type="6" rowIndex="2" colIndex="1">
+			<columns>
+				<column type="1" enabled="True" />
+				<column type="5" enabled="True" />
+			</columns>
+			<data>
+				<row val0="False" val1="*" />
+				<row val0="True" val1="DirectUIHWND" />
+				<row val0="True" val1="Windows.UI.Core.CoreWindow" />
+			</data>
+		</setting>
+		<setting name="OpenApps_UseNativeObjectNames" type="1" value="True" />
+		<setting name="OpenApps_WPF_CompositeControls" type="6" rowIndex="-1" colIndex="2">
+			<columns>
+				<column type="1" enabled="True" />
+				<column type="5" enabled="True" />
+				<column type="5" enabled="True" />
+			</columns>
+			<data />
+		</setting>
+		<setting name="OpenApps_WPF_ItemsTemplates" type="6" rowIndex="-1" colIndex="2">
+			<columns>
+				<column type="1" enabled="True" />
+				<column type="5" enabled="True" />
+				<column type="5" enabled="True" />
+			</columns>
+			<data />
+		</setting>
+		<setting name="OpenApps_WPF_SimplifiedWPFObjectTree" type="1" value="False" />
+		<setting name="PerformanceCounters_List" type="6" rowIndex="-1" colIndex="0">
+			<columns>
+				<column type="5" enabled="True" />
+				<column type="5" enabled="True" />
+				<column type="2" enabled="True" />
+				<column type="2" enabled="True" />
+				<column type="5" enabled="True" />
+				<column type="1" enabled="True" />
+			</columns>
+			<data />
+		</setting>
+		<setting name="Playback_ErrHandling_OnError" type="6" rowIndex="2" colIndex="1">
+			<columns>
+				<column type="5" enabled="True" />
+				<column type="2" enabled="True" />
+			</columns>
+			<data>
+				<row val0="Continue running" val1="0" />
+				<row val0="Stop project" val1="1" />
+				<row val0="Stop test item" val1="2" />
+			</data>
+		</setting>
+		<setting name="Playback_ErrHandling_OnObjectRecognitionError" type="6" rowIndex="0" colIndex="1">
+			<columns>
+				<column type="5" enabled="True" />
+				<column type="2" enabled="True" />
+			</columns>
+			<data>
+				<row val0="Continue running" val1="0" />
+				<row val0="Stop project" val1="1" />
+				<row val0="Stop test item" val1="2" />
+			</data>
+		</setting>
+		<setting name="Playback_ErrHandling_OnWarning" type="6" rowIndex="0" colIndex="1">
+			<columns>
+				<column type="5" enabled="True" />
+				<column type="2" enabled="True" />
+			</columns>
+			<data>
+				<row val0="Continue running" val1="0" />
+				<row val0="Stop project" val1="1" />
+				<row val0="Stop test item" val1="2" />
+			</data>
+		</setting>
+		<setting name="Playback_ErrHandling_ShowErrorDialog" type="1" value="True" />
+		<setting name="Playback_Log_AutosaveInterval" type="2" value="0" />
+		<setting name="Playback_Log_EventCount" type="2" value="0" />
+		<setting name="Playback_Log_PostImageOnError" type="1" value="True" />
+		<setting name="Playback_ObjectSearchStrategy" type="6" rowIndex="1" colIndex="0">
+			<columns>
+				<column type="5" enabled="True" />
+			</columns>
+			<data>
+				<row val0="Depth-first" />
+				<row val0="Breadth-first" />
+			</data>
+		</setting>
+		<setting name="Playback_OverlappingWindow_IgnoreOverlappingWindow" type="1" value="False" />
+		<setting name="Playback_Runtime_AutoWaitTimeout" type="2" value="10000" />
+		<setting name="Playback_Runtime_DelayBetweenEvents" type="2" value="50" />
+		<setting name="Playback_Runtime_DisableMouse" type="1" value="False" />
+		<setting name="Playback_Runtime_MinimizeBeforePlayback" type="1" value="False" />
+		<setting name="Playback_Runtime_UseCaseSensitiveParameters" type="1" value="False" />
+		<setting name="Playback_StopOnError" type="1" value="True" />
+		<setting name="Playback_StopOnObjectRecognitionError" type="1" value="False" />
+		<setting name="Playback_StopOnWarning" type="1" value="False" />
+		<setting name="Playback_UnexpectedWndHandling_ClickOnFocusedControl" type="1" value="True" />
+		<setting name="Playback_UnexpectedWndHandling_IgnoreUnexpectedWindow" type="1" value="False" />
+		<setting name="Playback_UnexpectedWndHandling_PressEnter" type="1" value="True" />
+		<setting name="Playback_UnexpectedWndHandling_PressEsc" type="1" value="True" />
+		<setting name="Playback_UnexpectedWndHandling_SendCloseCommand" type="1" value="True" />
+		<setting name="Playback_UnexpectedWndHandling_StopExecution" type="1" value="False" />
+		<setting name="Recording_TestedAppsOnly" type="1" value="False" />
+		<setting name="RecreateActiveXObjects" type="1" value="False" />
+		<setting name="TextRecognizer_AcceptedProcesses" type="6" rowIndex="0" colIndex="1">
+			<columns>
+				<column type="1" enabled="True" />
+				<column type="5" enabled="True" />
+			</columns>
+			<data>
+				<row val0="True" val1="Sys.Process(&quot;COLVIR&quot;)" />
+			</data>
+		</setting>
+		<setting name="TextRecognizer_AcceptedWindows" type="6" rowIndex="1" colIndex="1">
+			<columns>
+				<column type="1" enabled="True" />
+				<column type="5" enabled="True" />
+			</columns>
+			<data>
+				<row val0="True" val1="#32768" />
+				<row val0="True" val1="TExDBGrid" />
+			</data>
+		</setting>
+		<setting name="Visualizer_AutoUpdate" type="1" value="False" />
+		<setting name="Visualizer_AutoUpdateMode" type="6" rowIndex="0" colIndex="0">
+			<columns>
+				<column type="5" enabled="True" />
+			</columns>
+			<data>
+				<row val0="Update existing frames and capture new frames, if needed" />
+				<row val0="Update existing frames only" />
+			</data>
+		</setting>
+		<setting name="Visualizer_BindToSCC" type="1" value="True" />
+		<setting name="Visualizer_CaptureStyle" type="6" rowIndex="0" colIndex="0">
+			<columns>
+				<column type="5" enabled="True" />
+			</columns>
+			<data>
+				<row val0="Top-level parent" />
+				<row val0="Desktop" />
+			</data>
+		</setting>
+		<setting name="Visualizer_DeleteAll" type="1" value="True" />
+		<setting name="Visualizer_PlaybackCaptureProperties" type="1" value="False" />
+		<setting name="Visualizer_PlaybackCollectMode" type="6" rowIndex="1" colIndex="0">
+			<columns>
+				<column type="5" enabled="True" />
+			</columns>
+			<data>
+				<row val0="Off" />
+				<row val0="Capture images" />
+			</data>
+		</setting>
+		<setting name="Visualizer_RecordingCaptureProperties" type="1" value="False" />
+		<setting name="Visualizer_RecordingCollectMode" type="6" rowIndex="1" colIndex="0">
+			<columns>
+				<column type="5" enabled="True" />
+			</columns>
+			<data>
+				<row val0="Off" />
+				<row val0="Capture images" />
+			</data>
+		</setting>
+		<setting name="Visualizer_UseDuringPlayback" type="1" value="True" />
+		<setting name="Visualizer_UseDuringRecording" type="1" value="True" />
+		<setting name="ZFJ_Cycle" type="5" value="" />
+		<setting name="ZFJ_ExecutionStatus_Failed" type="5" value="FAIL" />
+		<setting name="ZFJ_ExecutionStatus_Passed" type="5" value="PASS" />
+		<setting name="ZFJ_ExecutionStatus_Wip" type="5" value="WIP" />
+		<setting name="ZFJ_ExecutionStepStatus_Unexecuted" type="5" value="UNEXECUTED" />
+		<setting name="ZFJ_InstanceType" type="6" rowIndex="1" colIndex="0">
+			<columns>
+				<column type="5" enabled="True" />
+			</columns>
+			<data>
+				<row val0="Zephyr for Jira Server" />
+				<row val0="Zephyr for Jira Cloud" />
+			</data>
+		</setting>
+		<setting name="ZFJ_JiraLogin" type="5" value="" />
+		<setting name="ZFJ_JiraPassword" type="5" value="" />
+		<setting name="ZFJ_JiraProject" type="5" value="" />
+		<setting name="ZFJ_JiraUrl" type="5" value="" />
+		<setting name="ZFJ_TestIssueTypeName" type="5" value="Test" />
+		<setting name="ZFJ_Version" type="5" value="" />
+		<setting name="ZFJ_ZephyrAccessKey" type="5" value="" />
+		<setting name="ZFJ_ZephyrSecretKey" type="5" value="" />
+	</settings>
+	<analysis key="{20DF2423-8596-4D3E-899A-3221333F5735}" />
+	<scc key="{00000000-0000-0000-0000-000000000000}" name="">
+		<data />
+	</scc>
+	<issueTracking key="{275CC779-8C9D-406E-823C-A86B34D7869B}">
+		<Templates>
+			<Template Id="{1EB17ADF-E4EB-404D-97DC-AD758A1E8C1D}" ConnectionId="{00000000-0000-0000-0000-000000000000}" Description="This template is used by TestComplete&apos;s Log subsystem to post test results to an issue-tracking system. You can also use it at your desire." Name="CreateWorkItem" IsSystem="True" ItemTypeName="" ProjectName="" IsEditing="False" ItemId="">
+				<Fields>
+					<Field ItemId="{ABD9F549-0DAD-4DA2-B547-4477DD0C841F}" AliasIsRequired="True" DBFieldNameIsRequired="False" Value="" DBFieldName="" Alias="Subject" />
+					<Field ItemId="{C72291B3-6376-4373-9D7D-E669AB45218E}" AliasIsRequired="True" DBFieldNameIsRequired="False" Value="" DBFieldName="" Alias="Description" />
+				</Fields>
+			</Template>
+		</Templates>
+	</issueTracking>
+</Root>

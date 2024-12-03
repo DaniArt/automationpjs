@@ -1,0 +1,7 @@
+﻿from CardFramework import *
+
+
+
+def check():
+  frame = CardFramework()
+  frame.SaveDebugLog()

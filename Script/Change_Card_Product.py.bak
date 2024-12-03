@@ -1,0 +1,57 @@
+﻿from CardFramework import *
+
+def ChangeCardProduct_AllDataSet():
+    """ Операция изменения карточного продукта по всему датасету """
+    NCRD = CardFramework()
+    login_user, pass_user = NCRD.GetLoginPass('BOC_OFICER')
+    NCRD.LoginInColvir(login_user, pass_user)
+    data_list = NCRD.ReadDatasetFromDB('travel_data')
+    for row in data_list:
+      try:
+          if row['IDN_CARD'] and row['ITER_CODE'] == '1':
+              name_file = f'{NCRD.GetRandomNumber()}_ChangeCardProduct.json'   
+              ChangeCardProduct(row['CLI_ID'], name_file)
+          elif row['IDN_CARD'] is None and row['ITER_CODE'] == '1':
+              name_file = f'{NCRD.GetRandomNumber()}_ChangeCardInfo.json'
+              NCRD.CreateAllureReport("Colvir. Модуль - БОКС/ПС", f"Изменения карточного продукта карты клиента {cli_id}", 
+                                                f"{TestVariables().get_var('_dcmnt_nt_fnd')}", name_file)
+        except Exception as e:
+            Log.Event('Возникла ошибка идем дальше')
+            
+def ChangeCardProduct(cli_id, name_file):
+    """ Операция изменения карточного продукта """
+    NCRD = CardFramework() 
+    # Создание главной иерархии json отчета
+    new_path = NCRD.GetEnviron('NEW_PATH')
+    name_pict = name_file.replace("json", "png")  
+    NCRD.CreateJsonFile(name_file) #Создание файла джейсон с пустым словарем в теле
+    key = ["name", "description", "start"]
+    value = ["Акцепт карты - Операция изменения карточного продукта", f"Изменения карточного продукта карты клиента {cli_id}", NCRD.GetDateTimeMilli()]
+    abs_path = NCRD.FindAbsPathFile(name_file) # Получение абсолютного пути файла
+    NCRD.AddKeyValueJson(abs_path, key, value)
+    def_dict = NCRD.GetDefaultDict(abs_path)
+    key_labels_suite = ["name", "value"]
+    value_labels_suite = ["suite", "Colvir. Модуль - БОКС/ПС"]
+    NCRD.AddNestedElements(abs_path, 'labels', key_labels_suite, value_labels_suite)
+    key_labels_subsuite = ["name", "value"]
+    value_labels_subsuite = ["subSuite", "Продукт - Travel карта"]
+    NCRD.AddNestedElements(abs_path, 'labels', key_labels_subsuite, value_labels_subsuite)
+    # Начало работы скрипта автотеста     
+    try: 
+        NCRD.TaskInput('NCRD')
+        NCRD.WaitLoadWindow('frmFilterParams')
+        NCRD.SetFilter(CLI_CODE=cli_id) # Берем номер идентификатора из бд, для поиска нашей карты
+        NCRD.WaitLoadWindow('NCrdList')
+        but_operations = Sys.Process("COLVIR").VCLObject("NCrdList").VCLObject("btnRunOperation") # Определение контекстного меню с опреациямии
+        but_operations.Click()
+        NCRD.FindNeedOperation("Изменить карточный продукт") 
+        NCRD.ConfirmOperation("Изменить карточный продукт")
+        prod_code = NCRD.FindChildField("frmDynamicDialog", "Name", "VCLObject('DCL_CODE')")
+        prod_code.Keys('0.300.012.15')
+        btn_ok = NCRD.FindChildField("frmDynamicDialog", "Name", "VCLObject('btnOK')")
+        btn_ok.Click()
+    except Exception as error:
+        Log.Warning(f"Error: {error}")
+        # Дополнительные действия по обработке ошибки
+        NCRD.AllureReportTemplate(abs_path, name_file, "Возникла непредвиденная ошибка", "failed", {"message": f"Возникла непредвиденная ошибка"},
+                                     'desktop', None, new_path, "failed", 2, 1, rm=True) 

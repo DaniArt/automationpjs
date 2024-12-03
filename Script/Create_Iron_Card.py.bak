@@ -1,0 +1,124 @@
+﻿from CardFramework import *
+
+def CreateIronCard_AllDataSet():
+    """ Подвязка карты моментального выпуска к договору СКС по всему датасету """
+    Ndeacrd = CardFramework()
+    Ndeacrd.LoginInColvir()
+    data_list = Ndeacrd.ReadDatasetFromDB('iron_data')
+    for row in data_list:
+        try:
+            if row['DOC_CODE']:
+                name_file = f'{Ndeacrd.GetRandomNumber()}_CreateIronCard.json' 
+                form_data = CreateIronCard(row['PRODUCT'], row['CLI_ID'], row['DEPO_CODE'], row['TARIF_CODE'], name_file)
+                row['IDN_CARD'] = form_data
+                Ndeacrd.UpdateDatasetTableDB('iron_data', data_list)
+            elif row['DOC_CODE'] is None:
+                name_file = f'{Ndeacrd.GetRandomNumber()}_CreateIronCard.json'
+                Ndeacrd.CreateAllureReport("Colvir. Модуль - БОКС/ПС", f"Подвязка договора СКС Iron карта", 
+                                                  f"{TestVariables().get_var('_dcmnt_nt_fnd')}", name_file)
+        except Exception as e:
+            Log.Event('Возникла ошибка идем дальше')
+             
+def CreateIronCard(product, cli_id, depo, tarif, name_file):
+    """ Подвязка карты моментального выпуска к договору СКС """
+    card_idn = ''
+    count = 1
+    Ndeacrd = CardFramework()
+    today_date = Ndeacrd.GetSysDateShort()
+    # Создание главной иерархии json отчета
+    new_path = Ndeacrd.GetEnviron('NEW_PATH')
+    name_pict = name_file.replace("json", "png")  
+    Ndeacrd.CreateJsonFile(name_file) #Создание файла джейсон с пустым словарем в теле
+    key = ["name", "description", "start"]
+    value = ["Подвязка договора СКС", "Подвязка карты моментального выпуска к договору СКС", Ndeacrd.GetDateTimeMilli()]
+    abs_path = Ndeacrd.FindAbsPathFile(name_file) # Получение абсолютного пути файла
+    Ndeacrd.AddKeyValueJson(abs_path, key, value)
+    def_dict = Ndeacrd.GetDefaultDict(abs_path)
+    key_labels_suite = ["name", "value"]
+    value_labels_suite = ["suite", "Colvir. Модуль - БОКС/ПС"]
+    Ndeacrd.AddNestedElements(abs_path, 'labels', key_labels_suite, value_labels_suite)
+    key_labels_subsuite = ["name", "value"]
+    value_labels_subsuite = ["subSuite", "Продукт - Iron карта"]
+    Ndeacrd.AddNestedElements(abs_path, 'labels', key_labels_subsuite, value_labels_subsuite)
+    # Начало работы скрипта автотеста
+    try:
+        Ndeacrd.TaskInput('NDEACRD')
+        Ndeacrd.WaitLoadWindow('frmFilterParams')
+        Ndeacrd.SetFilter(CLI_CODE=cli_id) # Вставляем номер документа из бд, для поиска нашего заведенного договора
+        Ndeacrd.WaitLoadWindow('DeaSCAList', time_await=3000)
+        browse_btn = Ndeacrd.FindChildField("DeaSCAList", "Name", "VCLObject('btnBrowse')")
+        browse_btn.Click()
+        Ndeacrd.WaitLoadWindow('DeaSCADetail', time_await=3000)
+        create_btn = Ndeacrd.FindChildField("DeaSCADetail", "Name", "VCLObject('btnInsertDtl')")
+        create_btn.Click()
+        find_btn = Ndeacrd.FindChildField("frmDclTreeUsePrmRefer", "Name", "VCLObject('btnFind')")
+        find_btn.Click()
+        value_field = Ndeacrd.FindChildField("frmFindDlg", "Name", "VCLObject('edValue')")
+        value_field.Keys(product)
+        Delay(1000)
+        ok_choose1 = Ndeacrd.FindChildField("frmFindDlg", "Name", "VCLObject('btnOK')")
+        ok_choose1.Click()
+        Delay(1000)
+        ok_choose2 = Ndeacrd.FindChildField("frmTreeFndDialog", "Name", "VCLObject('btnOK')")
+        ok_choose2.Click()
+        Delay(1000)
+        ok_choose3 = Ndeacrd.FindChildField("frmDclTreeUsePrmRefer", "Name", "VCLObject('btnOK')")
+        ok_choose3.Click()
+        Ndeacrd.WaitLoadWindow('NCardDetail', time_await=5000)
+        Delay(5000)
+        tarif_field = Ndeacrd.FindChildField("NCardDetail", "Name", "VCLObject('edTRF_CODE')")
+        tarif_field.Keys(tarif)
+        emboss_name = Ndeacrd.FindChildField("NCardDetail", "Name", "VCLObject('edEMBOSSEDNAME')")
+        emboss_name.Keys('TestName')
+        LLPlayer.KeyDown(VK_RETURN, 500)
+        LLPlayer.KeyUp(VK_RETURN, 500)
+        company_name = Ndeacrd.FindChildField("NCardDetail", "Name", "VCLObject('edCOMPANYNAME')")
+        company_name.Keys('TestName')    
+        depo_field = Ndeacrd.FindChildField("NCardDetail", "Name", "VCLObject('edDEP_CODE_DELIV')")
+        depo_field.Keys("^a")
+        depo_field.Keys(depo)
+        LLPlayer.KeyDown(VK_TAB, 500)
+        LLPlayer.KeyUp(VK_TAB, 500)
+        Delay(3000) # Функция ожидания истекает, и требуемое окно перезагружается при запуска, добавляем ожидание в ручную
+        btn_idennfy = Ndeacrd.FindChildField("NCardDetail", "Name", "PageTab('Идентификация держателя')")
+        btn_idennfy.Click()
+        code_word = Ndeacrd.FindChildField("NCardDetail", "Name", "VCLObject('edPWD')")
+        code_word.Click()
+        Delay(1000) # Так же после предупреждения, требуется небольшое ожидание
+        code_word.Click()
+        code_word.Keys("123123") # Объязательное окно с кодовым словом
+        btn_save = Ndeacrd.FindChildField("NCardDetail", "Name", "VCLObject('btnSave')")
+        btn_save.Click()
+        btn_save = Ndeacrd.FindChildField("NCardDetail", "Name", "VCLObject('btnSave')")
+        btn_save.Click()
+        Delay(6000)
+        Ndeacrd.ClickNeedButConfirmWindow('No', time_await=1500)
+        Ndeacrd.CheckOperEndWindow()
+        btn_open = Ndeacrd.FindChildField("DeaSCAList", "Name", "VCLObject('btnBrowse')")
+        btn_open.Click()
+        btn_reclick = Ndeacrd.FindChildField("DeaSCADetail", "Name", "VCLObject('edDEP_CODE')")
+        btn_reclick.Click() # Кликаем по окну с документом, для обнаружения
+        form_data = Ndeacrd.GetGridDataFields("DeaSCADetail", "CARDIDN", "STATNAME", need_tab="qryCard")
+        card_idn = form_data[0].replace("\'", '')
+        if form_data[1].replace("\'", "") == 'Заявлениенавыпусквведено': # Проверка состояния документа
+            # Отчетность
+            Ndeacrd.AllureReportTemplate(abs_path, name_file, "Подвязка договора СКС для клиента", "passed", {"message": f"Карта с идентификатором {form_data[0]} в состоянии {form_data[1]}"},
+                                           'VCLObject("DeaSCADetail")', "Договор подвязан", new_path, "passed", 1, 1, rm=True)
+            # --------------------------------------------------------------------------------------------------------------------------
+            Log.Checkpoint(f'Карта с идентификатором {form_data[0]} в состоянии {form_data[1]}')
+            count += 1
+        else:
+            # Отчетность
+            Ndeacrd.AllureReportTemplate(abs_path, name_file, "Подвязка договора СКС для клиента", "failed", {"message": f"Операция {form_data[1]} по карте {form_data[0]} не выполнена"},
+                                           'VCLObject("DeaSCADetail")', "Договор не подвязан", new_path, "failed", 1, 1, rm=True)
+            # --------------------------------------------------------------------------------------------------------------------------
+            Log.Warning(f'Операция {form_data[1]} по карте {form_data[0]} не выполнена')
+            count += 1
+        Sys.Process("COLVIR").VCLObject("DeaSCADetail").Close()
+        Sys.Process("COLVIR").VCLObject("DeaSCAList").Close()
+        return card_idn
+    except Exception as error:
+        Log.Warning(f"Error: {error}")
+        # Дополнительные действия по обработке ошибки
+        Ndeacrd.AllureReportTemplate(abs_path, name_file, "Возникла непредвиденная ошибка", "failed", {"message": f"Возникла непредвиденная ошибка"},
+                                     'desktop', None, new_path, "failed", count, 1, rm=True) 

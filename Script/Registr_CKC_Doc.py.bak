@@ -1,0 +1,56 @@
+﻿from CardFramework import *
+
+def RegistrDocCKC_AllDataSet():
+    """ Регистрация документа СКС для клиента по всему датасету """
+    Ndeacrd = CardFramework()
+    Ndeacrd.LoginInColvir()
+    data_list = Ndeacrd.ReadDatasetFromDB('crdreq_data')
+    for row in data_list:
+        if row['DEPO_CODE'] == 'AA6':
+            Ndeacrd.StartDebugLog()
+            form_data = RegistrDoc(row['DEPO_CODE'], row['PRODUCT'], row['VAL_CODE'], row['AMOUNT'], row['CLI_ID'], row['TARIF_CODE'], row['CKC_CODE'], row['DOC_CODE'])
+            Ndeacrd.SaveDebugLog()
+            
+def RegistrDocCKC(depo_code, product, val_code, amount, cli_id, tarif_code, ckc_code, DOC_CODE):
+    """ Регистрация документа СКС для клиента """
+    Ndeacrd = CardFramework()
+    Ndeacrd.TaskInput('NDEACRD')
+    Ndeacrd.WaitLoadWindow('frmFilterParams')
+    Ndeacrd.SetFilter(CODE=DOC_CODE)
+    Ndeacrd.WaitLoadWindow('DeaSCAList')
+    operation_create = Ndeacrd.FindChildField("DeaSCAList", "Name", "VCLObject('btnInsert')")
+    operation_create.Click()
+    doc_code = Ndeacrd.FindChildField("frmVarDtlDialog", "Name", "VCLObject('edtKeyValue')")
+    doc_code.Keys(ckc_code)  
+    LLPlayer.KeyDown(VK_RETURN, 500)
+    LLPlayer.KeyUp(VK_RETURN, 500) #Отжатие кнопки ENTER, тут мы подтверждаем окно с выбором документа
+    depo_name = Ndeacrd.FindChildField("DeaSCADetail", "Name", "VCLObject('edDEP_CODE')")
+    depo_name.Keys("^a")
+    depo_name.Keys(depo_code)
+    cli_code2 = Ndeacrd.FindChildField("DeaSCADetail", "Name", "VCLObject('edCLI_CODE')")
+    cli_code2.Keys(cli_id)
+    cur_code = Ndeacrd.FindChildField("DeaSCADetail", "Name", "VCLObject('edVAL_CODE')")
+    cur_code.Keys(val_code)
+    trf_code = Ndeacrd.FindChildField("DeaSCADetail", "Name", "VCLObject('edTRF_CODE')")
+    trf_code.Keys(tarif_code)
+    depo_field = Ndeacrd.FindChildField("DeaSCADetail", "Name", "PageTab('Подразделения')")
+    depo_field.Click() 
+    depo_code2 = Ndeacrd.FindChildField("DeaSCADetail", "Name", "VCLObject('edSRV_DEP_CODE')")
+    depo_code2.Keys(depo_code)
+    depo_code3 = Ndeacrd.FindChildField("DeaSCADetail", "Name", "VCLObject('edSELL_DEP_CODE')")
+    depo_code3.Keys(depo_code)
+    LLPlayer.KeyDown(VK_TAB, 500)
+    btn_save = Ndeacrd.FindChildField("DeaSCADetail", "Name", "VCLObject('btnSave')")
+    btn_save.Click()
+    Ndeacrd.WaitLoadWindow('DeaSCAAccDtl')
+    Sys.Process("COLVIR").VCLObject("DeaSCAAccDtl").Close()
+    status_doc = Ndeacrd.GetGridDataFields("DeaSCAList", "STATNAME", "DCL_CODENAME", "CODE")
+    form_data = status_doc[2]
+    result = form_data
+    if status_doc[0].replace("\'", '') == 'Введен':
+      Log.Checkpoint("Документ с номером "+ status_doc[2] +" в состоянии " + status_doc[0])
+      Sys.Process("COLVIR").VCLObject("DeaSCAList").Close()
+    else:
+      Log.Error("Операция создания документа не выполнена ")
+      Sys.Process("COLVIR").VCLObject("DeaSCAList").Close()
+    return result

@@ -1,0 +1,208 @@
+﻿from Sordcash import *
+from SQL import Sql
+
+
+def CreateExpenseCashOrderCrd_AllDataSet():
+  """ Создание и регистрация расходных кассовых ордеров в иностранной и нац валюте по всему датасету  """
+  CashdocDataset = Sordcash()
+  CashdocDataset.LoginInColvir()
+#  login_user, pass_user = CashdocDataset.GetLoginPass('KASSIR')
+#  CashdocDataset.LoginInColvir(login_user, pass_user)
+  data_list = CashdocDataset.ReadDatasetFromDB('sordcash_crd')
+  for row in data_list:
+    if row['ORDER_TYPE'] in ('114', '124', '112'):
+      name_file = f'{CashdocDataset.GetRandomNumber()}_CreateRecieptCashOrderCrd.json'   
+      CashdocDataset.StartDebugLog()
+      result_tuple = CreateExpenseCashOrderCrd(row['ORDER_TYPE'], row['OPERATION_CODE'], row['PAYER_ACCOUNT'], row['CASHBOX_ACCOUNT'], 
+                                            row['SUMM_OPERATION'], row['DESCRIBE'], row['KNP'], row['KOD'], row['KBE'], row['KBK'],
+                                            row['NO_COMMIS'], row['CASHBOX_SYMBOL'], row['BIN_IIN_PAYER'], row['CLIENT_CODE'], 
+                                            row['DEL_FLAG'], row['KGD_FLAG'], row['RESIDENT'], row['COUNTRY'], row['CATPRED'], name_file)
+      get_doc_number, get_ref_sanction, get_type_sanction = result_tuple
+      CashdocDataset.SaveDebugLog()
+      row['DOC_NUMBER'] = get_doc_number
+      row['REF_SANCTION'] = get_ref_sanction
+      row['TYPE_SANCTION'] = get_type_sanction
+      CashdocDataset.UpdateDatasetTableDB('Sordcash', data_list)
+
+def CreateExpenseCashOrderCrd(order_type, oper_code, payer_acc, cashbox_acc, summ_oper, describe, KNP, KOD, KBE, KBK, no_commis, 
+                    cashbox_symbol, bin_iin_pay, cli_code, del_kgd_flag, kgd_flag, resident_key, country_code, catpred, name_file):
+
+  doc_number = ''
+  ref_sanction = ''
+  type_sanction = ''
+  Cashdoc = Sordcash()
+  # Создание главной иерархии json отчета
+  #user_name = CommunPay.GetUserName() #Получение логина пользователя, чтобы функция работала под разнымми пользователями
+  new_path = Cashdoc.GetEnviron('NEW_PATH')
+  name_pict = name_file.replace("json", "png")  
+  Cashdoc.CreateJsonFile(name_file) #Создание файла джейсон с пустым словарем в теле
+  key = ["name", "description", "start"]
+  value = ["Выполнение операции пополнения", "Пополнение счета кредитной карты платежным поручением", Cashdoc.GetDateTimeMilli()]
+  abs_path = Cashdoc.FindAbsPathFile(name_file) # Получение абсолютного пути файла
+  Cashdoc.AddKeyValueJson(abs_path, key, value)
+  def_dict = Cashdoc.GetDefaultDict(abs_path)
+  key_labels_suite = ["name", "value"]
+  value_labels_suite = ["suite", "Модуль - РКО"]
+  Cashdoc.AddNestedElements(abs_path, 'labels', key_labels_suite, value_labels_suite)
+  key_labels_subsuite = ["name", "value"]
+  value_labels_subsuite = ["subSuite", "Пополнение счета кредитной карты платежным поручением"]
+  Cashdoc.AddNestedElements(abs_path, 'labels', key_labels_subsuite, value_labels_subsuite)
+  # Начало работы скрипта автотеста
+  param_time = str(Cashdoc.GetParamsValue("Z_026_TIME_010211")) # для обработки контроля по времени создания кас доков
+  
+  Cashdoc.TaskInput('SORDCASH')
+  Cashdoc.InputEmptyFilter()
+  Cashdoc.WaitLoadWindow('frmOrdCashList')
+  Cashdoc.InputTemplateValue("frmOrdCashList", order_type)
+  Cashdoc.WaitLoadWindow("frmCashOrdDynDtl2")
+  operation_field = Cashdoc.FindChildField("frmCashOrdDynDtl2", "Name", "VCLObject('edCodeSt')")
+  operation_field.DblClick()
+  operation_field.Keys(oper_code)
+  operation_field.Keys("[Tab]")
+  gen_doc = Cashdoc.FindChildField("frmCashOrdDynDtl2", "Name", "VCLObject('edCode')", "internal")
+  Cashdoc.DocNumGenValidator('Номер документа', gen_doc)
+  payer_account = Cashdoc.FindChildField("frmCashOrdDynDtl2", "Name", "VCLObject('edCodeAcl')")
+  payer_account.Keys(payer_acc)
+  payer_account.Keys("[Tab]")
+  iin_client = Cashdoc.FindChildField("frmCashOrdDynDtl2", "Name", "VCLObject('edRnn')", "internal")
+  iin_client.Click()
+  # обработка отсутсвия полномочий на счета
+  if Cashdoc.WarningMessageHandler():
+    Sys.Process("COLVIR").VCLObject("frmOrdCashList").Close()
+    return doc_number, ref_sanction, type_sanction
+  Cashdoc.FieldValueValidator('ИИН клиента', iin_client, 'number', '000000000000')
+  full_name_client = Cashdoc.FindChildField("frmCashOrdDynDtl2", "Name", "VCLObject('edCliName')")
+  Cashdoc.FieldValueValidator('Наименование клиента', full_name_client, 'text', 'Красавчик')
+  summ_operation = Cashdoc.FindChildField("frmCashOrdDynDtl2", "Name", "VCLObject('edAmount')")
+  summ_operation.Keys(summ_oper)
+#  cashbox_account = Cashdoc.FindChildField("frmCashOrdDynDtl2", "Name", "VCLObject('edAccCash')")
+#  cashbox_account.Keys(cashbox_acc)
+#  cashbox_account.Keys("[Tab]")
+  describe_field = Cashdoc.FindChildField("frmCashOrdDynDtl2", "Name", "VCLObject('edTxtDscr')")
+  describe_field.Keys(describe)
+  describe_field.Keys("[Tab]")
+  KNP_tab = Cashdoc.FindChildField("frmCashOrdDynDtl2", "Name", "PageTab('КНП')")
+  KNP_tab.Click()
+  KNP_field = Cashdoc.FindChildField("frmCashOrdDynDtl2", "Name", "VCLObject('edKNP')")
+  KNP_field.Keys(KNP)
+  KOD_field = Cashdoc.FindChildField("frmCashOrdDynDtl2", "Name", "VCLObject('edCODE_OD')")
+  KOD_field.Keys(KOD)
+  KBE_field = Cashdoc.FindChildField("frmCashOrdDynDtl2", "Name", "VCLObject('edCODE_BE')")
+  KBE_field.Keys(KBE)
+  info_tab = Cashdoc.FindChildField("frmCashOrdDynDtl2", "Name", "PageTab('Информация')")
+  info_tab.Click()
+  payer_name = Cashdoc.FindChildField("frmCashOrdDynDtl2", "Name", "VCLObject('edTxtPay')")
+  payer_name.Click()
+  payer_name.Keys("[F2]")
+  if Sys.Process("COLVIR").WaitVCLObject("frmCliPrsRefer3", 3000).Exists:
+    but_ok_name = Cashdoc.FindChildField("frmCliPrsRefer3", "Name", "VCLObject('btnOK')")
+    but_ok_name.Click()
+  else:
+    # Отчетность
+    Cashdoc.AllureReportTemplate(abs_path, name_file, "Поиск на наличие окна 'Подписи должностных лиц'", "failed", {"message": f"Не найдено окно 'Подписи должностных лиц'"},
+                                 'VCLObject("frmCliPrsRefer3")', "Не найдено окно", new_path, "failed", 1, 1)
+    # --------------------------------------------------------------------------------------------------------------------------
+    Log.Warning("Не найдено окно 'Подписи должностных лиц'")
+  if no_commis:
+    no_commis = Cashdoc.FindChildField("frmCashOrdDynDtl2", "Name", "VCLObject('chkARCFL')")
+    no_commis.Click()
+  # Отчетность
+  Cashdoc.AllureReportTemplate(abs_path, name_file, "Проверка полей на наличие данных", "passed", {"message": f"Все обязательные поля успешно заполнены"},
+                               'VCLObject("frmCliPrsRefer3")', "Поля успешно заполнены", new_path, "passed", 1, 1)
+  # --------------------------------------------------------------------------------------------------------------------------
+  Log.Event("Все обязательные поля успешно заполнены")
+  save_btn = Cashdoc.FindChildField("frmCashOrdDynDtl2", "Name", "VCLObject('btnSave')")
+  save_btn.Click()
+  Cashdoc.WaitLoadWindow('frmCsrJrnDtl', time_await=80000)
+  cashbox_symbol_field = Cashdoc.FindChildField("frmCsrJrnDtl", "Name", "VCLObject('edKSCode')")
+  cashbox_symbol_field.Keys(cashbox_symbol)
+  save_but_symbol = Cashdoc.FindChildField("frmCsrJrnDtl", "Name", "VCLObject('btnSave')")
+  save_but_symbol.Click()
+  if not Cashdoc.ErrorMessageHandler(time_await=3000, recursive='True'):
+    Cashdoc.WaitLoadWindow('frmCashOrdDynDtl2', time_await=100000)
+    Sys.Process("COLVIR").VCLObject("frmCashOrdDynDtl2").Close()
+  # отключение автоматической регистрации для расходников ZNR-6263
+  result = Cashdoc.GetGridDataFields("frmOrdCashList", "LONGNAME", "OPR_CODE", "CODE", "DORD")
+  if result[0].replace("\'", '') == 'Введен' and not kgd_flag:
+    new_date_order = result[3].replace("\'", '')
+    date_statusbar = Sys.Process("COLVIR").VCLObject("frmCssAppl").VCLObject("StatusBar").wText[2]
+    if new_date_order != date_statusbar:
+      Cashdoc.SetNeedOperday(Cashdoc.NormalDateMask(new_date_order))
+    operation_btn = Sys.Process("COLVIR").VCLObject("frmOrdCashList").VCLObject("btnRunOperation")
+    operation_btn.Click()
+    Cashdoc.FindNeedOperation("Регистрация")
+    Cashdoc.ConfirmOperation("Регистрация")
+    Cashdoc.LimitAccBlockHandler(payer_acc)
+    Cashdoc.ClickNeedButConfirmWindow('Yes')
+    # ZNR-18698: окно 'Дополнительный чек лист'
+    Cashdoc.CheckAdditionalCheckListWindow()
+    if get_acc_info['MASK'] is not None and get_acc_info['MASK'].startswith('2204'): # СМС вводится только по ФЛ ZNR-6263
+      if Sys.Process("COLVIR").WaitVCLObject("frmDynamicDialog", 40000).Exists:
+        code_sms = Cashdoc.FindChildField("frmDynamicDialog", "Name", 'VCLObject("CODE_SMS")')
+        code_sms.Keys(12345)
+        btn_ok_sms = Cashdoc.FindChildField("frmDynamicDialog", "Name", 'VCLObject("btnOK")')
+        btn_ok_sms.Click()
+      else:
+        # --------------------------------------------------------------------------------------------------------------------------
+        Cashdoc.AllureReportTemplate(abs_path, name_file, "Проверка окна с СМС", "failed", {'message': f"Окно ввода СМС не было выведено"},
+                                     'VCLObject("frmDynamicDialog")', "Проверка окна с СМС", new_path, "failed", 3, 1)
+        # --------------------------------------------------------------------------------------------------------------------------
+        Log.Warning("Окно ввода СМС не было выведено")
+    # ZNR-18698: окно 'Дополнительный чек лист'
+    Cashdoc.CheckAdditionalCheckListWindow()
+    if not Cashdoc.ErrorMessageHandler(dop_window='True',recursive='True'):
+      Cashdoc.CheckOperEndWindow()
+  new_status = Cashdoc.GetGridDataFields("frmOrdCashList", "LONGNAME", "OPR_CODE", "CODE", "DEP_ID")
+  doc_number = new_status[2].replace("\'", '')  
+  if new_status[0].replace("\'", '') == 'Зарегистрирован':
+    # --------------------------------------------------------------------------------------------------------------------------
+    Cashdoc.AllureReportTemplate(abs_path, name_file, "Регистрация договора", "passed", {'message': f"Документ тип: {order_type}, номер {doc_number} успешно зарегистрирован"},
+                                 'VCLObject("frmOrdCashList")', "Договор успешно зарегистрирован", new_path, "passed", 4, 1)
+    # --------------------------------------------------------------------------------------------------------------------------
+    Log.Checkpoint(f"Документ тип: {order_type}, номер {doc_number} успешно зарегистрирован")
+    jur_oper = Sys.Process("COLVIR").VCLObject("frmOrdCashList").VCLObject("btnOperJrn")
+    jur_oper.Click()
+    Cashdoc.WaitLoadWindow('frmOperJournal')
+    list_result = Cashdoc.GetGridDataFields("frmOperJournal", "TRA_ID", "ORD_ID", "DEP_ID","ID","NJRN")
+    Cashdoc.StaticSelectFinancialTransation(list_result[3], list_result[4], list_result[0])
+    get_refers = Cashdoc.GetNeedSanctionLines(list_result[1], list_result[2])
+    save_refers = list(get_refers)
+    # проверка, что по операции есть записи требующие санкции
+    if int(save_refers[0][0]) != 0:
+      ref_sanction = str(save_refers)
+      type_sanction = Cashdoc.GetTypeSanction()
+    Sys.Process("COLVIR").VCLObject("frmOperJournal").Close()
+  elif new_status[0].replace("\'", '') == 'ТребуетотправкивКГД':
+    check_holds = Cashdoc.CheckTresholdKGD(new_status[3].replace("\'", ''), get_acc_info['ID'], summ_oper)
+    Cashdoc.CheckAvaliableKGDState(check_holds, order_type, doc_number)
+  elif new_status[0].replace("\'",'') == "Удален":
+      check_hold_exep = Cashdoc.CheckHoldExep(new_status[3].replace("\'", ''), get_acc_info['ID'], summ_oper)
+      if check_hold_exep == '1':
+          # --------------------------------------------------------------------------------------------------------------------------
+          Cashdoc.AllureReportTemplate(abs_path, name_file, "Проверка окна с СМС", "failed", {'message': f"Окно ввода СМС не было выведено"},
+                                       'VCLObject("frmDynamicDialog")', "Проверка окна с СМС", new_path, "failed", 4, 2)
+          Log.Checkpoint(f"Документ создан в состоянии 'Удален' т.к. превысил порог обналичивания для исключительных клиентов или Зеленого коридора, тип {order_type} номер {doc_number}")
+      elif catpred == 'Микро' and int(summ_oper) > amount_for_tiny_catpred:  
+        # --------------------------------------------------------------------------------------------------------------------------
+        Cashdoc.AllureReportTemplate(abs_path, name_file, "Проверка окна с СМС", "failed", {'message': f"Окно ввода СМС не было выведено"},
+                                     'VCLObject("frmDynamicDialog")', "Проверка окна с СМС", new_path, "failed", 4, 3)
+        Log.Checkpoint("Документ создан в состоянии 'Удален' т.к. превысил порог обналичивания для Микро категории предпринимательств, тип {order_type} номер {doc_number}")
+      else:
+        # --------------------------------------------------------------------------------------------------------------------------
+        Cashdoc.AllureReportTemplate(abs_path, name_file, "Проверка окна с СМС", "failed", {'message': f"Окно ввода СМС не было выведено"},
+                                     'VCLObject("frmDynamicDialog")', "Проверка окна с СМС", new_path, "failed", 4, 4)
+        Log.Warning(f"Неизвестна причина перехода в состояние 'Удален', тип {order_type}, номер {doc_number}")      
+  elif kgd_flag == "0" and new_status[0].replace("\'",'') == "Введен":
+    # --------------------------------------------------------------------------------------------------------------------------
+    Cashdoc.AllureReportTemplate(abs_path, name_file, "Проверка окна с СМС", "failed", {'message': f"Окно ввода СМС не было выведено"},
+                                 'VCLObject("frmDynamicDialog")', "Проверка окна с СМС", new_path, "failed", 4, 5)
+    Log.Checkpoint(f"Документ создан в состоянии 'Введен' и не был зарегестрирован, т.к требуется отправка в КГД, тип {order_type}, номер {doc_number}")
+  else:
+    # --------------------------------------------------------------------------------------------------------------------------
+    Cashdoc.AllureReportTemplate(abs_path, name_file, "Проверка окна с СМС", "failed", {'message': f"Окно ввода СМС не было выведено"},
+                                 'VCLObject("frmDynamicDialog")', "Проверка окна с СМС", new_path, "failed", 4, 6)
+    Log.Warning(f"Документ не зарегистрирован, тип {order_type}, номер {doc_number}")
+    doc_number = ''
+  Sys.Process("COLVIR").VCLObject("frmOrdCashList").Close()
+  Cashdoc.ReturnActualOperdayClient()
+  return doc_number, ref_sanction, type_sanction

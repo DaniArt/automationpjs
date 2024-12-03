@@ -1,0 +1,284 @@
+﻿from ColvirFramework import *
+
+
+class Mlongord(CommonOperation, GenerateTestingData, CreateJsonReport):
+    """ Класс работы с задачей Mlongord """
+    def OpenNewCardMclienLongOrder(self,code_inn,res,type_doc,cli_role,type_cl,name,surName,nameCom,sex,full_name,name_dep,birthday,dateReg):
+        """ Создание карточек клиента Физ лицо, Юр лицо, ИП"""
+        date_operday = self.GetEnviron("DATE_OPERDAY")
+        to_date = aqConvert.DateTimeToFormatStr(date_operday, "%d.%m.%y")
+        to_co_date = aqConvert.DateTimeToFormatStr(date_operday, "%Y-%m-%d")
+        self.code_inn = code_inn
+        self.type_cl = type_cl
+        self.type_doc = type_doc
+        self.sex = sex
+        self.full_name = full_name
+        self.name_dep = name_dep
+        self.birthday = birthday
+        self.dateReg = dateReg
+        date_from_before = self.GetPlusDailyDate(-30)
+        date_from = aqConvert.DateTimeToFormatStr(date_from_before, "%d.%m.%Y")
+        date_to_after = self.GetPlusDailyDate(3569)
+        date_to = aqConvert.DateTimeToFormatStr(date_to_after, "%d.%m.%Y")
+        num_phone = self.GeneratePhoneNumber()
+        self.cli_role = cli_role
+        num_pass = self.GeneratePassNum()
+        self.name = name
+        self.surName = surName
+        self.nameCom = nameCom
+        id_main = self.GetIdRecord()
+        self.res = res
+        sysdate = self.GetSysDate()  
+        sysdate_frmdt = f'{sysdate[0:2]}-{sysdate[2:4]}-{sysdate[4:]}'
+        if self.type_cl == 'FL' or self.type_cl == 'PBOYUL':
+            selectDelete = f"""BEGIN
+                            DELETE FROM TESTINGIINFLLONG
+                            where IIN = '{self.code_inn}'; commit; END;"""
+
+            self.OracleHandlerDB(selectDelete, dml_query=True)
+        elif self.type_cl == 'JUR' or self.type_cl == 'PBOYULS':
+            selectDelete = f"""BEGIN
+                            DELETE FROM TESTINGIINJURLONG
+                            where IIN = '{self.code_inn}'; commit; END;"""
+
+            self.OracleHandlerDB(selectDelete, dml_query=True)
+
+
+        if self.res == '1':
+            grCountry = 'Гражданин РК'
+            codeCountry = '398'
+            nameCountry = 'КАЗАХСТАН'
+            res_country = 'KZ'
+            nation_code = '005'
+            if self.sex == 'M':
+                nation = 'КАЗАХ'
+            else:
+                nation = 'КАЗАШКА'
+            codeNatioan = '1'
+        elif self.res == '0':
+            grCountry = 'Иностранный гражданин'
+            codeCountry= '643'
+            nameCountry = 'РОССИЯ'
+            res_country = 'RU'
+            nation_code = '001'
+            if self.sex == 'M':
+                nation = 'РУССКИЙ'
+            else:
+                nation = 'РУССКАЯ'
+            codeNatioan = '2'
+        if self.type_cl == 'FL':
+            selectUpDateNK = f"""
+                       BEGIN insert into g_iin(RNN, IIN, JURFL, RESIDFL, CONSTFL, INDIVIDFL, NAME, FIO, LASTREGEND, REASONDEREG, NOTARY_LAWYER, INACTIVE, TAXDEP_ID, CORRECTDT)
+                       values('', '{self.code_inn}', '0', '{self.res}', '1', '0', '{self.full_name}', '{self.full_name}', '', '', '', '0', '5238', ''); commit; END;
+                       """
+            self.OracleHandlerDB(selectUpDateNK, dml_query='True')
+            #result = f""" begin c_pkgconnect.popen(); c_pkgsession.doper := '{to_date}';
+            #          CreateClientCard('{self.code_inn}', '{self.type_doc}', '{date_from}', '{date_to}', '{num_phone}', '{self.cli_role}', '{num_pass}', '{self.type_cl}', '{self.res}', '{self.sex}', '{res_country}', '{full_name}', '{name_dep}', '{self.birthday}'); commit; end;
+            #          """
+            codeCli = self.OracleCallProcedure("CreateClientCard", f'{self.code_inn}', f'{self.type_doc}', f'{date_from}', f'{date_to}',
+                                                 f'{num_phone}', f'{self.cli_role}', f'{num_pass}', f'{self.type_cl}', f'{self.res}', f'{self.sex}', f'{res_country}',
+                                                 f'{full_name}', f'{name_dep}', f'{self.birthday}', return_value = True, num_out = ['1'])
+
+            #self.OracleHandlerDB(result, dml_query='True')
+            #resultCode = f"""SELECT n.code FROM G_CLI n, G_CLIHST g WHERE n.id = g.id AND TAXCODE = '{self.code_inn}' AND rownum = 1"""
+            #codeCli = self.OracleHandlerDB(resultCode)
+        elif self.type_cl == 'PBOYUL':
+            selectUpDateNK = f"""
+                       BEGIN insert into g_iin (RNN, IIN, JURFL, RESIDFL, CONSTFL, INDIVIDFL, NAME, FIO, LASTREGEND, REASONDEREG, NOTARY_LAWYER, INACTIVE, TAXDEP_ID, CORRECTDT)
+                       values('', '{self.code_inn}', '0', '{self.res}', '1', '0', '', '{self.full_name}', '', '', '', '0', '5238', ''); commit; END;
+                       """
+            self.OracleHandlerDB(selectUpDateNK, dml_query='True')
+            # создание уникального id записи gbdl
+            select_max_gbdl_id = f"""SELECT MAX(ID) FROM Z_077_MCA_GBDL_DATA_RESPONCE"""
+            get_max_id = self.OracleHandlerDB(select_max_gbdl_id)
+            id_gbdl = int(get_max_id[0][0]) + 1
+            Log.Message(id_gbdl)
+            # добавляем запись в stat_egov
+            # здесь находятс данные о типе оквэд и тд
+            insert_stat_egov = f"""
+                                BEGIN insert into z_077_StatEgovLog(IBIN,  ILANG, XRES,  CALLDATE,  RES, TYPE,  STATUS,  BINIIN,  CLIN,  REGISTERDATE,  OKEDCODE,  OKEDNAME,  SECONDOKEDS, KRPCODE, KRPNAME, KRPBFCODE, KRPBFNAME, KATOCODE,  KATOID,  KATOADDRESS, FIO, IP)
+                                      values('{self.code_inn}','RU','', '{sysdate}', '1', 'Ok',  'true',  '{self.code_inn}',  'ИП {self.surName} {self.name[0]}.',  '01.01.2020',  '46213', 'Оптовая торговля масличными культурами', '', '105', 'Малые предприятия (<= 5)',  '105', 'Малые предприятия (<= 5)',  '751210000', '268025',  'Г.АЛМАТЫ, АЛАТАУСКИЙ РАЙОН, Микрорайон Карасу, улица Центральная, дом 1', '{self.full_name}',  'true'); commit; END;
+                                """
+            self.OracleHandlerDB(insert_stat_egov, dml_query='True')
+            # добавляем запись в таблицу с GBDL данными
+            # чтобы не запускался ГБДЛ-сервис, так как на тестовых стендах он не работает
+            # и сгенерированных данных там нет
+            insert_mca_gbdl = f"""            
+                              BEGIN insert into Z_077_MCA_GBDL_DATA_RESPONCE (IIN, XMLMSG, MSGID, MSGCODE, MSGRESOINSEDATE, CLIIIN, CLISURNAME, CLINAME, CLIPATRONYMIC, CLIBIRTHDATE, CLIDEATHDATE, CLIGENDERCODE, CLINATIONALCODE, CLINATIONAL, CLIСITIZENSHIPCODE, CLIСITIZENSHIP, CLILIFESTATUSCODE, CLILIFESTATUS, CLIBPCOUNTRYCODE, CLIBPCOUNTRY, CLIREGSTATUSCODE, CLIREGCOUNTRYCODE, CLIREGCOUNTRY, CLIREGDDISTRICTCODE, CLIREGDISTRICT, CLIREGDREGIONCODE, CLIREGREGION, CLIREGCITY, CLIREGSTREET, CLIREGBUILDING, CLIREGCORPUS, CLIREGFLAT, DOCTYPE, DOCTYPECODE, DOCNUMBER, DOCSERIES, DOCBEGINDATE, DOCENDDATE, DOCISSUEORG, DOCSTATUS, DOCCODE, CLICAPABLESTATUS, CLIMISSINGSTATUS, CLIMISSINGENDDATE, CLIEXCLUDEREASON, CLIDISAPPEAR, CLIADDSTATUSCODE, CLIADDCOUNTRYCODE, CLIADDCOUNTRY, CLIADDDDISTRICTCODE, CLIADDDISTRICT, CLIADDDREGIONCODE, CLIADDREGION, CLIADDCITY, CLIADDSTREET, CLIADDBUILDING, CLIADDCORPUS, CLIADDFLAT, RESPONSERESULT, RESPONSEDATE, ID, CLILATSURNAME, CLILATNAME, TOKEN, PUBLICKEY, XMLKDP, XMLGOVGBD, CLIREGFULLADDR)
+                                    values ('{self.code_inn}', '', '', 'SCSS001', '{sysdate}', '{self.code_inn}', '{self.surName}', '{self.name}', '', '{self.birthday}', null, '{self.sex}', '{nation_code}', '{nation}', '{codeCountry}', '{res_country}', '0', 'Нормальный', '{codeCountry}', '{res_country}', '1', '{codeCountry}', '{res_country}', '1907', 'АЛМАТИНСКАЯ', '1907211', 'ИЛИЙСКИЙ РАЙОН', 'Казциковский, Казцик', 'УЛИЦА В.Г.Гиль', '45', null, '2', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, '{sysdate}', {id_gbdl}, '', '', null, null, null, null, null); commit; END;
+                              """
+            self.OracleHandlerDB(insert_mca_gbdl, dml_query='True')
+            # перед тем, как создать карточку ИП необходимо создать карточку физ лица
+            # так как без нее карточка ИП не откроется или откроется с грубыми ошибками
+            cli_code_fl = self.OracleCallProcedure("CreateClientCard", f'{self.code_inn}', f'{self.type_doc}', f'{date_from}', f'{date_to}',
+                                         f'{num_phone}', f'{self.cli_role}', f'{num_pass}', 'FL', f'{self.res}', f'{self.sex}', f'{res_country}',
+                                         f'{full_name}', f'{name_dep}', f'{self.birthday}', return_value = True, num_out = ['1'])
+            Log.Message(cli_code_fl[0][1])
+            # теперь создаем саму карточку ИП
+            codeCli = self.OracleCallProcedure("CreateClientCard", f'{self.code_inn}', f'{self.type_doc}', f'{date_from}', f'{date_to}',
+                                                 f'{num_phone}', f'{self.cli_role}', f'{num_pass}', 'PBOYUL', f'{self.res}', f'{self.sex}', f'{res_country}',
+                                                 f'{full_name}', f'{name_dep}', f'{self.birthday}', return_value = True, num_out = ['1'])
+            Log.Message(codeCli[0][1])
+
+
+        elif self.type_cl == 'JUR':
+            select_iin_db_fl = f"""
+                          select iin, name, surname, middlename, resident, birthday, sex from TESTINGIINFLLONG
+                          where resident = '{self.res}' and rownum = 1
+                          """
+
+            slct_cnt_iin = f"""
+                            select COUNT(IIN) FROM TESTINGIINFLLONG
+                            """
+            cnt_iin = self.OracleHandlerDB(slct_cnt_iin)
+            for i in range(cnt_iin[0][0]):
+                iin_db_fl = self.OracleHandlerDB(select_iin_db_fl)
+                dlt_iin = f"""begin delete from TESTINGIINFLLONG where IIN = '{iin_db_fl[0][0]}'; commit; end;"""
+                if iin_db_fl[0][3] == '0':
+                    sexFL = 'M'
+                elif iin_db_fl[0][3] == '1':
+                    sexFL = iin_db_fl[0][5]
+                Log.Message(iin_db_fl[0][0])
+                Log.Message(self.code_inn)
+                Log.Message(code_inn)
+                # проверяем, что данного IIN нет в бд налогоплательщиков G_IIN
+                slct_g_iin = f""" select count(IIN) from g_iin where IIN = '{select_iin_db_fl[0][0]}'"""
+                result_g_iin = self.OracleHandlerDB(slct_g_iin)
+                if result_g_iin[0][0] == 0:
+                    Log.Event(f"ИИН {select_iin_db_fl[0][0]} не найден в БД налогоплательщиков G_IIN")
+                    # проверяем, есть ли ИИН в бд банка g_cli
+                    slct_g_cli = f"""select count(taxcode) from g_cli g, g_clihst gh
+                                     where g.id = gh.id and g.dep_id = gh.dep_id and trunc(sysdate) between gh.FROMDATE and gh.TODATE
+                                           and TAXCODE = '{select_iin_db_fl[0][0]}'   
+                                  """
+                    result_g_cli = self.OracleHandlerDB(slct_g_cli)
+                    if result_g_cli[0][0] == 0:
+                        Log.Event(f"ИИН {select_iin_db_fl[0][0]} не найден в БД банка G_CLI")
+
+                        # инсертим данные в бд налогоплательщиков G_IIN
+                        Log.Event(f"Производим Insert данных в бд налогоплательщиков в G_IIN")
+                        selectUpDateNKFL = f"""
+                                            BEGIN insert into g_iin (RNN, IIN, JURFL, RESIDFL, CONSTFL, INDIVIDFL, NAME, FIO, LASTREGEND, REASONDEREG, NOTARY_LAWYER, INACTIVE, TAXDEP_ID, CORRECTDT)
+                                            values('', '{iin_db_fl[0][0]}', '0', '{iin_db_fl[0][4]}', '1', '0', '{iin_db_fl[0][2]} {iin_db_fl[0][1]} {iin_db_fl[0][3]}', '{iin_db_fl[0][2]} {iin_db_fl[0][1]} {iin_db_fl[0][3]}', '', '', '', '0', '5238', ''); commit; END;
+                                            """
+                        self.OracleHandlerDB(selectUpDateNKFL, dml_query='True')
+
+                        result_fl = self.OracleCallProcedure("CreateClientCard", f'{iin_db_fl[0][0]}', f'{self.type_doc}', f'{date_from}', f'{date_to}',
+                                                             f'{num_phone}', f'{self.cli_role}', f'{num_pass}', 'FL', f'{iin_db_fl[0][4]}', f'{iin_db_fl[0][6]}', f'{res_country}',
+                                                             f'{iin_db_fl[0][2]} {iin_db_fl[0][1]} {iin_db_fl[0][3]}', f'{name_dep}', f'{iin_db_fl[0][5]}', return_value = True, num_out = ['1'])
+                        self.OracleHandlerDB(dlt_iin, dml_query=True)
+                        break
+
+                    else:
+                        Log.Event(f"ИИН {select_iin_db_fl[0][0]} существует в БД банка G_CLI. Производится выбор другого ИИН")
+                        self.OracleHandlerDB(dlt_iin, dml_query=True)
+
+                else:
+                    Log.Event(f"ИИН {select_iin_db_fl[0][0]} существует в БД налогоплательщиков G_IIN. Производится выбор другого ИИН")
+                    self.OracleHandlerDB(dlt_iin, dml_query=True)
+                if i == cnt_iin[0][0]:
+                    Log.Warning(f"В датасете TESTINGIINFLLONG нет подходящего ИИН физ лица")
+
+            slct_cnt_iin_j = f"""
+                            select COUNT(IIN) FROM TESTINGIINJURLONG
+                            """
+            cnt_iin_j = self.OracleHandlerDB(slct_cnt_iin_j)
+
+            for i in range(cnt_iin_j[0][0]):
+                dlt_iin_j = f"""BEGIN DELETE FROM TESTINGIINJURLONG where IIN = '{self.code_inn}'; commit; END;"""
+                slct_g_iin_j = f""" select count(IIN) from g_iin where IIN = '{self.code_inn}'"""
+                slct_iin_jur = f"""SELECT COUNT(IIN) FROM TESTINGIINJURLONG WHERE IIN = '{self.code_inn}'"""
+                result_g_iin_j = self.OracleHandlerDB(slct_g_iin_j)
+                if result_g_iin_j[0][0] == 0:
+                    Log.Event(f"ИИН {select_iin_db_fl[0][0]} не найден в БД налогоплательщиков G_IIN")
+                    # проверяем, есть ли ИИН в бд банка g_cli
+                    slct_g_cli_j = f"""select count(taxcode) from g_cli g, g_clihst gh
+                                     where g.id = gh.id and g.dep_id = gh.dep_id and trunc(sysdate) between gh.FROMDATE and gh.TODATE
+                                           and TAXCODE = '{self.code_inn}'   
+                                  """
+                    result_g_cli_j = self.OracleHandlerDB(slct_g_cli_j)
+
+                    if result_g_cli_j[0][0] == 0:
+                        Log.Event(f"ИИН {self.code_inn} не найден в БД банка G_CLI")
+
+                        selectUpDateNK = f"""
+                            BEGIN insert into g_iin(RNN, IIN, JURFL, RESIDFL, CONSTFL, INDIVIDFL, NAME, FIO, LASTREGEND, REASONDEREG, NOTARY_LAWYER, INACTIVE, TAXDEP_ID, CORRECTDT)
+                            values('{self.code_inn}', '{self.code_inn}', '1', '{self.res}', '0', '0', '{self.nameCom}', '{self.nameCom}', '', '', '', '0', '5238', ''); commit; END;
+                            """
+                        self.OracleHandlerDB(selectUpDateNK, dml_query=True)
+
+                        select_iin_main = f"""
+                            begin insert into z_077_ent_gbdul_main(id_gbdul_main, BIN, REQUESTDATE, XML_DATA, REGSTATUSCODE, REGSTATUSNAME, REGDEPARTCODE, REGDEPARTNAME, REGDATE, REGLASTDATE, FULLNAMERU, FULLNAMEKZ, FULLNAMELAT, SHORTNAMERU, SHORTNAMEKZ, SHORTNAMELAT, ORGFORMCODE, ORGFORMNAME, FORMOFLAWCODE, FORMOFLAWNAME, EPRISETYPECODE, EPRISETYPENAME, TAXORGSTATUS, CREATIONMETHODCODE, CREATIONMETHODNAME, PROPERTYTYPECODE, PROPERTYTYPENAME, TYPICALCHARACTER, COMMERCEORG, ENTERPRISESUBJECT, AFFILIATED, INTERNATIONAL, FOREIGNINVEST, ONECITIZENSHIP, BRANCHESEXISTS, ACTIVITYOKEDCODE, ACTIVITYOKEDNAME, ADDRESSZIPCODE, ADDRESSKATO, ADDRESSDISTRICT, ADDRESSREGION, ADDRESSCITY, ADDRESSSTREET, ADDRESSBUILDING, FOUNDRESCOUNT, FOUNDERSCOUNTFL, FOUNDERSCOUNTUL, ORGSIZECODE, ORGSIZENAME, STATCOMOKEDCODE, STATCOMOKEDNAME, ACTIVITYATTRCODE, ACTIVITYATTRNAME)
+                            values ({id_main}, '{self.code_inn}', '{self.GetSysDate()}', '', null, null, null, null, null, null, null, null, null, null, null, null, null, null, '20', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, '050000', '751210000', null, null, null, 'улица Центральная', '1', null, null, null, null, null, null, null, null, null); commit; end;
+                            """
+                        self.OracleHandlerDB(select_iin_main, dml_query=True)
+                        select_iin_leaders = f"""
+                            begin insert into z_077_ent_gbdul_leaders(ID_GBDUL_MAIN, ORG_BIN, COUNTRYCODE, COUNTRYNAME, CITIZENCOUNTRYCODE, CITIZENCOUNTRYNAME, NATIOANLITYCODE, NATIONALITYNAME, IIN, SURNAME, NAME, MIDDLENAME)     
+                            values({id_main}, '{self.code_inn}', '{codeCountry}', '{nameCountry}', '{codeCountry}', '{nameCountry}', '{codeNatioan}', '{grCountry}', '{iin_db_fl[0][0]}', '{iin_db_fl[0][2]}', '{iin_db_fl[0][1]}', ''); commit; end;
+                            """
+                        self.OracleHandlerDB(select_iin_leaders, dml_query=True)
+
+                        select_iin_founders = f"""  
+                            begin insert into z_077_ent_gbdul_founders(ID_GBDUL_MAIN, ORGBIN, FOUNDERCOUNTRYCODE, FOUNDERSCOUNTRYNAME, FOUNDERSNATIONCODE, FOUNDERSNATIONNAME, FOUNDERSCITIZENCODE, FOUNDERSCITIZENNAME, FOUNDERSIIN, FOUNDERSSURNAME, FOUNDERSNAME, FOUNDERSMIDDLENAME, FOUNDERSREGNUMBER, FOUNDERSREGDATE, FOUNDERSORGFULLNAMERU, FOUNDERSORGFULLNAMEKZ)     
+                            values({id_main}, '{self.code_inn}', '{codeCountry}', '{nameCountry}', '{codeNatioan}', '{grCountry}', '{codeCountry}', '{nameCountry}', '{iin_db_fl[0][0]}', '{iin_db_fl[0][2]}', '{iin_db_fl[0][1]}', '', '', '', '', ''); commit; end;
+                            """
+                        self.OracleHandlerDB(select_iin_founders, dml_query=True)
+                        select_iin_StatEgovLog = f""" 
+                            BEGIN insert into z_077_StatEgovLog(IBIN,  ILANG, XRES,  CALLDATE,  RES, TYPE,  STATUS,  BINIIN,  CLIN,  REGISTERDATE,  OKEDCODE,  OKEDNAME,  SECONDOKEDS, KRPCODE, KRPNAME, KRPBFCODE, KRPBFNAME, KATOCODE,  KATOID,  KATOADDRESS, FIO, IP)
+                            values('{self.code_inn}','RU','', '{self.GetSysDate()}', '{self.res}', 'Ok',  'true',  '{self.code_inn}',  '{self.nameCom}',  '{to_co_date}',  '46213', 'Оптовая торговля масличными культурами', '', '105', 'Малые предприятия (<= 5)',  '105', 'Малые предприятия (<= 5)',  '751210000', '268025',  'Г.АЛМАТЫ, АЛАТАУСКИЙ РАЙОН, Микрорайон Карасу, улица Центральная, дом 1', '{iin_db_fl[0][2]} {iin_db_fl[0][1]}',  'false'); COMMIT; END;
+                            """
+                        self.OracleHandlerDB(select_iin_StatEgovLog, dml_query=True)
+
+                        codeCli = self.OracleCallProcedure("CreateClientCard", f'{self.code_inn}', f'{self.type_doc}', f'{date_from}', f'{date_to}',
+                                                                     f'{num_phone}', f'{self.cli_role}', f'{num_pass}', f'{self.type_cl}', f'{self.res}', f'{self.sex}', f'{res_country}',
+                                                                     f'{self.nameCom}', f'{name_dep}', f'{self.dateReg}', return_value = True, num_out = ['1'])
+
+                        self.OracleHandlerDB(dlt_iin_j, dml_query=True)
+                    
+                        # создаем документ с образцами подписей/печатей в досье карточки клиента
+                        sign_sample = self.OracleCallProcedure("Z_PKG_AUTO_TEST.pCreDocDosCli", f'{codeCli[0][1].strip()}', '696', None, 'Образец подписи физического лица/печати юридического лица',
+                                                                                                       '01.01.18', '34877685', '0', '1', None, 'Не знаем', 'Для автотестов',
+                                                                                                       '0', None, '1', None, '.jpg', '0', return_value = True, num_out = ['3'])
+                        Log.Message(sign_sample[0][1])
+
+                        # проверяем, что ИИН удалился
+                        check_dlt_iin = self.OracleHandlerDB(slct_iin_jur)
+                        if check_dlt_iin[0][0] == 0:
+                            Log.Event(f"ИИН {self.code_inn} удален из g_iin")
+                        else:
+                            Log.Warning(f"ИИН {self.code_inn} не удален из g_iin")
+                        break
+
+                    else:
+                        Log.Event(f"ИИН {self.code_inn} существует в БД банка G_CLI. Производится выбор другого ИИН")
+                        self.OracleHandlerDB(dlt_iin_j, dml_query=True)
+                        # проверяем, что ИИН удалился
+                        check_dlt_iin = self.OracleHandlerDB(slct_iin_jur)
+                        if check_dlt_iin[0][0] == 0:
+                            Log.Event(f"ИИН {self.code_inn} удален из g_iin")
+                        else:
+                            Log.Warning(f"ИИН {self.code_inn} не удален из g_iin")
+                else:
+                    Log.Event(f"ИИН {self.code_inn} существует в БД налогоплательщика G_IIN Производится выбор другого ИИН")
+                    self.OracleHandlerDB(dlt_iin_j, dml_query=True)
+                    # проверяем, что ИИН удалился
+                    check_dlt_iin = self.OracleHandlerDB(slct_iin_jur)
+                    if check_dlt_iin[0][0] == 0:
+                        Log.Event(f"ИИН {self.code_inn} удален из g_iin")
+                    else:
+                        Log.Warning(f"ИИН {self.code_inn} не удален из g_iin")
+                if i == cnt_iin_j[0][0]:
+                    Log.Warning(f"В датасете TESTINGIINJURLONG нет подходящего ИИН юр лица")
+
+        return codeCli[0][1]
+
+    def CraeteNewAcc(self):
+        """ Создание счетов клиента Физ лицо, Юр лицо, ИП"""
+        self.cliCode = cliCode
+        date_operday = self.GetEnviron("DATE_OPERDAY")
+        to_date = aqConvert.DateTimeToFormatStr(date_operday, "%d.%m.%Y")
+        result = f""" begin c_pkgconnect.popen(); c_pkgsession.doper := '{to_date}';
+            Z_PKG_AUTO_TEST.p_create_acc('{self.cliCode}'); commit; end; 
+            """
+        accCode = self.OracleHandlerDB(result, dml_query='True')
+        return accCode

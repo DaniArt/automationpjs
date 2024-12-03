@@ -1,0 +1,103 @@
+﻿from CardFramework import *
+from SoapRequests import *
+from SQL import Sql
+                                                            
+                                                            
+def ATMDeposit_AllDataSet():
+    """ Пополнение счета карты по всему датасету  """
+    card = CardFramework()
+    data_list = card.ReadDatasetFromDB('travel_data')  
+    for row in data_list:
+        if row['DEP_ID'] == 'AA6':
+            name_file = f'{card.GetRandomNumber()}_ATMDeposit.json' 
+            ATMDeposit(row['IDN_CRD'], row['CLI_ACC'], row['CARD_NUM'], row['AMOUNT'], name_file)
+                                                            
+                                                            
+                                                            
+def ATMDeposit(idn_crd, acc_crd, cardcode, name_file):
+    """ Пополнение счета карты через операцию 2405 """
+    soap = SoapRequests()
+#    # Создание главной иерархии json отчета
+    new_path = soap.GetEnviron('NEW_PATH')
+    name_pict = name_file.replace("json", "png")  
+    soap.CreateJsonFile(name_file) #Создание файла джейсон с пустым словарем в теле
+    key = ["name", "description", "start"]
+    value = ["Выполнение операции пополнения через SOAP", "Поплнение счета карты", soap.GetDateTimeMilli()]
+    abs_path = soap.FindAbsPathFile(name_file) # Получение абсолютного пути файла
+    soap.AddKeyValueJson(abs_path, key, value)
+    def_dict = soap.GetDefaultDict(abs_path)
+    key_labels_suite = ["name", "value"]
+    value_labels_suite = ["suite", "Модуль - БОКС/ПС"]
+    soap.AddNestedElements(abs_path, 'labels', key_labels_suite, value_labels_suite)
+    key_labels_subsuite = ["name", "value"]
+    value_labels_subsuite = ["subSuite", "Продукт - Travel карта"]
+    soap.AddNestedElements(abs_path, 'labels', key_labels_subsuite, value_labels_subsuite)
+    # Проверка баланса
+    select = f"""select c.acc_id from apt_idn@cap c where c.code = '{acc_crd}'""" # Достаем идентификатора аккаунта
+    check_acc = Sql.SimpleQuery(select)
+    select = f"""select n.balance from apt_trn@cap n where n.acc_id = '{check_acc}' ORDER BY n.EXTIME desc""" # Получение баланса до пополнения
+    before = Sql.SimpleQuery(select)
+                                                            
+    # Отправляем запрос на пополнение
+    response = soap.ATM2405(acc_crd, 1000000, 'KZT')
+    tran_id = response # достаем идентификатор транзакции
+    # Проверяем тразакцию в задаче APTTRN
+    select = f"""select (select LONGNAME from APR_STATUSTRN@cap where CODE='CAP_STATUS' and CONSTVAL=to_char(trn.STATUS)
+    and LNG_ID=AP_LNG.GetActive@cap) STATUSNAME from APT_TRN@CAP trn where trn.ID = '{tran_id}'"""
+    apttrn_status = Sql.SimpleQuery(select)
+    while apttrn_status in ('Fixed','Выгружена в АБС, зафиксирована'):  #  Задержка для ожидания обработки транзакции   
+      apttrn_status = Sql.SimpleQuery(select)
+      sql_result = soap.OracleHandlerDB(select)
+      Log.Event(f'Текущий статус транзакции: **{apttrn_status}**')
+      Delay(3000)
+      if apttrn_status == 'Выгружена в АБС, обработана':
+#        # Отчетность 1
+        soap.AllureReportTemplate(abs_path, name_file, "Выполнение операции пополнения карты через SOAP", "passed", {"message": f"Выгружена в АБС, обработана"},
+                                     None, None, new_path, "passed", 1, 1)
+#        # --------------------------------------------------------------------------------------------------------------------------   
+        break 
+    soap.CheckExpectedResult('Проверяем статус транзакции в задаче APTTRN',apttrn_status,'Выгружена в АБС, обработана',tran_id)
+                                                            
+    # Проверяем тразакцию в задаче EXTTRTN
+    select = f"""select decode(t.STATUS,0,'не обработана',1,'обработана',2,'ошибка обработки') as STATUS_NAME, proc_id
+    from G_CAPTmpExtTrn t where  OBJ_CODE = '{acc_crd}' and id = '{tran_id}'"""
+    sql_result = soap.OracleHandlerDB(select)
+    exttrn_status,proc_id = Sql.SimpleLineQuery(select,2)
+    soap.CheckExpectedResult('Проверяем статус транзакции в задаче EXTTRN',exttrn_status,'обработана',tran_id)
+#   Отчетность 1 2
+    soap.AllureReportTemplate(abs_path, name_file, "Выполнение операции пополнения карты через SOAP", "passed", {"message": f"Выгружена в АБС, обработана"},
+                                 None, None, new_path, "passed", 1, 2)
+#   --------------------------------------------------------------------------------------------------------------------------  
+                                                            
+                                                                
+    # Проверка остатка
+    select = f"""select n.balance from apt_trn@cap n where n.acc_id = '{check_acc}' ORDER BY n.EXTIME desc"""
+    get_balance = Sql.SimpleQuery(select)
+    Log.Message(get_balance)
+    balance_now = before + amount 
+    if balance_now == get_balance:
+#      # Отчетность
+      soap.AllureReportTemplate(abs_path, name_file, "Проверяем остаток баланса", "passed", {"message": f"Успешно отработано пополнение, текущий баланс клиента = {balance_now}"},
+                                   None, None, new_path, "passed", 1, 3)
+#      # --------------------------------------------------------------------------------------------------------------------------
+#      # Отчетность 2
+      soap.AllureReportTemplate(abs_path, name_file, "Проверяем остаток баланса", "passed", {"message": f"{before}(баланс до) + {amount}(сумма пополнения) = {balance_now}(текущий баланс)"},
+                                   None, None, new_path, "passed", 1, 4, rm = True)
+#      # --------------------------------------------------------------------------------------------------------------------------
+      Log.Event(f'{before}(баланс до) + {amount}(сумма пополнения) = {balance_now}(текущий баланс)')
+      Log.Checkpoint(f'Успешно отработано пополнение, текущий баланс клиента = {balance_now}')
+    else:
+#      # Отчетность
+      soap.AllureReportTemplate(abs_path, name_file, "Проверяем остаток баланса", "passed", {"message": f"Ошибочно отработано пополнение, текущий баланс клиента = {balance_now}"},
+                                   None, None, new_path, "passed", 1, 3)
+#      # --------------------------------------------------------------------------------------------------------------------------
+#      # Отчетность 2
+      soap.AllureReportTemplate(abs_path, name_file, "Проверяем остаток баланса", "passed", {"message": f"{before}(баланс до) + {amount}(сумма пополнения) = {balance_now}(текущий баланс)"},
+                                   None, None, new_path, "passed", 1, 4, rm = True)
+#      # --------------------------------------------------------------------------------------------------------------------------    
+      Log.Event(f'{before}(баланс до) + {amount}(сумма пополнения) = {get_balance}(текущий баланс)')
+      Log.Warning(f'Ошибочно отработано пополнение, текущий баланс клиента = {get_balance}')
+                                                            
+                                                                
+                                                            
+                                                            

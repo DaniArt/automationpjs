@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Root signature="{9252F941-DB23-4FCA-AA50-858B33BB4A19}" version="11.40">
+	<children>
+		<folder name="KartaKarta">
+			<folder name="SordPay/SordCash Card">
+				<child name="Create_Payment_Order_TopUp" key="{B763AB4C-095D-46AD-9B6B-0332FFA1B46A}" path="Create_Payment_Order_TopUp.py" />
+				<child name="Create_Payment_Order_Spending" key="{D3EEAB69-C676-48B0-9A95-5E7D06D53538}" path="Create_Payment_Order_Spending.py" />
+				<child name="Create_CashOrders" key="{6EC858E0-E1F7-4C7A-83B9-A357D6B3196F}" path="Create_CashOrders.py" />
+				<child name="Acceptance_CashOrders" key="{15A78762-485E-4301-B0E4-99D444A82372}" path="Acceptance_CashOrders.py" />
+			</folder>
+			<folder name="APTTRN">
+				<child name="ATM_CashIn_2405" key="{69A8B94F-2284-4D1D-A512-E53EA9A14EAF}" path="ATM_CashIn_2405.py" />
+				<child name="ATM_Cashout_2401" key="{E4D15EE1-9BB4-4F4F-B4F8-9AE0D6120C40}" path="ATM_Cashout_2401.py" />
+				<child name="ATM_Cashout_2402" key="{FDBD8FEE-5C1E-40D1-99A4-14B69234F30B}" path="ATM_Cashout_2402.py" />
+				<child name="POS_CashOut_2411" key="{5EEB8C1D-72DC-4F09-9E07-D16402B29B90}" path="POS_CashOut_2411.py" />
+			</folder>
+			<folder name="CashBack">
+				<child name="Welcome_Bonus_Check" key="{1725749E-D072-4720-ADB9-AD952299A8D2}" path="Welcome_Bonus_Check.py" />
+				<child name="Check_CashBack_POS" key="{30AEDE0F-8574-4130-BE86-BCE2ED01FDE8}" path="Check_CashBack_POS.py" />
+				<child name="Installment_Purchase_Check" key="{761AC317-075F-4F2F-90D5-79D34026B983}" path="Installment_Purchase_Check.py" />
+				<child name="POS_Request_Check" key="{BBAF7BA1-14DB-4122-BA0D-6240797B3D7F}" path="POS_Request_Check.py" />
+			</folder>
+			<folder name="PreSteps">
+				<child name="Set_Categories" key="{799EB908-75BF-4CA5-9BD5-7430573E4C03}" path="Set_Categories.py" />
+				<child name="Upload_Clear_Users" key="{D3CD3499-F461-4EEC-B663-069354E20282}" path="Upload_Clear_Users.py" />
+			</folder>
+			<child name="Create_Pull_Of_Cards" key="{D2628864-B269-406B-A9C0-CA6B7781BE39}" path="Create_Pull_Of_Cards.py" />
+			<child name="Create_Contract_For_Crd" key="{3E265AAB-52CF-42B8-8F60-469815A8E1C4}" path="Create_Contract_For_Crd.py" />
+			<child name="Registr_Doc_CKC" key="{06A564B2-E468-4F32-89B8-9A0E27D7B677}" path="Registr_Doc_CKC.py" />
+			<child name="Giveout_Instant_Card" key="{4220A216-E734-478F-A590-3DD3FC3A5865}" path="Giveout_Instant_Card.py" />
+			<child name="Send_Card_Accept" key="{1B8FDD2A-60CF-4099-ADA9-95027E26125C}" path="Send_Card_Accept.py" />
+			<child name="Accept_Card" key="{C9B6BBD1-EA13-40C0-9A76-C2F2106DB848}" path="Accept_Card.py" />
+			<child name="Undo_Register_CKC" key="{19DF63CB-0B53-446A-94FE-6AD48BAA3D15}" path="Undo_Register_CKC.py" />
+			<child name="Undo_SendCard_Accept" key="{8842C947-1CD8-4CD8-82DC-0345476B762C}" path="Undo_SendCard_Accept.py" />
+			<child name="Undo_Giveout_Instant" key="{62EEC02E-89DB-48CA-842C-7B7FE39A9BA9}" path="Undo_Giveout_Instant.py" />
+			<child name="Accept_Crd_Madvpay" key="{3795B522-A83F-4E40-BCA5-363762377F5A}" path="Accept_Crd_Madvpay.py" />
+			<child name="Rep_Reg_Doc_CKC" key="{4C413FC2-ECA0-445A-ADCC-AEFF1A3A5341}" path="Rep_Reg_Doc_CKC.py" />
+			<child name="Rep_Giv_Ins_Card" key="{017EE552-75A4-4116-BE85-2C998EE6DE83}" path="Rep_Giv_Ins_Card.py" />
+			<child name="Rep_Send_Card_Accept" key="{B184201D-55B3-4203-951F-B391FDBA14CC}" path="Rep_Send_Card_Accept.py" />
+		</folder>
+		<folder name="Business">
+			<folder name="BusinessProcessingAcc">
+				<child name="Business_ATM_Deposit" key="{E07818F4-8EF4-4A3C-B7C3-FE7620216756}" path="Business_ATM_Deposit.py" />
+				<child name="Business_Bank_to_Bank" key="{30C6B3A5-B0A8-4971-92F5-FF334D5AC825}" path="Business_Bank_to_Bank.py" />
+				<child name="Business_Cashin_2543" key="{8ED87401-A2B0-4D14-810E-4AD77AE0CC2E}" path="Business_Cashin_2543.py" />
+				<child name="Business_Cashout_2401" key="{2AC8EFFB-E7B4-4AC4-BA31-E01131A1DE86}" path="Business_Cashout_2401.py" />
+				<child name="Business_Cashout_2402" key="{62AD8844-9B6B-42C0-B02B-2B488A8375E9}" path="Business_Cashout_2402.py" />
+				<child name="Business_Cashout_2411" key="{2519295C-04C3-4F06-844E-4455A3C0CD5B}" path="Business_Cashout_2411.py" />
+				<child name="Business_Commis_2553" key="{2502D410-4F18-4A5F-936E-177BA1E1C91B}" path="Business_Commis_2553.py" />
+				<child name="Business_Deposit_2424" key="{45B7F153-043A-4E1C-A7CB-F0137F2ACECE}" path="Business_Deposit_2424.py" />
+				<child name="Business_Extract_2451" key="{89D6B1A4-6340-473E-8404-085D658481F4}" path="Business_Extract_2451.py" />
+				<child name="Business_Pos_Buy" key="{97203428-775B-42BD-ABC1-2040DEA0856C}" path="Business_Pos_Buy.py" />
+				<child name="Business_Transfer_2423" key="{78FD86DF-546B-4C46-A94C-D0E5F8B689D6}" path="Business_Transfer_2423.py" />
+				<child name="Accept_Refusal_Crd" key="{B4CC73B6-BB52-4E86-A182-855BAD5D85B5}" path="Accept_Refusal_Crd.py" />
+			</folder>
+			<child name="Create_Dogovor_CKC" key="{9C143735-DD76-4DFA-AA96-4EF0A774CD2B}" path="Create_Dogovor_CKC.py" />
+			<child name="Transfer_Ndeacrd_Data" key="{E468E2B6-F33F-4DED-BB6C-958C528EA13F}" path="Transfer_Ndeacrd_Data.py" />
+			<child name="Register_Dogovor_CKC" key="{18D997FB-B436-4EFD-990D-8CA72C52AE6C}" path="Register_Dogovor_CKC.py" />
+			<child name="Create_Business_Card" key="{5D7489C5-C32A-4A50-A7BB-B4F1081FE0CA}" path="Create_Business_Card.py" />
+			<child name="Send_Business_Accept" key="{84588C14-49FF-4556-8BFE-B18B8A145000}" path="Send_Business_Accept.py" />
+			<child name="Accept_Business_Card" key="{50C64474-6BC4-4FC4-B826-76EFF7329DEE}" path="Accept_Business_Card.py" />
+		</folder>
+		<folder name="TravelCard">
+			<folder name="ProcessingAccount">
+				<child name="Travel_POS_Buy" key="{E0E7893A-4988-4BBC-A82C-1B8F57130694}" path="Travel_POS_Buy.py" />
+				<child name="Travel_ATM_Deposit" key="{D2BB34C7-3776-43E9-AD3C-4555F601F06D}" path="Travel_ATM_Deposit.py" />
+				<child name="Travel_Cashout_2401" key="{58D9959D-F763-451C-BA0C-D05C6F680686}" path="Travel_Cashout_2401.py" />
+				<child name="Travel_Cashout_2402" key="{0B8B4273-9568-445C-A190-8FDEB73B03FA}" path="Travel_Cashout_2402.py" />
+				<child name="Travel_Cashout_2411" key="{E6B8BFE3-E60D-4A76-86B1-B7B5D8314113}" path="Travel_Cashout_2411.py" />
+				<child name="Travel_Transfer_2423" key="{BC0C7688-46B7-4F99-ABB0-23C20CCA4C4B}" path="Travel_Transfer_2423.py" />
+				<child name="Travel_Deposit_2424" key="{44ACA547-0B09-4091-AF57-53A86B11A333}" path="Travel_Deposit_2424.py" />
+				<child name="Travel_Cashin_2543" key="{247D9378-42E4-48E6-A169-C01774E404A2}" path="Travel_Cashin_2543.py" />
+				<child name="Bank_To_Bank_2560" key="{F0283411-0F63-4CDF-98AF-32D4E4CE8A61}" path="Bank_To_Bank_2560.py" />
+				<child name="Travel_Commis_2553" key="{344B1835-2416-4E03-A533-886FF4FCEC75}" path="Travel_Commis_2553.py" />
+				<child name="Travel_Extract_2451" key="{3959A2CD-A060-41EB-B389-ABE92A3EDC1F}" path="Travel_Extract_2451.py" />
+				<child name="Travel_Local_2402" key="{D771E9C4-0F26-4BCA-956D-C680BF45816A}" path="Travel_Local_2402.py" />
+			</folder>
+			<child name="Create_Travel_CKC" key="{9ED3DCA6-620C-4D80-9636-60B46E87746E}" path="Create_Travel_CKC.py" />
+			<child name="Register_Travel_CKC" key="{E9C70753-615D-4676-A5FC-4327231BF726}" path="Register_Travel_CKC.py" />
+			<child name="Create_Travel_Card" key="{57E32BE6-7DE4-496D-9425-16A3BD646592}" path="Create_Travel_Card.py" />
+			<child name="Generate_Travel_Clients" key="{2366ABF0-9215-40B6-A2D4-153094D44989}" path="Generate_Travel_Clients.py" />
+			<child name="Send_Travel_Accept" key="{8DF33414-9241-4739-9CC5-F45DBF2CF894}" path="Send_Travel_Accept.py" />
+			<child name="Accept_Travel_Card" key="{810787BD-0AF1-4A10-861B-E526A4965047}" path="Accept_Travel_Card.py" />
+			<child name="Undo_CKC_Register" key="{4C57098E-6668-47FE-BA5A-D042A21152F4}" path="Undo_CKC_Register.py" />
+			<child name="Change_Card_Product" key="{F89A36B8-1563-4ADA-9FE5-8A391878EAA4}" path="Change_Card_Product.py" />
+			<child name="Change_Card_Info" key="{3C69C173-F22D-4C72-9765-4DD43E977776}" path="Change_Card_Info.py" />
+			<child name="Undo_Change_Card" key="{FAA213C9-609B-4C0E-901C-61921CBEF156}" path="Undo_Change_Card.py" />
+			<child name="Change_Profile_Card" key="{A17F0C06-CD27-47C9-B065-11A99984F814}" path="Change_Profile_Card.py" />
+			<child name="Undo_Profile_Change" key="{07F1A2D2-C409-4EC2-8222-4DD4D8EE9D6E}" path="Undo_Profile_Change.py" />
+			<child name="Change_Outcome_Limit" key="{D6DB12DA-42A1-4B5B-94BE-9D1F7D76C4BD}" path="Change_Outcome_Limit.py" />
+		</folder>
+		<folder name="Deasal">
+			<child name="Create_Deasal_Dog" key="{E24EB30A-2B71-47AF-91A4-96DF1B051FB9}" path="Create_Deasal_Dog.py" />
+			<child name="Register_Deasal_Dog" key="{151E3D31-0D07-4299-BB12-E68AD675CF50}" path="Register_Deasal_Dog.py" />
+			<child name="Cancel_Deasal_Register" key="{CA0354C9-B3DC-4793-B0F6-28F70DF89F93}" path="Cancel_Deasal_Register.py" />
+			<child name="Change_Tarif_Group" key="{C0B7FA57-CF94-44F8-8721-D7EAE9025964}" path="Change_Tarif_Group.py" />
+			<child name="Close_Deasal_Dog" key="{F2049372-B78D-4CE5-A21A-2032F6ADA1F8}" path="Close_Deasal_Dog.py" />
+			<child name="Undo_Close_Deasal" key="{3C8A004B-C8AD-4A34-B530-A199FD0D9B48}" path="Undo_Close_Deasal.py" />
+			<child name="Deasal_Comiss_Refund" key="{2409CA47-CAB3-4847-BED0-2F267E1F2F5B}" path="Deasal_Comiss_Refund.py" />
+			<child name="Undo_Refund_Comiss" key="{51B51F5E-DEBB-4804-985A-1D32F7061BE4}" path="Undo_Refund_Comiss.py" />
+			<child name="Rep_Reg_Deasal" key="{A4C2445F-0EB4-4E79-A2EE-9D050EA20655}" path="Rep_Reg_Deasal.py" />
+		</folder>
+		<folder name="TradeAndService">
+			<child name="Create_TSE_Dogovor" key="{A006FD4D-BFFC-4218-AF13-176707C5E361}" path="Create_TSE_Dogovor.py" />
+			<child name="Create_TSE_Device" key="{FCC991A3-7770-47F2-BA88-6AFACE751AC3}" path="Create_TSE_Device.py" />
+			<child name="Register_TSE_Dogovor" key="{656F3BB8-FEAD-43BB-8B92-8C1757FE7FD6}" path="Register_TSE_Dogovor.py" />
+			<child name="Transfer_Generated_TSEdata" key="{052F7967-C073-465E-B6A0-42B6E0DFA662}" path="Transfer_Generated_TSEdata.py" />
+		</folder>
+		<folder name="IronCard">
+			<folder name="IronProcessingAccount">
+				<child name="Iron_ATM_Deposit" key="{2F623FCF-B634-44B9-A609-6D68EF2FDD58}" path="Iron_ATM_Deposit.py" />
+				<child name="Iron_Pos_Buy" key="{435BDAA1-F287-4965-A029-D7DC7EAA498F}" path="Iron_Pos_Buy.py" />
+				<child name="Iron_Cashout_2401" key="{A32AD927-DE0C-449E-93D6-A1ED0CA49E7F}" path="Iron_Cashout_2401.py" />
+				<child name="Iron_Cashout_2402" key="{0DF85100-8D51-4416-A08C-0A104A06515F}" path="Iron_Cashout_2402.py" />
+				<child name="Iron_Cashout_2411" key="{4851AD89-24F4-48E2-AF44-B889B9074CDC}" path="Iron_Cashout_2411.py" />
+				<child name="Iron_Bank_to_Bank" key="{51AE099E-1578-4D87-A68C-495B72AA9325}" path="Iron_Bank_to_Bank.py" />
+				<child name="Iron_Commis_2553" key="{25669F84-FC0C-4BF0-BE1A-DBB254D00984}" path="Iron_Commis_2553.py" />
+				<child name="Iron_Deposit_2424" key="{18F19C16-158E-4E7C-9CEF-5C6C6EB94B16}" path="Iron_Deposit_2424.py" />
+				<child name="Iron_Transfer_2423" key="{A8C14C66-0916-4864-9DDB-BF20DB03BBDF}" path="Iron_Transfer_2423.py" />
+				<child name="Iron_Cashin_2543" key="{7567BE7C-0BD1-4DB9-ABAF-71A5F8110BBA}" path="Iron_Cashin_2543.py" />
+				<child name="Iron_Extract_2451" key="{BC84BE30-B3DE-40D7-8CDF-9D9BBD886555}" path="Iron_Extract_2451.py" />
+			</folder>
+			<child name="Create_Iron_CKC" key="{09CA9D81-9833-49CD-84FF-7A39A9A6D154}" path="Create_Iron_CKC.py" />
+			<child name="Register_Iron_CKC" key="{0DB1E1E8-9725-46EE-B69E-15DB046F5683}" path="Register_Iron_CKC.py" />
+			<child name="Undo_IronRegister_CKC" key="{F13C1F33-45CB-4071-8DFA-9D3B7369E593}" path="Undo_IronRegister_CKC.py" />
+			<child name="Generate_Iron_Clients" key="{DF8DFFBA-631B-4E59-92EC-B5F7229EC0E6}" path="Generate_Iron_Clients.py" />
+			<child name="Create_Iron_Card" key="{9F1D7DC0-3EBC-456D-A478-DFCB678015E3}" path="Create_Iron_Card.py" />
+			<child name="Send_Iron_Accept" key="{C7D2214B-19A2-4D50-A036-44279B25F3B9}" path="Send_Iron_Accept.py" />
+			<child name="Accept_Iron_Card" key="{FAAC3220-85FA-4676-95CE-4ADD6891BE92}" path="Accept_Iron_Card.py" />
+			<child name="Rep_Reg_Iron" key="{16A0C3CA-7ACC-4793-A019-2F26C3368398}" path="Rep_Reg_Iron.py" />
+		</folder>
+		<folder name="JuniorCard">
+			<child name="Junior_Create_CKC" key="{B559151D-2D39-428D-826E-2DA3F4A0C644}" path="Junior_Create_CKC.py" />
+			<child name="Junior_Register_CKC" key="{099FF288-5287-414C-A585-C5DD15141A26}" path="Junior_Register_CKC.py" />
+			<child name="Generate_Junior_Clients" key="{6488982C-A09A-4991-8B93-26F736C345F3}" path="Generate_Junior_Clients.py" />
+			<child name="Junior_ATM_Deposit" key="{9CCB131A-0962-4461-AD32-31708DC98361}" path="Junior_ATM_Deposit.py" />
+			<child name="Junior_POS_Buy" key="{5BA2658D-9240-4608-AAA9-C45946068868}" path="Junior_POS_Buy.py" />
+			<child name="Junior_Cashout_2401" key="{668252E9-53AA-4276-A4D1-081566568E53}" path="Junior_Cashout_2401.py" />
+			<child name="Junior_Cashout_2402" key="{355C5027-49B0-464D-9244-9D1219330250}" path="Junior_Cashout_2402.py" />
+			<child name="Junior_Cashout_2411" key="{00D9DD13-9804-4F89-9E76-8C786945F984}" path="Junior_Cashout_2411.py" />
+		</folder>
+		<folder name="Ndeacrd">
+			<folder name="Iteration2">
+				<child name="Iter2_Create_CKC" key="{5CDD6551-106E-43B6-ABB8-3C0524E726F3}" path="Iter2_Create_CKC.py" />
+				<child name="Iter2_Register_CKC" key="{D53655BD-B108-4FE9-AF68-A7DE4D7B461E}" path="Iter2_Register_CKC.py" />
+				<child name="Iter2_Create_Pull" key="{6DBC92B4-7C7B-4BED-8C6E-F09908F5C776}" path="Iter2_Create_Pull.py" />
+				<child name="Iter2_Link_Crd_CKC" key="{BE603639-116D-4FB3-BA9B-B34D2A342CBF}" path="Iter2_Link_Crd_CKC.py" />
+				<child name="Iter2_Send_To_Accept" key="{6408420F-5AD0-4C77-8A35-3C4DF5C001BE}" path="Iter2_Send_To_Accept.py" />
+				<child name="Iter2_Accept_Card" key="{3555E311-0ECB-4758-99BE-37EE9F792E07}" path="Iter2_Accept_Card.py" />
+				<child name="Reissue_Old_Number" key="{6287DC8F-D397-4F79-8315-24A039B054BA}" path="Reissue_Old_Number.py" />
+				<child name="Reset_Pin_Counter" key="{2CD31D00-F112-4C15-91AC-18BA05FB6500}" path="Reset_Pin_Counter.py" />
+				<child name="Create_Archive_Info" key="{CFC857F2-5CBF-44E7-97A9-58DE29F1269D}" path="Create_Archive_Info.py" />
+				<child name="Undo_Archive_Info" key="{F0652933-DEAF-452A-A4CC-4D96130D3041}" path="Undo_Archive_Info.py" />
+				<child name="Check_Card_Balance" key="{CCF19436-041B-4433-ABB4-97FC80D867D1}" path="Check_Card_Balance.py" />
+				<child name="Make_Card_Main" key="{104A5BF3-BF52-49F4-ABEA-6E15A87DE5AD}" path="Make_Card_Main.py" />
+				<child name="Check_Pool_Cnt" key="{8FB88446-DAE1-4F8B-B0FF-F4D98E741176}" path="Check_Pool_Cnt.py" />
+				<child name="Block_Card_Before_Close" key="{5CDCEEEC-F5EE-4973-91DB-FB7427BE63E2}" path="Block_Card_Before_Close.py" />
+				<child name="Send_Crd_To_Close" key="{855FE4F8-C475-448C-93A1-E561F0E0429A}" path="Send_Crd_To_Close.py" />
+				<child name="ReAccept_Refusal_Crd" key="{E0C93632-82C3-4822-9232-53106A797A82}" path="ReAccept_Refusal_Crd.py" />
+				<child name="ReUndo_Refusal_Accept" key="{67B9471C-73E7-4F1A-BB46-7AEA1731D1F6}" path="ReUndo_Refusal_Accept.py" />
+			</folder>
+			<child name="Create_Ndeacrd_CKC" key="{D6CF1CDB-45FE-4CFD-B41E-868C09DDB309}" path="Create_Ndeacrd_CKC.py" />
+			<child name="Register_Ndeacrd_CKC" key="{03E55B8F-6142-4582-AE11-23BAB7F1DB5B}" path="Register_Ndeacrd_CKC.py" />
+			<child name="Generate_Ndeacrd_Data" key="{6944749A-3497-4237-AFEE-18EA1A19F63E}" path="Generate_Ndeacrd_Data.py" />
+			<child name="Undo_Register_Ndeacrd" key="{2C115A4F-825E-4F03-8D6E-00BA5172A0DF}" path="Undo_Register_Ndeacrd.py" />
+			<child name="Close_Ndeacrd_CKC" key="{5AF09C1F-EEA4-4B41-ABC7-24243771DF57}" path="Close_Ndeacrd_CKC.py" />
+			<child name="Undo_Close_CKC" key="{5A1D3319-00B1-400E-BC65-66E579B4727E}" path="Undo_Close_CKC.py" />
+			<child name="cash_acceptance_CKC" key="{1943B624-D403-4D36-B9F4-04C022F18A7E}" path="cash_acceptance_CKC.py" />
+			<child name="Undo_cash_acceptance" key="{E40928FE-4588-4D0A-99E9-E8F7D82EE0AA}" path="Undo_cash_acceptance.py" />
+			<child name="Change_Department_CKC" key="{12EA4BFF-470D-4E7C-84FE-50A9C8CCACFC}" path="Change_Department_CKC.py" />
+			<child name="Undo_Change_Department" key="{128B5B1C-FAD1-437A-B3DB-297F40E5A485}" path="Undo_Change_Department.py" />
+			<child name="Set_Overdraft_Limit" key="{B7C89D3F-E04F-4CF2-9413-AFD09596ABF9}" path="Set_Overdraft_Limit.py" />
+			<child name="Create_Pull_For_Ndeacrd" key="{9F149A41-075B-4E1B-947E-5B56B0205630}" path="Create_Pull_For_Ndeacrd.py" />
+			<child name="Link_InstantCard_To_CKC" key="{67C5C880-66C0-479B-AB11-14CC020B069C}" path="Link_InstantCard_To_CKC.py" />
+			<child name="Undo_Instant_Giveout" key="{5914C445-C1C4-48AE-A5A6-76C555B71D7A}" path="Undo_Instant_Giveout.py" />
+			<child name="Send_Accept_Card_Ndeacrd" key="{9D7822AE-5052-428F-A0FB-11EF389CBEC5}" path="Send_Accept_Card_Ndeacrd.py" />
+			<child name="Undo_Send_Accept" key="{5817FA34-EDCE-4814-AB0B-F2BCCBCE5800}" path="Undo_Send_Accept.py" />
+			<child name="Accept_Ndeacrd_Card" key="{97099FB9-A66C-476A-A65C-4AAE3833EC3D}" path="Accept_Ndeacrd_Card.py" />
+			<child name="Return_For_Acceptance" key="{E9139E78-B664-46D2-9C30-3FE1B646BDE6}" path="Return_For_Acceptance.py" />
+			<child name="Undo_Refusal_Acceptance" key="{4B6F2892-636A-4503-AC3B-2BFE38DC140B}" path="Undo_Refusal_Acceptance.py" />
+			<child name="Accept_From_Madvpay" key="{9518E016-3961-4872-9C93-E42E098FE240}" path="Accept_From_Madvpay.py" />
+			<child name="Undo_Return_Accept" key="{DFA7DEB5-7922-40B6-8DDE-D9C64CE5493A}" path="Undo_Return_Accept.py" />
+			<child name="Block_Card_Product" key="{D938296A-F09C-49B4-8895-CCD9FB1842E5}" path="Block_Card_Product.py" />
+			<child name="Unblock_Card_Product" key="{E0D7111D-1E81-4335-BB08-50F22626A81E}" path="Unblock_Card_Product.py" />
+			<child name="Change_Block_Reason" key="{F08BA3CC-C6E8-4FBE-B1FE-2D5C1602E737}" path="Change_Block_Reason.py" />
+			<child name="Transfer_To_PS" key="{89417347-555B-4ED6-807A-D68DC9B55129}" path="Transfer_To_PS.py" />
+			<child name="Undo_Transfer_PS" key="{F5CD51B8-9621-4E24-ADE7-493A0E338D33}" path="Undo_Transfer_PS.py" />
+			<child name="Receive_Card" key="{B76D76A4-4F58-4A71-A9F8-8C3B14041DBD}" path="Receive_Card.py" />
+			<child name="Undo_Receive_Card" key="{D793CE3A-74C4-461D-9BE3-7100732EE524}" path="Undo_Receive_Card.py" />
+			<child name="Send_To_StopList" key="{FD9476D6-B090-4FC3-8003-6FACF12C766E}" path="Send_To_StopList.py" />
+			<child name="Undo_Send_StopList" key="{15197D4B-6C00-4869-ABBB-B6D95500A74D}" path="Undo_Send_StopList.py" />
+			<child name="Correct_Account_Payment" key="{0C235132-CD4E-455C-AC9E-7F2535535397}" path="Correct_Account_Payment.py" />
+			<child name="Undo_Correct_Account" key="{EAB2960B-114F-4538-A07D-06C9450E9DDA}" path="Undo_Correct_Account.py" />
+			<child name="Accompony_Account_Crd" key="{6D720FCB-1779-42F0-9F48-7DD20875C602}" path="Accompony_Account_Crd.py" />
+			<child name="Reregister_Ndeacrd_Doc" key="{4AEDEC14-73F0-4A0B-9C40-A62B90AAB720}" path="Reregister_Ndeacrd_Doc.py" />
+			<child name="ReSend_To_Accept" key="{65B7774B-7513-44F3-A0AA-F6CE30DFF025}" path="ReSend_To_Accept.py" />
+			<child name="ReBlock_Card_Product" key="{04B85F3C-C4B4-49C6-80A7-8581BD909B1F}" path="ReBlock_Card_Product.py" />
+		</folder>
+		<folder name="Infdea">
+			<child name="Create_Inf_Dea" key="{39642F1D-05BE-4F7E-A852-7B4685573BA6}" path="Create_Inf_Dea.py" />
+			<child name="Register_Inf_Dea" key="{3D8F8F6C-2469-4246-867E-4D3CB66D04DF}" path="Register_Inf_Dea.py" />
+			<child name="Check_Inf_Abonent" key="{169D75D2-8CD3-4F7F-8502-1491FBBE8350}" path="Check_Inf_Abonent.py" />
+			<child name="Re_Create_InfDea" key="{8524FCAD-7A9E-48AF-8F36-0E59911B84C0}" path="Re_Create_InfDea.py" />
+			<child name="Check_Profile_InfDea" key="{230E1979-3BEA-4E39-9E5C-9077CCEF992E}" path="Check_Profile_InfDea.py" />
+			<child name="Link_Profile_InfDea" key="{4CCF7635-0B65-43E9-B5F3-F86DE28D3BE1}" path="Link_Profile_InfDea.py" />
+			<child name="Check_Added_Profile" key="{475A0B90-1889-420F-8EC1-0A404EB26BFC}" path="Check_Added_Profile.py" />
+			<child name="Add_FullProfile_Dea" key="{F4CE197D-A0DC-4DAC-AF41-E617435333CD}" path="Add_FullProfile_Dea.py" />
+			<child name="Check_Added_FullProfile" key="{32004A3B-953F-4993-9394-D80B8E5A3C48}" path="Check_Added_FullProfile.py" />
+			<child name="Undo_Link_Profile" key="{FB8931B6-8B5B-4A90-8494-0884D60C1860}" path="Undo_Link_Profile.py" />
+		</folder>
+		<child name="Sordcash" key="{962FE010-AA64-4978-8DF5-5F947F3BC2D0}" path="..\..\Framework\Sordcash.py" />
+		<child name="ColvirFramework" key="{B48E8E17-0EE6-41C4-B57A-AB227690AC7C}" path="..\..\Framework\ColvirFramework.py" />
+		<child name="CardFramework" key="{3B3835D4-C2D4-40EF-9065-7D6C623019F5}" path="CardFramework.py" />
+		<child name="Sordpay" key="{ECBED57A-64ED-48E4-B8C8-2FA3148E6E87}" path="..\..\Framework\Sordpay.py" />
+		<child name="SQL" key="{178064E3-F096-4523-8A82-CBC8FFC9D862}" path="SQL.py" />
+		<child name="Cpswrd" key="{0AE36B0A-EB11-4AA9-B317-E8293549A9FC}" path="..\..\Framework\Cpswrd.py" />
+		<child name="TaskMethods" key="{AFFF20F9-E0A1-46CD-B6C8-E37B1684BF4A}" path="..\..\Framework\TaskMethods.py" />
+		<child name="FindMethods" key="{A277719B-6150-4805-ABC2-8FD1FFE789A8}" path="..\..\Framework\FindMethods.py" />
+		<child name="MathMethods" key="{5836E342-0A05-4993-8129-B4B47C3A9B65}" path="..\..\Framework\MathMethods.py" />
+		<child name="TestVariables" key="{38A349B7-9CC9-4748-98F2-FF6BD4119DF7}" path="..\..\Framework\TestVariables.py" />
+		<child name="DateMethods" key="{04968C15-082B-4615-A0C3-DF3FD5FEFCD9}" path="..\..\Framework\DateMethods.py" />
+		<child name="GeneratingData" key="{BB24B0C9-A2B7-422E-A4E8-8D7CA71E3CA2}" path="..\..\Framework\GeneratingData.py" />
+		<child name="SoapRequests" key="{DACF0A93-AF29-47DA-AE65-3E2A81291DB3}" path="..\..\Framework\SoapRequests.py" />
+		<child name="CardFrameworks" key="{D188E14C-097B-48A8-858A-177CC6A46A6F}" path="..\..\Framework\CardFrameworks.py" />
+	</children>
+</Root>

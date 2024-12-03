@@ -1,0 +1,17 @@
+﻿from CardFramework import *
+
+def CashInSoap_AllDataSet():
+    """ Пополнение счета по всему датасету  """
+    card = CardFramework()
+    data_list = card.ReadDatasetFromDB('crdreq_data')  
+    for row in data_list:
+        if row['DEPO_CODE'] == 'AA6':
+            form_data = CashInSoap(row['ACC_CRD'])
+
+
+def CashInSoap(card_acc):
+    """ Пополнение счета через Soap операцию 2405 """
+    acc = "KZ448562203112372034"
+    card = CardFramework()
+    card.CashInSoap(acc, 3000, "EUR", "TP")
+    

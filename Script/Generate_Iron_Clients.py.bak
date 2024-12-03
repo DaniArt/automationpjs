@@ -1,0 +1,62 @@
+﻿from CardFramework import *   
+
+
+def GenerateIronClients_AllDataSet():
+  """ Данный скрипт проверяет имеющиеся в датасете тестовые данные на баланс, блокировки и наличие документов К2. 
+      Если по счету нет достаточного баланса, нет блокировок и документов в К2, то имеющийся счет пополняете на определеную сумму и используется в автотестах.
+      Если по счету есть блокировки или наличие задолжености в К2, то данный счет заменяется на счет по которому нет блокировок, задолженности в К2 
+      и есть необходимый баланс """
+      
+  PaydocDataset = CardFramework()
+  data_list = PaydocDataset.ReadDatasetFromDB('iron_data')
+  for row in data_list:
+    if row['ITER_CODE'] == '1':
+        get_new_iin, get_new_acc, get_code_cli = TestDataPreparationForCheckLimit(row['VAL_CODE'], row['TYPE_CLI'])
+        if get_new_acc[0:2] == 'KZ':
+            row['IIN_BIN'] = get_new_iin 
+            row['USER_ACC'] = get_new_acc
+            row['CLI_ID'] = get_code_cli
+        PaydocDataset.UpdateDatasetTableDB('iron_data', data_list)
+      
+def TestDataPreparationForCheckLimit(val_code,cli_type): 
+
+  PaydocDataset2 = CardFramework()
+  if cli_type == 'FL': 
+      data_list = PaydocDataset2.ReadDatasetFromDB('TESTINGIINFLBOKS')
+      for row in data_list: 
+        if row['RESIDENT'] == '1': 
+            get_new_iin, get_new_acc, get_code_cli = CreateCliCard(val_code,cli_type,get_new_iin=row['IIN'],
+                                                sex=row['SEX'], res=row['RESIDENT'], birthday=row['BIRTHDAY'],
+                                                name=row['NAME'], surName=row['SURNAME'])
+            break  
+  elif cli_type == 'JUR':    
+      data_list = PaydocDataset2.ReadDatasetFromDB('TESTINGIINJURBOKS')
+      for row in data_list:  
+        if row['RESIDENT'] == '1':
+          get_new_iin, get_new_acc, get_code_cli = CreateCliCard(val_code,cli_type,get_new_iin=row['IIN'],
+                                             dateReg=row['DATE_REG'],res=row['RESIDENT'],
+                                             nameCom=row['NAME_COM'])
+          break  
+  return get_new_iin, get_new_acc, get_code_cli
+    
+def CreateCliCard(val_code,cli_type,get_new_iin,sex=None,res=None,birthday=None,dateReg=None,
+                  name=None,surName=None,nameCom=None):
+                          
+  Paydoc = CardFramework()
+  if res == '1':
+    type_doc = 'УЛ'  
+  elif res == '0':
+    type_doc = 'PI'
+    sex = 'M'
+  elif res == '0':
+    type_doc = 'PI'
+    sex = 'M'  
+  full_name = f'{surName} {name}'  
+  if cli_type == 'FL':  
+    codeCli = Paydoc.OpenNewCardMclien(get_new_iin,res,type_doc,'CLI',cli_type,name,surName,nameCom,sex,full_name,'CNT',birthday,dateReg)
+    get_new_acc = Paydoc.OracleCallProcedure('Z_PKG_AUTO_TEST.p_create_acc', 'CNT', val_code, codeCli.strip(), '0.101.2.1', return_value = True, num_out = ['6'])
+  elif cli_type == 'JUR':
+    codeCli = Paydoc.OpenNewCardMclien(get_new_iin,res,type_doc,'CLI',cli_type,name,surName,nameCom,sex,full_name,'CNT',birthday,dateReg)
+    get_new_acc = Paydoc.OracleCallProcedure('Z_PKG_AUTO_TEST.p_create_acc', 'CNT', val_code, codeCli.strip(), '0.101.4.1', return_value = True, num_out = ['6'])
+  get_code_cli = codeCli.strip()
+  return get_new_iin, get_new_acc[0][1], get_code_cli

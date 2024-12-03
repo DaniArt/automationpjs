@@ -1,0 +1,49 @@
+﻿from SoapRequests import *
+from TaskMethods import *
+from CardFramework import *     
+                         
+                         
+def ATMCashOut2401_AllDataSet():
+   """ Снятие со счета карты через операцию 2401 по всему датасету  """
+   card = CardFramework()
+   data_list = card.ReadDatasetFromDB('CardTrnCheck')  
+   for row in data_list:
+       if row['TRN_TYPE'] == '2401':
+           name_file = f'{card.GetRandomNumber()}_AT2401.json' 
+           ATMCashOut2401(row['VAL'], row['CLI_ACC'], row['IDN_CRD'], row['AMOUNT'], row['CARD_NUM'], name_file)
+                         
+                         
+                         
+def ATMCashOut2401(val, acc_crd, card_idn, amount, card_code, name_file):
+    """ Снятие со счета карты через операцию 2401 """
+    soap = SoapRequests()
+    task = TaskMethods()
+    card = CardFramework()
+    count = 1
+    operation_type = 'outc'
+    try:
+        # создание отчета allure
+        soap.CreateAllureReport("Colvir. Модуль - БОКС/ПС", "Продукт - КартаКарта", "Снятие со счета через операцию 2401", name_file)
+        #---------    
+        soap.StartCapJob()
+        # Присваеваем теущий баланс к переменной
+        before_bln = soap.CheckAccBalance(acc_crd)
+        Delay(2000) # Нужна небольшая задержка Перед отправкой запроса                                                  
+        # Отправляем запрос на снятие с нашего АТМ
+        response = soap.ATM2401(card_idn, amount, val)
+        tran_id = response # достаем идентификатор транзакции
+        Delay(2000) # Нужна небольшая задержка после отправки запроса
+        soap.UpdateProcInterwal()    
+        Delay(2000) # Нужна небольшая задержка после отправки запроса
+        tran_id = response # достаем идентификатор транзакции)
+        #------- Проверка статусов в EXTTRN и APTTRN
+        soap.AptCheckStatus(tran_id, count, name_file)
+        soap.ExtCheckStatus(tran_id, acc_crd, count, name_file)
+        count += 1
+        balance_need = card.CheckCorrectTransaction(None, None, 0, before_bln, amount, acc_crd, operation_type, count, name_file, tran_id)  
+        #---------
+    except Exception as error:
+        # завершение формирование отчета
+        task.AllureReportEnd(count, name_file, "failed", error)
+                         
+                         

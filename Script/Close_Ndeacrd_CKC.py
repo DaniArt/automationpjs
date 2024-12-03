@@ -1,0 +1,71 @@
+﻿from CardFramework import *
+
+def CloseNdeacrdCKC_AllDataSet():
+    """ Закрытие договора СКС для клиента по всему датасету """
+    Ndeacrd = CardFramework()
+    Ndeacrd.LoginInColvir()
+    data_list = Ndeacrd.ReadDatasetFromDB('ckcdoc_data')
+    for row in data_list:  
+        if row['ITER_CODE'] == '1':
+            name_file = f'{Ndeacrd.GetRandomNumber()}_CloseNdeacrdCKC.json'  
+            CloseNdeacrdCKC(row['DOC_CODE'],name_file)
+            
+def CloseNdeacrdCKC(DOC_CODE,name_file):
+    """ Закрытие договора СКС для клиента """
+    Ndeacrd = CardFramework()
+    # Создание главной иерархии json отчета
+    new_path = Ndeacrd.GetEnviron('NEW_PATH')
+    name_pict = name_file.replace("json", "png")  
+    Ndeacrd.CreateJsonFile(name_file) #Создание файла джейсон с пустым словарем в теле
+    key = ["name", "description", "start"]
+    value = ["Закрытие договора СКС", "Закрытие договора СКС для клиента", Ndeacrd.GetDateTimeMilli()]
+    abs_path = Ndeacrd.FindAbsPathFile(name_file) # Получение абсолютного пути файла
+    Ndeacrd.AddKeyValueJson(abs_path, key, value)
+    def_dict = Ndeacrd.GetDefaultDict(abs_path)
+    key_labels_suite = ["name", "value"]
+    value_labels_suite = ["suite", "Colvir. Модуль - БОКС/ПС"]
+    Ndeacrd.AddNestedElements(abs_path, 'labels', key_labels_suite, value_labels_suite)
+    key_labels_subsuite = ["name", "value"]
+    value_labels_subsuite = ["subSuite", "Операции - СКС Договора"]
+    Ndeacrd.AddNestedElements(abs_path, 'labels', key_labels_subsuite, value_labels_subsuite)
+    # Начало работы скрипта автотеста
+    try:  
+        Ndeacrd.TaskInput('NDEACRD')
+        Ndeacrd.WaitLoadWindow('frmFilterParams')
+        Ndeacrd.SetFilter(CODE=DOC_CODE) # Вставляем номер документа из бд, для поиска нашего заведенного договора
+        Ndeacrd.WaitLoadWindow('DeaSCAList', time_await=5000)
+        but_operations = Sys.Process("COLVIR").VCLObject("DeaSCAList").VCLObject("btnRunOperation") # Определение контекстного меню с опреациямии
+        but_operations.Click()
+        Ndeacrd.FindNeedOperation("Закрыть договор") 
+        Ndeacrd.ConfirmOperation("Закрыть договор")
+        Ndeacrd.WaitLoadWindow('frmDynamicDialog', time_await=3000)
+        reason_close = Ndeacrd.FindChildField("frmDynamicDialog", "Name", "VCLObject('REASON')")
+        reason_close.Keys('1')
+        docnum_close = Ndeacrd.FindChildField("frmDynamicDialog", "Name", "VCLObject('DOCNUM')")
+        docnum_close.Keys('1')
+        reason_dscr = Ndeacrd.FindChildField("frmDynamicDialog", "Name", "VCLObject('REASON_DSCR')")
+        reason_dscr.Keys('1')
+        ok_btn = Ndeacrd.FindChildField("frmDynamicDialog", "Name", "VCLObject('btnOK')")
+        ok_btn.Click()
+        Delay(6000)
+        Ndeacrd.CheckOperEndWindow()
+        Ndeacrd.WaitLoadWindow('DeaSCAList', time_await=3000)
+        status_doc = Ndeacrd.GetGridDataFields("DeaSCAList", "STATNAME", "DCL_CODENAME", "CODE") # Получаем статус документа для дальнейшей проверки
+        if status_doc[0].replace("\'", '') == 'Закрыт':
+            # Отчетность
+            Ndeacrd.AllureReportTemplate(abs_path, name_file, "Закрытие договора СКС для клиента", "passed", {"message": f"Документ с номером {status_doc[2]} в состоянии {status_doc[0]}"},
+                                           'VCLObject("DeaSCAList")', "Договор закрыт", new_path, "passed", 1, 1, rm=True)
+            # --------------------------------------------------------------------------------------------------------------------------
+            Log.Checkpoint(f'Документ с номером {status_doc[2]} в состоянии {status_doc[0]}')
+        else:
+            # Отчетность
+            Ndeacrd.AllureReportTemplate(abs_path, name_file, "Закрытие договора СКС для клиента", "failed", {"message": f"Документ с номером {status_doc[2]} в состоянии {status_doc[0]}"},
+                                           'VCLObject("DeaSCAList")', "Договор не закрыт", new_path, "failed", 1, 1, rm=True)
+            # --------------------------------------------------------------------------------------------------------------------------
+            Log.Warning(f'Операция закрытие документа не выполнена, документ в состоянии {status_doc[0]}')
+        Sys.Process("COLVIR").VCLObject("DeaSCAList").Close()
+    except Exception as error:
+        Log.Warning(f"Error: {error}")
+        # Дополнительные действия по обработке ошибки
+        Ndeacrd.AllureReportTemplate(abs_path, name_file, "Возникла непредвиденная ошибка", "failed", {"message": f"Возникла непредвиденная ошибка"},
+                                     'desktop', None, new_path, "failed", 2, 1, rm=True) 

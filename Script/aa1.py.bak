@@ -1,0 +1,54 @@
+﻿from CardFramework import *
+
+
+def rqtest():
+    """ Создание заявки на неэмбоссированные карты """
+    today = date.today()
+    dt_string = datetime.now().strftime("%H:%M:%S")
+    a = random.randint(11000, 17000)
+    acc_crd = "KZ888562204115582199"
+    card_idn = "I/230913/1/31"
+    headers = {'Content-Type': 'text/xml;charset=UTF-8'} # set what your server accepts
+    body = f"""<soapenv:Envelope xmlns:soapenv='http://schemas.xmlsoap.org/soap/envelope/' xmlns:fina='http://bus.colvir.com/service/cap/v3/FINA' xmlns:ws='http://bus.colvir.com/service/cap/v3/ws' xmlns:v3='http://bus.colvir.com/service/cap/v3' xmlns:xdat='http://bus.colvir.com/service/cap/v3/FINA/xdata' xmlns:v1='http://bus.colvir.com/common/v1'>
+    <soapenv:Header xmlns:wsa='http://www.w3.org/2005/08/addressing'>
+    <wsa:Action>http://bus.colvir.com/service/cap/v3/FINA/FINA2405</wsa:Action>
+    <wsa:MessageID>{a}</wsa:MessageID>
+       </soapenv:Header>
+       <soapenv:Body>
+          <ws:finaRequest version='3.0'>
+             <v3:header>
+                <v1:channel>OW4</v1:channel>
+                <v1:reference>6789811678139</v1:reference>
+                <v1:date>{today}T{dt_string}</v1:date>            
+                <v1:language>en</v1:language>            
+             </v3:header>
+             <ws:body>
+                <fina:operation>2405</fina:operation>            
+                <fina:description>Note Acceptance</fina:description>
+                <fina:amount currency='KZT'>6000</fina:amount>                        
+                <fina:account type='IBN'>KZ888562204115582199</fina:account>                        
+                <xdat:xData>
+                   <xdat:trn>                  
+                      <xdat:card>                     
+                         <xdat:a>5000</xdat:a>
+                         <xdat:c>KZT</xdat:c>                                          
+                         <xdat:pan>KZ888562204115582199</xdat:pan>
+                         <xdat:panm>489993______3083</xdat:panm>                
+                         <xdat:auth>534892</xdat:auth>                                          
+                         <xdat:acq>00001</xdat:acq>
+                         <xdat:mcc>6012</xdat:mcc>                     
+                         <xdat:acqc>398</xdat:acqc>                     
+                         <xdat:term>00004723</xdat:term>                     
+                         <xdat:caid>{card_idn}</xdat:caid>
+                         <xdat:loc>HUI</xdat:loc>                    
+                         <xdat:termtype>POS</xdat:termtype>
+                         <xdat:psys>ON-US</xdat:psys>                     
+                         <xdat:posmode/>
+                      </xdat:card>                  
+                   </xdat:trn>
+                </xdat:xData>
+             </ws:body>
+          </ws:finaRequest>
+       </soapenv:Body>
+    </soapenv:Envelope>"""
+    r = requests.post('http://10.15.23.213:8201/cxf/cap/soap11/v3', data=body, headers=headers)

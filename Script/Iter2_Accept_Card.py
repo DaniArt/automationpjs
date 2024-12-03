@@ -1,0 +1,100 @@
+﻿from CardFramework import *
+
+def Iter2AcceptCard_AllDataSet():
+    """ Принятие решения об акцепте карты клиента по всему датасету """
+    NCRD = CardFramework()
+    NCRD.LoginInColvir()
+    data_list = NCRD.ReadDatasetFromDB('ckcdoc_data')
+    for row in data_list:
+        if row['ITER_CODE'] == '2':
+            name_file = f'{NCRD.GetRandomNumber()}_Iter2AcceptCard.json'   
+            form_data = Iter2AcceptCard(row['IDN_CARD'], name_file)
+            cardcode, bon_code = form_data
+            row['CARDCODE'] = cardcode
+            row['BON_CODE'] = bon_code
+            NCRD.UpdateDatasetTableDB('ckcdoc_data', data_list)
+            
+def Iter2AcceptCard(idn_card, name_file):
+    """ Принятие решения об акцепте карты клиента """
+    cardcode = ''
+    bon_code = ''
+    NCRD = CardFramework() 
+    # Создание главной иерархии json отчета
+    new_path = NCRD.GetEnviron('NEW_PATH')
+    name_pict = name_file.replace("json", "png")  
+    NCRD.CreateJsonFile(name_file) #Создание файла джейсон с пустым словарем в теле
+    key = ["name", "description", "start"]
+    value = ["Акцепт карты - Принять решение по акцепту", f"Принятие решения по акцептованию карты {idn_card}", NCRD.GetDateTimeMilli()]
+    abs_path = NCRD.FindAbsPathFile(name_file) # Получение абсолютного пути файла
+    NCRD.AddKeyValueJson(abs_path, key, value)
+    def_dict = NCRD.GetDefaultDict(abs_path)
+    key_labels_suite = ["name", "value"]
+    value_labels_suite = ["suite", "Colvir. Модуль - БОКС/ПС"]
+    NCRD.AddNestedElements(abs_path, 'labels', key_labels_suite, value_labels_suite)
+    key_labels_subsuite = ["name", "value"]
+    value_labels_subsuite = ["subSuite", "Операции - СКС Договора"]
+    NCRD.AddNestedElements(abs_path, 'labels', key_labels_subsuite, value_labels_subsuite)
+    # Начало работы скрипта автотеста
+    try:      
+        NCRD.TaskInput('NCRD')
+        NCRD.WaitLoadWindow('frmFilterParams')
+        NCRD.SetFilter(CARDIDN=idn_card) # Берем номер идентификатора из бд, для поиска нашей карты
+        NCRD.WaitLoadWindow('NCrdList')
+        but_operations = NCRD.FindChildField("NCrdList", "Name", "VCLObject('btnRunOperation')")
+        but_operations.Click()
+        NCRD.FindNeedOperation("Принять решение по акцепту") 
+        NCRD.ConfirmOperation("Принять решение по акцепту")
+        descision = NCRD.FindChildField("frmDynamicDialog", "Name", "VCLObject('DECISION')")
+        descision.Keys('ACCEPTED')
+        btn_ok = NCRD.FindChildField("frmDynamicDialog", "Name", "VCLObject('btnOK')")
+        btn_ok.Click()
+        NCRD.CheckOperEndWindow()
+        NCRD.WaitLoadWindow('NCrdList')
+        status_crd = NCRD.GetGridDataFields("NCrdList", "STAT_NAME", "CODE", "ACC_CODE", "CARDCODE") # Получаем статус карты для дальнейшей проверки
+        cardcode = status_crd[3].replace("\'", '')
+        if status_crd[0].replace("\'", '') == 'Активирована':
+            # Отчетность
+            NCRD.AllureReportTemplate(abs_path, name_file, "Выполнение операции акцептования карты", "passed", {"message": f"Карта с идентификатором {status_crd[1]} в состоянии {status_crd[0]}"},
+                                         'VCLObject("NCrdList")', "Карта акцептована", new_path, "passed", 1, 1)
+            # --------------------------------------------------------------------------------------------------------------------------
+            Log.Checkpoint(f'Карта с идентификатором {status_crd[1]} в состоянии {status_crd[0]}')
+            mcli_btn = NCRD.FindChildField("NCrdList", "Name", "VCLObject('btnCliCrd')")
+            mcli_btn.Click()
+            NCRD.WaitLoadWindow('frmFJCliFizDtl')
+            dd9_btn = NCRD.FindChildField("frmFJCliFizDtl", "Name", "VCLObject('ToolButton2')")
+            dd9_btn.Click()
+            NCRD.WaitLoadWindow('frmAccBlnNblList')
+            click_type = NCRD.FindChildField("frmAccBlnNblList", "Name", "TextObject('9202000')")
+            click_type.Click()
+            account_dd9 = NCRD.GetGridDataFields("frmAccBlnNblList", "CHA_CODE", "CODE")
+            acc_type = account_dd9[0].replace("\'", '')
+            bon_code = account_dd9[1].replace("\'", '')
+            if acc_type == '9202000':
+                # Проверка на наличие бонусного счета при открытии карты
+                # Под шаги
+                NCRD.AllureReportTemplate(abs_path, name_file, "Проверка на наличие бонусного счета", "passed", {"message": f"По карте {status_crd[1]} создан счет класса {acc_type}"},
+                                         'VCLObject("frmAccBlnNblList")', "Бонусный счет существует", new_path, "passed", 1, 2, rm = True)
+                # --------------------------------------------------------------------------------------------------------------------------
+                Log.Checkpoint(f'По карте {status_crd[1]} создан счет класса {acc_type}') 
+            else:
+                # Под шаги
+                NCRD.AllureReportTemplate(abs_path, name_file, "Проверка счетана наличие бонусного", "failed", {"message": f"По карте {status_crd[1]} не создан счет класса {acc_type}"},
+                                         'VCLObject("frmAccBlnNblList")', "Бонусный счет не существует", new_path, "failed", 1, 2, rm = True)
+                # --------------------------------------------------------------------------------------------------------------------------
+                Log.Warning(f'По карте {status_crd[1]} не создан счет класса {acc_type}')
+            Sys.Process("COLVIR").VCLObject("frmAccBlnNblList").Close()
+            Sys.Process("COLVIR").VCLObject("frmFJCliFizDtl").Close()
+        else:
+            # Отчетность
+            NCRD.AllureReportTemplate(abs_path, name_file, "Выполнение операции акцептования карты", "failed", {"message": f"Карта с идентификатором {status_crd[1]} в состоянии {status_crd[0]}"},
+                                         'VCLObject("NCrdList")', "Карта не акцептована", new_path, "failed", 1, 1, rm = True)
+            # --------------------------------------------------------------------------------------------------------------------------
+            Log.Warning(f'Операция {status_crd[0]} не выполнена')
+        Sys.Process("COLVIR").VCLObject("NCrdList").Close()
+        return cardcode, bon_code
+    except Exception as error:
+        Log.Warning(f"Error: {error}")
+        # Дополнительные действия по обработке ошибки
+        NCRD.AllureReportTemplate(abs_path, name_file, "Возникла непредвиденная ошибка", "failed", {"message": f"Возникла непредвиденная ошибка"},
+                                     'desktop', None, new_path, "failed", 2, 1, rm=True) 
+

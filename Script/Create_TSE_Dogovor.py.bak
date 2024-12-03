@@ -1,0 +1,92 @@
+﻿from CardFramework import *
+
+def CreateTSEDogovor_AllDataSet():
+    """ Создание карточки ТСП по всему датасету """
+    Ndeacrd = CardFramework()
+    Ndeacrd.LoginInColvir()
+    data_list = Ndeacrd.ReadDatasetFromDB('ndeatse_table')
+    for row in data_list:  
+        if row['DEPO_CODE'] == 'AA6':
+            name_file = f'{Ndeacrd.GetRandomNumber()}_CreateTSEDogovor.json'  
+            CreateTSEDogovor(row['CLI_ID'], row['PRODUCT'], row['CLI_ID'], 
+                             row['AMOUNT'], row['USER_ACC'], row['TARIF_CODE'],  
+                             row['VAL_CODE'], name_file)
+            
+def CreateTSEDogovor(cli_code, product, cli_id, amount, cli_acc, trf_code, val, name_file):
+    """ Создание карточки ТСП """
+    Ndeacrd = CardFramework()
+    count = 1
+    # Создание главной иерархии json отчета
+    new_path = Ndeacrd.GetEnviron('NEW_PATH')
+    name_pict = name_file.replace("json", "png")  
+    Ndeacrd.CreateJsonFile(name_file) #Создание файла джейсон с пустым словарем в теле
+    key = ["name", "description", "start"]
+    value = ["Создание карточки ТСП", f"Проверка корректности создания карточки ТСП", Ndeacrd.GetDateTimeMilli()]
+    abs_path = Ndeacrd.FindAbsPathFile(name_file) # Получение абсолютного пути файла
+    Ndeacrd.AddKeyValueJson(abs_path, key, value)
+    def_dict = Ndeacrd.GetDefaultDict(abs_path)
+    key_labels_suite = ["name", "value"]
+    value_labels_suite = ["suite", "Модуль - БОКС/ПС"]
+    Ndeacrd.AddNestedElements(abs_path, 'labels', key_labels_suite, value_labels_suite)
+    key_labels_subsuite = ["name", "value"]
+    value_labels_subsuite = ["subSuite", "Продукт - Корпоративные карты"]
+    Ndeacrd.AddNestedElements(abs_path, 'labels', key_labels_subsuite, value_labels_subsuite)
+    # Начало работы скрипта автотеста
+    try:
+        Ndeacrd.TaskInput('NDEATSE')
+        Ndeacrd.WaitLoadWindow('frmFilterParams', time_await=3000)
+        Ndeacrd.InputEmptyFilter()
+        Ndeacrd.WaitLoadWindow('frmDeaTSELst', time_await=3000)
+        operation_create = Ndeacrd.FindChildField("frmDeaTSELst", "Name", "VCLObject('btnInsert')")
+        operation_create.Click()
+        Delay(2000)
+        product = Ndeacrd.FindChildField("frmVarDtlDialog", "Name", "VCLObject('edtKeyValue')")
+        product.Keys('0.300.3.22')
+        LLPlayer.KeyDown(VK_RETURN, 500)
+        LLPlayer.KeyUp(VK_RETURN, 500) #Отжатие кнопки ENTER, тут мы подтверждаем окно с выбором документа
+        Delay(2000)
+        Ndeacrd.WaitLoadWindow('frmDeaTSEDtl', time_await=3000)
+        tsp = Ndeacrd.FindChildField("frmDeaTSEDtl", "Name", "VCLObject('edtTSE')")
+        tsp.Keys(cli_id)
+        transferfor = Ndeacrd.FindChildField("frmDeaTSEDtl", "Name", "VCLObject('edAccType')")
+        transferfor.Keys('2')
+        bank = Ndeacrd.FindChildField("frmDeaTSEDtl", "Name", "VCLObject('edBnkCode')")
+        bank.Keys('KCJBKZKX')
+        acc_cli = Ndeacrd.FindChildField("frmDeaTSEDtl", "Name", "VCLObject('edlCliAccCode')")
+        acc_cli.Keys(cli_acc)
+        name_dog = Ndeacrd.FindChildField("frmDeaTSEDtl", "Name", "VCLObject('edtDeaName')")
+        name_dog.Keys('For_Test')
+        group_dog = Ndeacrd.FindChildField("frmDeaTSEDtl", "Name", "VCLObject('edtDeaGroup')")
+        group_dog.Keys('1')      
+        trf_cat = Ndeacrd.FindChildField("frmDeaTSEDtl", "Name", "VCLObject('edtTrfCode')")
+        trf_cat.Keys(trf_code)      
+        val_code = Ndeacrd.FindChildField("frmDeaTSEDtl", "Name", "VCLObject('edtValCode')")
+        val_code.Keys(val)
+        LLPlayer.KeyDown(VK_TAB, 500)
+        LLPlayer.KeyUp(VK_TAB, 500)   
+        save_btn = Ndeacrd.FindChildField("frmDeaTSEDtl", "Name", "VCLObject('btnSave')")
+        save_btn.Click()
+        Ndeacrd.CheckOperEndWindow()  
+        Ndeacrd.WaitLoadWindow('frmDeaTSELst', time_await=3000)
+        Delay(2000)
+        status_doc = Ndeacrd.GetGridDataFields("frmDeaTSELst", "STAT_NAME", "CODE") # Получаем статус документа для дальнейшей проверки
+        if status_doc[0].replace("\'", '') == 'Введен':
+          # Отчетность
+          Ndeacrd.AllureReportTemplate(abs_path, name_file, "Создание зарплатного проекта", "passed", {"message": f"Документ с номером {status_doc[1]} в состоянии {status_doc[0]}"},
+                                         'VCLObject("frmDeaTSELst")', "Договор введен", new_path, "passed", 1, 1, rm=True)
+          # --------------------------------------------------------------------------------------------------------------------------
+          Log.Checkpoint(f'Документ с номером {status_doc[1]} в состоянии {status_doc[0]}')
+          count += 1
+        else:
+          # Отчетность
+          Ndeacrd.AllureReportTemplate(abs_path, name_file, "Создание зарплатного проекта", "failed", {"message": f"Документ с номером {status_doc[1]} в состоянии {status_doc[0]}"},
+                                         'VCLObject("frmDeaTSELst")', "Договор не введен", new_path, "failed", 1, 1, rm=True)
+          # --------------------------------------------------------------------------------------------------------------------------
+          Log.Warning(f'Операция регистрации документа не выполнена, документ в состоянии {status_doc[0]}')
+          count += 1
+        Sys.Process("COLVIR").VCLObject("frmDeaTSELst").Close()
+    except Exception as error:
+        Log.Warning(f"Error: {error}")
+        # Дополнительные действия по обработке ошибки
+        Ndeacrd.AllureReportTemplate(abs_path, name_file, "Возникла непредвиденная ошибка", "failed", {"message": f"Возникла непредвиденная ошибка"},
+                                     'desktop', None, new_path, "failed", count, 1, rm=True) 

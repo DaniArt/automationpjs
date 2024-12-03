@@ -1,0 +1,108 @@
+﻿from CardFramework import *
+from SQL import Sql
+                                                                                                            
+                                                                                                            
+def ATMCashOut2402Int_AllDataSet():
+  """ Снятие со счета карты через операцию 2402 по всему датасету  """
+  card = CardFramework()
+  data_list = card.ReadDatasetFromDB('crdreq_data')  
+  for row in data_list:
+      if row['DEPO_CODE'] == 'AA6':
+          form_data = ATMCashOut2402Int(row['IDN_CARD'], row['ACC_CRD'], row['CARDCODE'])
+                                                                                                            
+                                                                                                            
+                                                                                                            
+def ATMCashOut2402Int(idn_crd, acc_crd, cardcode):
+  """ Снятие со счета карты через операцию 2402 зарубежный АТМ """
+  card = CardFramework()
+  today = date.today()
+  dt_string = datetime.now().strftime("%H:%M:%S")
+  randid = random.randint(11000, 17000)
+  url = 'http://10.15.23.213:8201/cxf/cap/soap12/v3'
+  headers = {'Content-Type': 'text/xml;charset=UTF-8'}
+  data = f'''<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:fina="http://bus.colvir.com/service/cap/v3/FINA" xmlns:ws="http://bus.colvir.com/service/cap/v3/ws" xmlns:v3="http://bus.colvir.com/service/cap/v3" xmlns:xdat="http://bus.colvir.com/service/cap/v3/FINA/xdata" xmlns:v1="http://bus.colvir.com/common/v1">
+              <soapenv:Header xmlns:wsa="http://www.w3.org/2005/08/addressing">
+              <wsa:Action>http://bus.colvir.com/service/cap/v3/FINA/FINA2402</wsa:Action>
+              <wsa:MessageID>{randid}</wsa:MessageID>
+                 </soapenv:Header>
+                 <soapenv:Body>
+                    <ws:finaRequest version="3.0">
+                       <v3:header>
+                          <v1:channel>OW4</v1:channel>
+                          <v1:reference>{randid}</v1:reference>
+                          <v1:date>{today}T{dt_string}</v1:date>            
+                          <v1:language>en</v1:language>            
+                       </v3:header>
+                       <ws:body>
+                          <fina:operation>2402</fina:operation>
+                          <fina:description>ATM</fina:description>
+                          <fina:amount currency="KZT">1000</fina:amount>
+                          <fina:account type="IBN">{acc_crd}</fina:account>            
+                          <xdat:xData>
+                             <xdat:trn>                  
+                                <xdat:card>                     
+                                   <xdat:a>1000</xdat:a>
+                                   <xdat:c>KZT</xdat:c>                     
+                                   <xdat:pan>{acc_crd}</xdat:pan>
+                                   <xdat:panm>checktest</xdat:panm>
+                                   <xdat:dt>{today}T{dt_string}</xdat:dt>                     
+                                   <xdat:rrn>{randid}</xdat:rrn>                     
+                                   <xdat:auth>410441</xdat:auth>                     
+                                   <xdat:acq>409663</xdat:acq>
+                                   <xdat:mcc>6011</xdat:mcc>                     
+                                   <xdat:acqc>398</xdat:acqc>                     
+                                   <xdat:term>00002010</xdat:term>                     
+                                   <xdat:caid>EURASIAN BANK  </xdat:caid>
+                                   <xdat:loc>NAHODKA RUDNY  RUDNY  KZ</xdat:loc>                     
+                                   <xdat:termtype>ATM</xdat:termtype>
+                                   <xdat:psys>INT</xdat:psys>                     
+                                   <xdat:posmode>PBT</xdat:posmode>
+                                </xdat:card>
+                             </xdat:trn>
+                          </xdat:xData>
+                       </ws:body>
+                    </ws:finaRequest>
+                 </soapenv:Body>
+              </soapenv:Envelope>'''
+  response = requests.post(url, data, headers)
+  result = {'HTTP Status':None, 'Результат операции': ''}
+  try:
+    status_code = response.status_code
+    content = response.content
+  except:
+    Log.Warning('Ошибка при выполнении http-запроса:',str(response))
+    result['HTTP Status'] = str(response)
+    return result
+  if not (status_code == 200 and \
+  card.GetXmlValue(response.content,'.//{http://bus.colvir.com/service/cap/v3}status') == '1'):
+    Log.Warning('Ответ от сервиса ATM2402Int содержит ошибку')
+    result['HTTP Status'] = str(response.status_code) +' '+ str(response.text)
+    return result
+  else:
+    result['HTTP Status'] = '200' 
+  tran_id = card.GetXmlValue(response.content,'.//{http://bus.colvir.com/service/cap/v3}colvirId')
+  Log.Message(tran_id)
+  # Проверяем тразакцию в задаче APTTRN
+  select = f"""select (select LONGNAME from APR_STATUSTRN@cap where CODE='CAP_STATUS' and CONSTVAL=to_char(trn.STATUS)
+  and LNG_ID=AP_LNG.GetActive@cap) STATUSNAME from APT_TRN@CAP trn where trn.ID = '{tran_id}'"""
+  apttrn_status = Sql.SimpleQuery(select)
+  while apttrn_status in ('Fixed','Выгружена в АБС, зафиксирована'):  #  Задержка для ожидания обработки транзакции   
+    apttrn_status = Sql.SimpleQuery(select)
+    sql_result = card.OracleHandlerDB(select)
+    Log.Event(f'Текущий статус транзакции: **{apttrn_status}**')
+    Delay(3000)
+    if apttrn_status == 'Выгружена в АБС, обработана':
+      break
+  card.CheckExpectedResult('Проверяем статус транзакции в задаче APTTRN',apttrn_status,'Выгружена в АБС, обработана',result)
+                                                                                                            
+# Проверяем тразакцию в задаче EXTTRTN
+  select = f"""select decode(t.STATUS,0,'не обработана',1,'обработана',2,'ошибка обработки') as STATUS_NAME, proc_id
+  from G_CAPTmpExtTrn t where  OBJ_CODE = '{acc_crd}' and id = '{tran_id}'"""
+  sql_result = card.OracleHandlerDB(select)
+  exttrn_status,proc_id = Sql.SimpleLineQuery(select,2)
+  card.CheckExpectedResult('Проверяем статус транзакции в задаче EXTTRN',exttrn_status,'обработана',result)
+  
+  Sql.Processing(tran_id)
+                                                                                                            
+                                                                                                            
+                                                                                                            
